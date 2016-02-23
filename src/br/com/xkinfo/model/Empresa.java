@@ -15,7 +15,7 @@ public class Empresa {
 	private String telefone;
 	private String rua;
 	private String numeroImovel;
-	private String bairro;
+	private Bairro bairro;
 	private Estado estado;
 	private Municipio municipio;
 	private String responsavel;
@@ -92,10 +92,10 @@ public class Empresa {
 	public void setNumeroImovel(String numeroImovel) {
 		this.numeroImovel = numeroImovel;
 	}
-	public String getBairro() {
+	public Bairro getBairro() {
 		return bairro;
 	}
-	public void setBairro(String bairro) {
+	public void setBairro(Bairro bairro) {
 		this.bairro = bairro;
 	}
 	public Estado getEstado() {

@@ -6,12 +6,12 @@ public class Banco {
 	private int numero;
 	private String telefone;
 	private String nome;
-	private String iniciais;
+	private String inicial;
 	private String convenio;
 	private Double tarifaF;
 	private String ccCredito;
 	private String convenioG;
-	private Double tarigaG;
+	private Double tarifaG;
 	private int nsr;
 	private int diasG;
 	private int diasF;
@@ -42,10 +42,10 @@ public class Banco {
 		this.nome = nome;
 	}
 	public String getIniciais() {
-		return iniciais;
+		return inicial;
 	}
-	public void setIniciais(String iniciais) {
-		this.iniciais = iniciais;
+	public void setIniciais(String inicial) {
+		this.inicial = inicial;
 	}
 	public String getConvenio() {
 		return convenio;
@@ -72,10 +72,10 @@ public class Banco {
 		this.convenioG = convenioG;
 	}
 	public Double getTarigaG() {
-		return tarigaG;
+		return tarifaG;
 	}
-	public void setTarigaG(Double tarigaG) {
-		this.tarigaG = tarigaG;
+	public void setTarigaG(Double tarifaG) {
+		this.tarifaG = tarifaG;
 	}
 	public int getNsr() {
 		return nsr;

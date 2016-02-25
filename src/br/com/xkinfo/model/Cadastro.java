@@ -28,7 +28,7 @@ public class Cadastro {
 	private Calendar dataLig;
 	private Calendar dataDeslig;
 	private Double roteiro;
-	private String libro;
+	private String livro;
 	private Double kwhContratado;
 	private String vip;
 	private String dv;
@@ -76,7 +76,7 @@ public class Cadastro {
 	private String br_Hxl;
 	private String tipo;
 	private String tensaoNominal;
-	private String ram_Numero;
+	private int ram_Numero;
 	private String alimentador;
 	private int rota;
 	private String diaVencimento;

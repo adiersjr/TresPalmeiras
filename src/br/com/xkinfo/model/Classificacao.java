@@ -22,7 +22,7 @@ public class Classificacao {
 	private String tn_inf;
 	private String tn_sup;
 	private String subgrupo;
-	private boolean padraop;
+	private boolean padrao;
 	
 	public int getId() {
 		return id;
@@ -144,10 +144,10 @@ public class Classificacao {
 	public void setSubgrupo(String subgrupo) {
 		this.subgrupo = subgrupo;
 	}
-	public boolean isPadraop() {
-		return padraop;
+	public boolean isPadrao() {
+		return padrao;
 	}
-	public void setPadraop(boolean padraop) {
-		this.padraop = padraop;
+	public void setPadraop(boolean padrao) {
+		this.padrao = padrao;
 	}
 }

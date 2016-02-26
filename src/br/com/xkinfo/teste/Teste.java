@@ -7,6 +7,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 
+		// TESTE DE INCLUSÃO
 		Cargo cargo = new Cargo();
 		cargo.setDescricao("Gerente");
 		try {

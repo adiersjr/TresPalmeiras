@@ -1,8 +1,10 @@
 package br.com.xkinfo.service;
 
+import br.com.xkinfo.model.Cargo;
+
 public interface ICargoService {
 	
-	public void incluirCargo() throws Exception;
+	public void incluirCargo(Cargo cargo) throws Exception;
 	
 	public void alterarCargo() throws Exception;
 	

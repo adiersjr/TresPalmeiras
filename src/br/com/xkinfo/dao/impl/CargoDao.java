@@ -15,7 +15,7 @@ public class CargoDao implements ICargoDao{
 	public int incluirCargo(Cargo cargo) throws Exception {
 		Statement st;
 		int result = -1;
-		String query = "INSERT INTO CARGOS (CAR_NOME) VALUE (' " + cargo.getDescricao() + " ') ";
+		String query = "INSERT INTO CARGOS (CAR_NOME) VALUES (' " + cargo.getDescricao() + " ') ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);

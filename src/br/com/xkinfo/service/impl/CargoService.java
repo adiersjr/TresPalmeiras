@@ -1,12 +1,17 @@
 package br.com.xkinfo.service.impl;
 
+import br.com.xkinfo.dao.DaoFactory;
+import br.com.xkinfo.model.Cargo;
 import br.com.xkinfo.service.ICargoService;
 
 public class CargoService implements ICargoService {
 
 	@Override
-	public void incluirCargo() throws Exception {
-		// TODO Auto-generated method stub
+	public void incluirCargo(Cargo cargo) throws Exception {
+		int ret = DaoFactory.getCargodao().incluirCargo(cargo);
+		if (ret == 1){
+			System.out.println("Inclusão efetuada com Sucesso!");
+		}
 		
 	}
 

@@ -1,8 +1,10 @@
 package br.com.xkinfo.dao;
 
+import br.com.xkinfo.model.Cargo;
+
 public interface ICargoDao {
 
-	public void incluirCargo() throws Exception;
+	public int incluirCargo(Cargo cargo) throws Exception;
 	
 	public void alterarCargo() throws Exception;
 	

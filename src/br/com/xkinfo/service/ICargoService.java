@@ -5,11 +5,11 @@ import br.com.xkinfo.model.Cargo;
 
 public interface ICargoService {
 	
-	public void incluirCargo(Cargo cargo) throws Exception;
+	public void incluirCargo(String descricao) throws Exception;
 	
-	public void alterarCargo(Cargo cargo) throws Exception;
+	public void alterarCargo(int id, String descricao) throws Exception;
 	
-	public void excluirCargo(Cargo cargo) throws Exception;
+	public void excluirCargo(int id) throws Exception;
 	
 	public ArrayList<Cargo> listaCargos() throws Exception;
 	

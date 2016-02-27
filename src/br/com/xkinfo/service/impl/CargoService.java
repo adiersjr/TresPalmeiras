@@ -9,7 +9,9 @@ import br.com.xkinfo.service.ICargoService;
 public class CargoService implements ICargoService {
 
 	@Override
-	public void incluirCargo(Cargo cargo) throws Exception {
+	public void incluirCargo(String descricao) throws Exception {
+		Cargo cargo = new Cargo();
+		cargo.setDescricao(descricao);
 		int ret = DaoFactory.getCargodao().incluirCargo(cargo);
 		if (ret == 1){
 			System.out.println("Inclusão efetuada com Sucesso!");
@@ -17,7 +19,10 @@ public class CargoService implements ICargoService {
 	}
 
 	@Override
-	public void alterarCargo(Cargo cargo) throws Exception {
+	public void alterarCargo(int id, String descricao) throws Exception {
+		Cargo cargo = new Cargo();
+		cargo.setId(id);
+		cargo.setDescricao(descricao);
 		int ret = DaoFactory.getCargodao().alterarCargo(cargo);
 		if (ret == 1){
 			System.out.println("Alteração efetuada com sucesso!");
@@ -28,7 +33,8 @@ public class CargoService implements ICargoService {
 	}
 
 	@Override
-	public void excluirCargo(Cargo cargo) throws Exception {
+	public void excluirCargo(int id) throws Exception {
+		Cargo cargo = listaCargo(id);
 		int ret = DaoFactory.getCargodao().excluirCargo(cargo);
 		if (ret == 1){
 			System.out.println("Exclusão efetuada com sucesso!");

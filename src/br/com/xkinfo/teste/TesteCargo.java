@@ -9,12 +9,12 @@ public class TesteCargo {
 	public static void main(String[] args) {
 
 		// TESTE DE INCLUSÃO
-		/*String descricao = "";
+		String descricao = "Joao da Bega";
 		try {
 			ServiceFactory.getCargoservice().incluirCargo(descricao);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 		// TESTE DE ALTERAÇÃO
 		/*int id = 14;
 		 String descricao = " ";

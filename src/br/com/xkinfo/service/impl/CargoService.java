@@ -12,8 +12,8 @@ public class CargoService implements ICargoService {
 
 	@Override
 	public void incluirCargo(String descricao) throws Exception {
-		descricao = descricao.replaceAll(" ", "");
-		if(descricao.isEmpty()){
+		String valida = descricao.replaceAll(" ", "");
+		if(valida.isEmpty()){
 			System.out.println("Campo descrição do cargo é obrigatório!");
 		}else {
 			cargo = new Cargo();
@@ -27,8 +27,8 @@ public class CargoService implements ICargoService {
 
 	@Override
 	public void alterarCargo(int id, String descricao) throws Exception {
-		descricao = descricao.replaceAll(" ", "");
-		if(descricao.isEmpty()){
+		String valida = descricao.replaceAll(" ", "");
+		if(valida.isEmpty()){
 			System.out.println("Campo descrição do cargo é obrigatório!");
 		} else {
 			Cargo cargo = new Cargo();
@@ -71,9 +71,9 @@ public class CargoService implements ICargoService {
 
 	@Override
 	public ArrayList<Cargo> pesquisaDescricao(String descricao) throws Exception{
-		descricao = descricao.replaceAll(" ", "");
+		String valida = descricao.replaceAll(" ", "");
 		ArrayList<Cargo> cargos = new ArrayList<>();
-		if(descricao.isEmpty()){
+		if(valida.isEmpty()){
 			System.out.println("Campo descrição do cargo é obrigatório!");
 		} else {
 			ResultSet rs = DaoFactory.getCargodao().pesquisaDescricao(descricao);

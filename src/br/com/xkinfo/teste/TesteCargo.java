@@ -1,6 +1,6 @@
 package br.com.xkinfo.teste;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import br.com.xkinfo.model.Cargo;
 import br.com.xkinfo.service.ServiceFactory;
 
@@ -9,7 +9,7 @@ public class TesteCargo {
 	public static void main(String[] args) {
 
 		// TESTE DE INCLUSÃO
-		/*String descricao = "INCLUSAO";
+		/*String descricao = "";
 		try {
 			ServiceFactory.getCargoservice().incluirCargo(descricao);
 		} catch (Exception e) {
@@ -17,7 +17,7 @@ public class TesteCargo {
 		}*/
 		// TESTE DE ALTERAÇÃO
 		/*int id = 14;
-		 String descricao = "ALTERACAO";
+		 String descricao = " ";
 		try {
 			ServiceFactory.getCargoservice().alterarCargo(id,descricao);
 		} catch (Exception e) {
@@ -34,7 +34,7 @@ public class TesteCargo {
 		}*/
 		// TESTE DE PESQUISA GERAL
 		/*try {
-			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().listaCargo();
+			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().pesquisaCargos();
 			for (Cargo cargo : lista) {
 				System.out.println(cargo.getId() + " " + cargo.getDescricao());
 			}
@@ -43,23 +43,23 @@ public class TesteCargo {
 			e.printStackTrace();
 		}*/
 		// TESTE DE PESQUISA PARCIAL NOME
-		/*try {
-			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().listaDescricao("DaR");
+		try {
+			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().pesquisaDescricao(" ");
 			for (Cargo cargo : lista) {
 				System.out.println(cargo.getId() + " " + cargo.getDescricao());
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		// TESTE DE PESQUISA POR ID
-		try {
-			Cargo cargo = ServiceFactory.getCargoservice().listaCargo(11);
+		/*try {
+			Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(11);
 			System.out.println(cargo.getId() + " " + cargo.getDescricao());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }

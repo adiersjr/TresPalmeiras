@@ -7,34 +7,46 @@ import br.com.xkinfo.model.Cargo;
 import br.com.xkinfo.service.ICargoService;
 
 public class CargoService implements ICargoService {
+	
+	private Cargo cargo;
 
 	@Override
 	public void incluirCargo(String descricao) throws Exception {
-		Cargo cargo = new Cargo();
-		cargo.setDescricao(descricao);
-		int ret = DaoFactory.getCargodao().incluirCargo(cargo);
-		if (ret == 1){
-			System.out.println("Inclusão efetuada com Sucesso!");
+		descricao = descricao.replaceAll(" ", "");
+		if(descricao.isEmpty()){
+			System.out.println("Campo descrição do cargo é obrigatório!");
+		}else {
+			cargo = new Cargo();
+			cargo.setDescricao(descricao);
+			int ret = DaoFactory.getCargodao().incluirCargo(cargo);
+			if (ret == 1){
+				System.out.println("Inclusão efetuada com Sucesso!");
+			}		
 		}
 	}
 
 	@Override
 	public void alterarCargo(int id, String descricao) throws Exception {
-		Cargo cargo = new Cargo();
-		cargo.setId(id);
-		cargo.setDescricao(descricao);
-		int ret = DaoFactory.getCargodao().alterarCargo(cargo);
-		if (ret == 1){
-			System.out.println("Alteração efetuada com sucesso!");
-		}
-		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+		descricao = descricao.replaceAll(" ", "");
+		if(descricao.isEmpty()){
+			System.out.println("Campo descrição do cargo é obrigatório!");
+		} else {
+			Cargo cargo = new Cargo();
+			cargo.setId(id);
+			cargo.setDescricao(descricao);
+			int ret = DaoFactory.getCargodao().alterarCargo(cargo);
+			if (ret == 1){
+				System.out.println("Alteração efetuada com sucesso!");
+			}
+			if (ret == 0){
+				System.out.println("Registro não existe, favor verificar!");
+			}
 		}
 	}
 
 	@Override
 	public void excluirCargo(int id) throws Exception {
-		Cargo cargo = listaCargo(id);
+		Cargo cargo = pesquisaCargo(id);
 		int ret = DaoFactory.getCargodao().excluirCargo(cargo);
 		if (ret == 1){
 			System.out.println("Exclusão efetuada com sucesso!");
@@ -45,8 +57,8 @@ public class CargoService implements ICargoService {
 	}
 
 	@Override
-	public ArrayList<Cargo> listaCargos() throws Exception {
-		ResultSet rs = DaoFactory.getCargodao().listaCargos();
+	public ArrayList<Cargo> pesquisaCargos() throws Exception {
+		ResultSet rs = DaoFactory.getCargodao().pesquisaCargos();
 		ArrayList<Cargo> cargos = new ArrayList<>();
 		while(rs.next()){
 			Cargo cargo = new Cargo();
@@ -57,23 +69,31 @@ public class CargoService implements ICargoService {
 		return cargos; 
 	}
 
-	public ArrayList<Cargo> listaDescricao(String descricao) throws Exception{
-		ResultSet rs = DaoFactory.getCargodao().listaDescricao(descricao);
+	@Override
+	public ArrayList<Cargo> pesquisaDescricao(String descricao) throws Exception{
+		descricao = descricao.replaceAll(" ", "");
 		ArrayList<Cargo> cargos = new ArrayList<>();
-		while(rs.next()){
-			Cargo cargo = new Cargo();
-			cargo.setId(rs.getInt("CAR_NUMERO"));
-			cargo.setDescricao(rs.getString("CAR_NOME"));
-			cargos.add(cargo);
-		}
-		if (cargos.size() == 0){
-			System.out.println("Não possui dados com esse argumento!");
+		if(descricao.isEmpty()){
+			System.out.println("Campo descrição do cargo é obrigatório!");
+		} else {
+			ResultSet rs = DaoFactory.getCargodao().pesquisaDescricao(descricao);
+			while(rs.next()){
+				Cargo cargo = new Cargo();
+				cargo.setId(rs.getInt("CAR_NUMERO"));
+				cargo.setDescricao(rs.getString("CAR_NOME"));
+				cargos.add(cargo);
+			}
+			if (cargos.size() == 0){
+				System.out.println("Não possui dados com esse argumento!");
+			}
+			return cargos; 
 		}
 		return cargos; 
 	};
 
-	public Cargo listaCargo(int id) throws Exception{
-		ResultSet rs = DaoFactory.getCargodao().listaCargo(id);
+	@Override
+	public Cargo pesquisaCargo(int id) throws Exception{
+		ResultSet rs = DaoFactory.getCargodao().pesquisaCargo(id);
 		Cargo cargo = new Cargo();
 		while(rs.next()){
 			cargo.setId(rs.getInt("CAR_NUMERO"));

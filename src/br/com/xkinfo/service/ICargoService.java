@@ -11,9 +11,9 @@ public interface ICargoService {
 	
 	public void excluirCargo(int id) throws Exception;
 	
-	public ArrayList<Cargo> listaCargos() throws Exception;
+	public ArrayList<Cargo> pesquisaCargos() throws Exception;
 	
-	public ArrayList<Cargo> listaDescricao(String descricao) throws Exception;
+	public ArrayList<Cargo> pesquisaDescricao(String descricao) throws Exception;
 	
-	public Cargo listaCargo(int id) throws Exception;
+	public Cargo pesquisaCargo(int id) throws Exception;
 }

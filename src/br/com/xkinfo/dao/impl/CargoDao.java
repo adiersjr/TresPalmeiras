@@ -55,7 +55,7 @@ public class CargoDao implements ICargoDao{
 	}
 
 	@Override
-	public ResultSet listaCargos() throws Exception {
+	public ResultSet pesquisaCargos() throws Exception {
 		ResultSet rs = null;
 		String query = "SELECT * FROM CARGOS";
 		try {
@@ -69,7 +69,7 @@ public class CargoDao implements ICargoDao{
 		return rs;
 	}
 
-	public ResultSet listaDescricao(String descricao) throws Exception{
+	public ResultSet pesquisaDescricao(String descricao) throws Exception{
 		ResultSet rs = null;
 		String query = "SELECT * FROM CARGOS WHERE CAR_NOME LIKE '%" + descricao + "%' ";
 		try {
@@ -83,7 +83,7 @@ public class CargoDao implements ICargoDao{
 		return rs;
 	};
 
-	public ResultSet listaCargo(int id) throws Exception{
+	public ResultSet pesquisaCargo(int id) throws Exception{
 		ResultSet rs = null;
 		String query = "SELECT * FROM CARGOS WHERE CAR_NUMERO = " + id;
 		try {

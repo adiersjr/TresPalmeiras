@@ -11,9 +11,9 @@ public interface ICargoDao {
 	
 	public int excluirCargo(Cargo cargo) throws Exception;
 	
-	public ResultSet listaCargos() throws Exception;
+	public ResultSet pesquisaCargos() throws Exception;
 	
-	public ResultSet listaDescricao(String descricao) throws Exception;
+	public ResultSet pesquisaDescricao(String descricao) throws Exception;
 	
-	public ResultSet listaCargo(int id) throws Exception;
+	public ResultSet pesquisaCargo(int id) throws Exception;
 }

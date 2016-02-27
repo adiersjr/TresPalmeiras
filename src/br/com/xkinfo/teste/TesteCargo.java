@@ -43,7 +43,7 @@ public class TesteCargo {
 			e.printStackTrace();
 		}*/
 		// TESTE DE PESQUISA PARCIAL NOME
-		try {
+		/*try {
 			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().pesquisaDescricao(" ");
 			for (Cargo cargo : lista) {
 				System.out.println(cargo.getId() + " " + cargo.getDescricao());
@@ -51,7 +51,7 @@ public class TesteCargo {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		// TESTE DE PESQUISA POR ID
 		/*try {
 			Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(11);

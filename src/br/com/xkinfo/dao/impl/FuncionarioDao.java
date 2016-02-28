@@ -73,7 +73,7 @@ public class FuncionarioDao implements IFuncionarioDao {
 		
 		query = "UPDATE FUNCIONARIOS SET FUN_NOME = '"+funcionario.getNome()+"', FUN_SITUACAO = "+boolSituacao+","
 				+ "FUN_USUARIO = '"+funcionario.getUsuario()+"', FUN_SENHA = '"+funcionario.getSenha()+"', FUN_PATHFOTO = '"+funcionario.getPathFoto()+"',"
-				+ "FUN_DATNASC = "+dia+", CAR_NUMERO = "+funcionario.getCargo().getId()+", FUN_CONTROLEACESSO = "+boolAcesso+" "
+				+ "FUN_DATNASC = '"+dia+"', CAR_NUMERO = "+funcionario.getCargo().getId()+", FUN_CONTROLEACESSO = "+boolAcesso+" "
 				+ "WHERE FUN_NUMERO = "+funcionario.getId()+" ";
 		try {
 			st = conexao.connect().createStatement();
@@ -87,32 +87,76 @@ public class FuncionarioDao implements IFuncionarioDao {
 
 	@Override
 	public int excluirFuncionario(Funcionario funcionario) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		String query = "DELETE FROM FUNCIONARIOS WHERE FUN_NUMERO = " + funcionario.getId() + " ";
+		try {
+			st = conexao.connect().createStatement();
+			result = st.executeUpdate(query);
+			conexao.connect().close();
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public ResultSet pesquisaFuncionarios() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM FUNCIONARIOS";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override
 	public ResultSet pesquisaNome(String nome) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM FUNCIONARIOS WHERE FUN_NOME LIKE '%"+nome+"%' ";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override
 	public ResultSet pesquisaUsuario(String usuario) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM FUNCIONARIOS WHERE FUN_USUARIO LIKE '%"+usuario+"%' ";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override
-	public Funcionario pesquisaFuncionario(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultSet pesquisaFuncionario(int id) throws Exception {
+		ResultSet rs = null;
+		String query = "SELECT * FROM FUNCIONARIOS WHERE FUN_NUMERO = " + id;
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 }

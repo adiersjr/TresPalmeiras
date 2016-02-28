@@ -18,5 +18,5 @@ public interface IFuncionarioDao {
 
 	public ResultSet pesquisaUsuario(String usuario) throws Exception;
 	
-	public Funcionario pesquisaFuncionario(int id) throws Exception;
+	public ResultSet pesquisaFuncionario(int id) throws Exception;
 }

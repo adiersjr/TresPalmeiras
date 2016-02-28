@@ -28,10 +28,9 @@ public class TesteCargos {
 		try {
 			ServiceFactory.getCargoservice().excluirCargo(ide);
 		} catch (Exception e) {
-			System.out.println(e);
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		// TESTE DE PESQUISA GERAL
 		try {
 			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().pesquisaCargos();
@@ -39,9 +38,9 @@ public class TesteCargos {
 				System.out.println(cargo.getId() + " " + cargo.getDescricao());
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		// TESTE DE PESQUISA PARCIAL NOME
 		try {
 			ArrayList<Cargo> lista = ServiceFactory.getCargoservice().pesquisaDescricao(" ");
@@ -49,15 +48,14 @@ public class TesteCargos {
 				System.out.println(cargo.getId() + " " + cargo.getDescricao());
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		// TESTE DE PESQUISA POR ID
 		try {
 			Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(11);
 			System.out.println(cargo.getId() + " " + cargo.getDescricao());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

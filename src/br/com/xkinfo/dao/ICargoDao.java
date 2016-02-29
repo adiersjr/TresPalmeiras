@@ -13,7 +13,7 @@ public interface ICargoDao {
 	
 	public ResultSet pesquisaCargos() throws Exception;
 	
-	public ResultSet pesquisaDescricao(String descricao) throws Exception;
+	public ResultSet pesquisaDescricao(String nome) throws Exception;
 	
 	public ResultSet pesquisaCargo(int id) throws Exception;
 }

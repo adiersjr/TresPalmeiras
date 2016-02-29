@@ -31,7 +31,7 @@ public class CargoService implements ICargoService {
 		if(valida.isEmpty()){
 			System.out.println("Campo descrição do cargo é obrigatório!");
 		} else {
-			Cargo cargo = new Cargo();
+			cargo = new Cargo();
 			cargo.setId(id);
 			cargo.setDescricao(descricao);
 			int ret = DaoFactory.getCargodao().alterarCargo(cargo);
@@ -46,7 +46,7 @@ public class CargoService implements ICargoService {
 
 	@Override
 	public void excluirCargo(int id) throws Exception {
-		Cargo cargo = pesquisaCargo(id);
+		cargo = pesquisaCargo(id);
 		int ret = DaoFactory.getCargodao().excluirCargo(cargo);
 		if (ret == 1){
 			System.out.println("Exclusão efetuada com sucesso!");
@@ -94,7 +94,7 @@ public class CargoService implements ICargoService {
 	@Override
 	public Cargo pesquisaCargo(int id) throws Exception{
 		ResultSet rs = DaoFactory.getCargodao().pesquisaCargo(id);
-		Cargo cargo = new Cargo();
+		cargo = new Cargo();
 		while(rs.next()){
 			cargo.setId(rs.getInt("CAR_NUMERO"));
 			cargo.setDescricao(rs.getString("CAR_NOME"));

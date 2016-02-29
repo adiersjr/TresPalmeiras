@@ -32,7 +32,7 @@ public class TesteFuncionario {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
+
 		// TESTE DE ALTERACAO
 		/*String nome = "Alexandre";
 		boolean situacao = true;
@@ -53,7 +53,7 @@ public class TesteFuncionario {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
+
 		// TESTE DE EXCLUSÃO
 		/*int idDelete = 17;
 		try {
@@ -62,7 +62,7 @@ public class TesteFuncionario {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		
+
 		// TESTE DE PESQUISA GERAL
 		/*try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaFuncionarios();
@@ -72,7 +72,7 @@ public class TesteFuncionario {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
+
 		// TESTE DE PESQUISA PARCIAL PELO NOME
 		/*try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaNome("and");
@@ -82,16 +82,16 @@ public class TesteFuncionario {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
+
 		// TESTE DE PESQUISA PARCIAL PELO USUARIO
-				try {
-					ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaUsuario("es");
-					for (Funcionario funcionario : funcionarios) {
-						System.out.println(funcionario.getId() + " " + funcionario.getNome());
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		try {
+			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaUsuario("es");
+			for (Funcionario funcionario : funcionarios) {
+				System.out.println(funcionario.getId() + " " + funcionario.getNome());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

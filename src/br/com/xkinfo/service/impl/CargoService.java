@@ -61,7 +61,7 @@ public class CargoService implements ICargoService {
 		ResultSet rs = DaoFactory.getCargodao().pesquisaCargos();
 		ArrayList<Cargo> cargos = new ArrayList<>();
 		while(rs.next()){
-			Cargo cargo = new Cargo();
+			cargo = new Cargo();
 			cargo.setId(rs.getInt("CAR_NUMERO"));
 			cargo.setDescricao(rs.getString("CAR_NOME"));
 			cargos.add(cargo);

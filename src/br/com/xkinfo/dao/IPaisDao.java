@@ -13,7 +13,7 @@ public interface IPaisDao {
 
 	public ResultSet pesquisaPaises() throws Exception;
 
-	public ResultSet pesquisaNome(String descricao) throws Exception;
+	public ResultSet pesquisaNome(String nome) throws Exception;
 
 	public ResultSet pesquisaPais(int id) throws Exception;
 

@@ -1,14 +1,16 @@
 package br.com.xkinfo.service;
 
 import br.com.xkinfo.service.impl.CargoService;
+import br.com.xkinfo.service.impl.EstadoService;
 import br.com.xkinfo.service.impl.FuncionarioService;
 import br.com.xkinfo.service.impl.PaisService;
 
 public class ServiceFactory {
 
-	public static final ICargoService cargoService = new CargoService();
-	public static final IFuncionarioService funcionarioService = new FuncionarioService();
-	public static final IPaisService paisService = new PaisService();
+	private static final ICargoService cargoService = new CargoService();
+	private static final IFuncionarioService funcionarioService = new FuncionarioService();
+	private static final IPaisService paisService = new PaisService();
+	private static final IEstadoService estadoService = new EstadoService(); 
 	
 	
 	public static ICargoService getCargoservice() {
@@ -19,5 +21,8 @@ public class ServiceFactory {
 	}
 	public static IPaisService getPaisservice() {
 		return paisService;
+	}
+	public static IEstadoService getEstadoservice() {
+		return estadoService;
 	}
 }

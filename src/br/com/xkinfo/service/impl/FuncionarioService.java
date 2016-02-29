@@ -22,7 +22,7 @@ public class FuncionarioService implements IFuncionarioService{
 		String validaUsuario = usuario.replaceAll(" ", "");
 		String validaSenha = senha.replaceAll(" ", "");
 		String validaPath = pathFoto.replaceAll(" ", "");
-		String valida = "";;
+		String valida = "";
 
 		if (validaNome.isEmpty()) {
 			valida = "Nome \n";

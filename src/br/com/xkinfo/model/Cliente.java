@@ -8,8 +8,8 @@ public class Cliente {
 	private Estado estado;
 	private Pais pais;
 	private TipoDocumento tipoDocumento;
-	private Cadastro cadastro;
-	private String cliente;
+	private String cadastro;
+	private String nome;
 	private String cnpjCpf;
 	private String documento;
 	private String orgaoExpedidor;
@@ -68,17 +68,17 @@ public class Cliente {
 	public void setTipoDocumento(TipoDocumento tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
-	public Cadastro getCadastro() {
+	public String getCadastro() {
 		return cadastro;
 	}
-	public void setCadastro(Cadastro cadastro) {
+	public void setCadastro(String cadastro) {
 		this.cadastro = cadastro;
 	}
-	public String getCliente() {
-		return cliente;
+	public String getNome() {
+		return nome;
 	}
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public String getCnpjCpf() {
 		return cnpjCpf;

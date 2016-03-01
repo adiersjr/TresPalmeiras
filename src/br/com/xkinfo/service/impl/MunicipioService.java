@@ -79,7 +79,7 @@ public class MunicipioService implements IMunicpioService {
 			municipio.setCep(cep);
 			municipio.setCodigoIbge(codIbge);
 			municipio.setProdist(prodist);
-			int ret = DaoFactory.getMunicipiodao().incluirMunicipio(municipio);
+			int ret = DaoFactory.getMunicipiodao().alterarMunicipio(municipio);
 			if (ret == 1){
 				System.out.println("Alteração efetuada com Sucesso!");
 			}
@@ -90,7 +90,7 @@ public class MunicipioService implements IMunicpioService {
 
 	@Override
 	public void excluirMunicipio(int id) throws Exception {
-		municipio = pesquisaEstado(id);
+		municipio = pesquisaMunicipio(id);
 		int ret = DaoFactory.getMunicipiodao().excluirMunicipio(municipio);
 		if (ret == 1){
 			System.out.println("Exclusão efetuada com sucesso!");
@@ -196,7 +196,7 @@ public class MunicipioService implements IMunicpioService {
 	}
 
 	@Override
-	public Municipio pesquisaEstado(int id) throws Exception {
+	public Municipio pesquisaMunicipio(int id) throws Exception {
 		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaMunicipio(id);
 		municipio = new Municipio();
 		Estado estado;

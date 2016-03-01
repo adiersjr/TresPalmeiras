@@ -17,8 +17,8 @@ public class MunicipioDao implements IMunicipioDao{
 	public int incluirMunicipio(Municipio municipio) throws Exception {
 		int result = -1;
 		String query;
-		query = "INSERT INTO MUNICIPIOS (EST_SIGLA, MUN_NOME, MUN_CEP, MUN_IBGE, MUN_PRODIST) ";
-		query = query + " VALUES ('"+municipio.getEstado().getSigla()+"', '"+municipio.getNome()+"', " ;
+		query = "INSERT INTO MUNICIPIOS (MUN_NUMERO, EST_SIGLA, MUN_NOME, MUN_CEP, MUN_IBGE, MUN_PRODIST) ";
+		query = query + " VALUES (3,'"+municipio.getEstado().getSigla()+"', '"+municipio.getNome()+"', " ;
 		query = query + " '"+municipio.getCep()+"', '"+municipio.getCodigoIbge()+"', '"+municipio.getProdist()+"') ";
 		try {
 			st = conexao.connect().createStatement();
@@ -34,7 +34,7 @@ public class MunicipioDao implements IMunicipioDao{
 	public int alterarMunicipio(Municipio municipio) throws Exception {
 		int result = -1;
 		String query;
-		query = "UPDATE MUNICIPIOS SET EST_SIGLA = ''"+municipio.getEstado().getSigla()+"', MUN_NOME = '"+municipio.getNome()+"', "
+		query = "UPDATE MUNICIPIOS SET EST_SIGLA = '"+municipio.getEstado().getSigla()+"', MUN_NOME = '"+municipio.getNome()+"', "
 				+ " MUN_CEP = '"+municipio.getCep()+"', MUN_IBGE = '"+municipio.getCodigoIbge()+"', MUN_PRODIST = '"+municipio.getProdist()+"'"
 						+ " WHERE MUN_NUMERO = "+municipio.getId()+" ";
 		try {
@@ -139,7 +139,7 @@ public class MunicipioDao implements IMunicipioDao{
 	@Override
 	public ResultSet pesquisaMunicipio(int id) throws Exception {
 		ResultSet rs = null;
-		String query = "SELECT * FROM MUNICIPIOS WHERE MUN_CODIGO = '" + id + "' ";
+		String query = "SELECT * FROM MUNICIPIOS WHERE MUN_NUMERO = " + id + " ";
 		try {
 			st = conexao.connect().createStatement();
 			rs = st.executeQuery(query);

@@ -22,6 +22,6 @@ public interface IMunicpioService {
 	
 	public Municipio pesquisaIbge(String codIbge) throws Exception;
 	
-	public Municipio pesquisaEstado(int id) throws Exception;
+	public Municipio pesquisaMunicipio(int id) throws Exception;
 
 }

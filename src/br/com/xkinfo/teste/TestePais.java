@@ -1,7 +1,6 @@
 package br.com.xkinfo.teste;
 
 import java.util.ArrayList;
-
 import br.com.xkinfo.model.Pais;
 import br.com.xkinfo.service.ServiceFactory;
 
@@ -46,21 +45,21 @@ public class TestePais {
 		}
 */
 		// TESTE DE PESQUISA PARCIAL NOME
-		/*try {
+		try {
 			ArrayList<Pais> lista = ServiceFactory.getPaisservice().pesquisaNome("s");
 			for (Pais pais : lista) {
 				System.out.println(pais.getId() + " " + pais.getNome());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 
 		// TESTE DE PESQUISA POR ID
-		try {
+		/*try {
 			Pais pais = ServiceFactory.getPaisservice().pesquisaPais(2);
 			System.out.println(pais.getId() + " " + pais.getNome());
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 }

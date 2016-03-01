@@ -1,12 +1,8 @@
 package br.com.xkinfo.teste;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-
-import br.com.xkinfo.model.Cargo;
 import br.com.xkinfo.model.Funcionario;
 import br.com.xkinfo.service.ServiceFactory;
-import sun.print.resources.serviceui;
 
 public class TesteFuncionario {
 
@@ -74,24 +70,24 @@ public class TesteFuncionario {
 		}*/
 
 		// TESTE DE PESQUISA PARCIAL PELO NOME
-		/*try {
+		try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaNome("and");
 			for (Funcionario funcionario : funcionarios) {
 				System.out.println(funcionario.getId() + " " + funcionario.getNome());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 
 		// TESTE DE PESQUISA PARCIAL PELO USUARIO
-		try {
+		/*try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaUsuario("es");
 			for (Funcionario funcionario : funcionarios) {
 				System.out.println(funcionario.getId() + " " + funcionario.getNome());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }

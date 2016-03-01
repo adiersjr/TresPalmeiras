@@ -23,7 +23,7 @@ public class TipoDocumentoDao implements ITipoDocumentoDao{
 		if (tipoDocumento.isPessoal() == false) {
 			boolPessoal = 0;
 		}
-		String query = "INSERT INTO TIPODOCIMENTO (TPD_DESCRICAO, TPD_PESSOAL) "
+		String query = "INSERT INTO TIPODOCUMENTO (TPD_DESCRICAO, TPD_PESSOAL) "
 				+ " VALUES ('"+tipoDocumento.getDescricao()+"', "+boolPessoal+" ) ";
 		try {
 			st = conexao.connect().createStatement();
@@ -45,7 +45,7 @@ public class TipoDocumentoDao implements ITipoDocumentoDao{
 		if (tipoDocumento.isPessoal() == false) {
 			boolPessoal = 0;
 		}
-		String query = "UPDATE TIPODOCIMENTO SET TPD_DESCRICAO = '"+tipoDocumento.getDescricao()+"', TPD_PESSOAL = "+boolPessoal+" "
+		String query = "UPDATE TIPODOCUMENTO SET TPD_DESCRICAO = '"+tipoDocumento.getDescricao()+"', TPD_PESSOAL = "+boolPessoal+" "
 				+ " WHERE TPD_NUMERO = "+tipoDocumento.getId()+"  ";
 		try {
 			st = conexao.connect().createStatement();
@@ -60,7 +60,7 @@ public class TipoDocumentoDao implements ITipoDocumentoDao{
 	@Override
 	public int excluirTipoDocumento(TipoDocumento tipoDocumento) throws Exception {
 		int result = -1;
-		String query = "DELETE FROM TIPODOCIMENTO WHERE WHERE TPD_NUMERO = "+tipoDocumento.getId()+"  ";
+		String query = "DELETE FROM TIPODOCUMENTO WHERE TPD_NUMERO = "+tipoDocumento.getId()+"  ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);

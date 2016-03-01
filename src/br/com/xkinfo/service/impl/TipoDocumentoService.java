@@ -39,7 +39,7 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 			tipoDocumento.setPessoal(pessoal);
 			int ret = DaoFactory.getTipodocumentodao().alterarTipoDocumento(tipoDocumento);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Alteração efetuada com Sucesso!");
 			}		
 		}
 	}
@@ -77,7 +77,7 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 		if(valida.isEmpty()){
 			System.out.println("Campo descrição do cargo é obrigatório!");
 		} else {
-			ResultSet rs = DaoFactory.getCargodao().pesquisaDescricao(descricao);
+			ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaDescricao(descricao);
 			while(rs.next()){
 				tipoDocumento = new TipoDocumento();
 				tipoDocumento.setId(rs.getInt("TPD_NUMERO"));
@@ -96,7 +96,7 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 
 	@Override
 	public TipoDocumento pesquisaTipoDocumento(int id) throws Exception {
-		ResultSet rs = DaoFactory.getCargodao().pesquisaCargo(id);
+		ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaTipoDocumento(id);
 		tipoDocumento = new TipoDocumento();
 		while(rs.next()){
 			tipoDocumento = new TipoDocumento();

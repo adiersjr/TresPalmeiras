@@ -5,6 +5,7 @@ import br.com.xkinfo.service.impl.EstadoService;
 import br.com.xkinfo.service.impl.FuncionarioService;
 import br.com.xkinfo.service.impl.MunicipioService;
 import br.com.xkinfo.service.impl.PaisService;
+import br.com.xkinfo.service.impl.TipoDocumentoService;
 
 public class ServiceFactory {
 
@@ -13,6 +14,7 @@ public class ServiceFactory {
 	private static final IPaisService paisService = new PaisService();
 	private static final IEstadoService estadoService = new EstadoService(); 
 	private static final IMunicpioService municipioService = new MunicipioService();
+	private static final ITipoDocumentoService tipoDocumentoService = new TipoDocumentoService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -28,5 +30,8 @@ public class ServiceFactory {
 	}
 	public static IMunicpioService getMunicpioservice() {
 		return municipioService;
+	}
+	public static ITipoDocumentoService getTipodocumentoservice() {
+		return tipoDocumentoService;
 	}
 }

@@ -85,8 +85,9 @@ public class CargoService implements ICargoService {
 			}
 			if (cargos.size() == 0){
 				System.out.println("Não possui dados com esse argumento!");
+			} else {
+				return cargos;
 			}
-			return cargos; 
 		}
 		return cargos; 
 	};

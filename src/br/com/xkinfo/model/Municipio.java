@@ -4,9 +4,10 @@ public class Municipio {
 
 	private int id;
 	private String nome;
-	private String sigla;
+	private Estado estado;
 	private String cep;
 	private String codigoIbge;
+	private String prodist;
 	
 	public String getCep() {
 		return cep;
@@ -20,8 +21,8 @@ public class Municipio {
 	public String getNome() {
 		return nome;
 	}
-	public String getSigla() {
-		return sigla;
+	public Estado getEstado() {
+		return estado;
 	}
 	public void setCep(String cep) {
 		this.cep = cep;
@@ -35,7 +36,13 @@ public class Municipio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	public String getProdist() {
+		return prodist;
+	}
+	public void setProdist(String prodist) {
+		this.prodist = prodist;
 	}
 }

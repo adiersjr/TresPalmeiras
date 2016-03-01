@@ -16,7 +16,7 @@ public interface IEstadoService {
 
 	public ArrayList<Estado> pesquisaNome(String nome) throws Exception;
 	
-	public ArrayList<Estado> pesquisaSigla(String sigla) throws Exception;
+	public Estado pesquisaSigla(String sigla) throws Exception;
 	
 	public ArrayList<Estado> pesquisaPais(Pais pais) throws Exception;
 

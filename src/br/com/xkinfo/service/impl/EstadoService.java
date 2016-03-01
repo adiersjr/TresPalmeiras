@@ -119,21 +119,19 @@ public class EstadoService implements IEstadoService{
 	}
 
 	@Override
-	public ArrayList<Estado> pesquisaSigla(String sigla) throws Exception {
+	public Estado pesquisaSigla(String sigla) throws Exception {
 		ResultSet rs = DaoFactory.getEstadodao().pesquisaSigla(sigla);
-		ArrayList<Estado> estados = new ArrayList<>();
 		Pais pais;
+		estado = new Estado();
 		while(rs.next()){
-			estado = new Estado();
 			estado.setId(rs.getInt("EST_CODIGO"));
 			estado.setNome(rs.getString("EST_NOME"));
 			estado.setSigla(rs.getString("EST_SIGLA"));
 			pais = new Pais();
 			pais = ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO"));
 			estado.setPais(pais);
-			estados.add(estado);
 		}
-		return estados;
+		return estado;
 	}
 
 	@Override

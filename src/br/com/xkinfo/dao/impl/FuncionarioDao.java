@@ -27,7 +27,6 @@ public class FuncionarioDao implements IFuncionarioDao {
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		sdf.applyPattern("yyyy-MM-dd");
 		String dia = sdf.format(funcionario.getDataNascimento().getTime());
-		System.out.println(dia);
 		Integer boolAcesso = null;
 		if (funcionario.isSituacao() == true){
 			boolAcesso = 1;

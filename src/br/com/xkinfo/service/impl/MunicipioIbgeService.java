@@ -31,7 +31,7 @@ public class MunicipioIbgeService implements IMunicipioIbgeService{
 		municipio.setLongitude(longitude);
 		municipio.setAltitude(altitude);
 		municipio.setArea(area);
-		int ret = DaoFactory.getMunicipiodao().incluirMunicipio(municipio);
+		int ret = DaoFactory.getMunicipioibgedao().incluirMunicipioIbge(municipio);
 		if (ret == 1){
 			System.out.println("Inclusão efetuada com Sucesso!");
 		}

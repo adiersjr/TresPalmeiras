@@ -5,6 +5,7 @@ import br.com.xkinfo.dao.impl.ClienteDao;
 import br.com.xkinfo.dao.impl.EstadoDao;
 import br.com.xkinfo.dao.impl.FuncionarioDao;
 import br.com.xkinfo.dao.impl.MunicipioDao;
+import br.com.xkinfo.dao.impl.MunicipioIbgeDao;
 import br.com.xkinfo.dao.impl.PaisDao;
 import br.com.xkinfo.dao.impl.TipoDocumentoDao;
 
@@ -17,6 +18,7 @@ public class DaoFactory {
 	private static final IMunicipioDao municipioDao = new MunicipioDao();
 	private static final ITipoDocumentoDao tipoDocumentoDao = new TipoDocumentoDao();
 	private static final IClienteDao clienteDao = new ClienteDao();
+	private static final IMunicipioIbgeDao municipioIbgeDao = new MunicipioIbgeDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -38,5 +40,8 @@ public class DaoFactory {
 	}
 	public static IClienteDao getClientedao() {
 		return clienteDao;
+	}
+	public static IMunicipioIbgeDao getMunicipioibgedao() {
+		return municipioIbgeDao;
 	}
 }

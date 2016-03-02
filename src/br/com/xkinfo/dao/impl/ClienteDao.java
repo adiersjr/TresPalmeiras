@@ -8,7 +8,7 @@ import br.com.xkinfo.model.Cliente;
 import br.com.xkinfo.util.Conexao;
 
 public class ClienteDao implements IClienteDao {
-	
+
 	Conexao conexao = new Conexao();
 	private Statement st;
 
@@ -23,9 +23,13 @@ public class ClienteDao implements IClienteDao {
 				+ "VALUES ("+cliente.getMunicipio().getId()+", "+cliente.getEstado().getSigla()+", "+cliente.getPais().getId()+", "
 				+ " "+cliente.getTipoDocumento().getId()+", '"+cliente.getCadastro()+"', '"+cliente.getNome()+"', '"+cliente.getCnpjCpf()+"', "
 				+ " '"+cliente.getDocumento()+"', '"+cliente.getOrgaoExpedidor()+"', '"+cliente.getUfExpedidor().getSigla()+"', "
-				+ " '"+cliente.getTituloEleitor()+"', '"+cliente.getDataNascimento()+"', '"+cliente.getFone()+"', '"+cliente.getRamal()+"' "
-						+ " '"+cliente.getFoneComercial()+""',    "
-				+ ") ";
+				+ " '"+cliente.getTituloEleitor()+"', '"+cliente.getDataNascimento()+"', '"+cliente.getFone()+"', '"+cliente.getRamal()+"', "
+				+ " '"+cliente.getFoneComercial()+"', '"+cliente.getRamalComercial()+"', '"+cliente.getFoneCelular()+"', '"+cliente.getEmail()+"', "
+				+ " '"+cliente.getSenha()+"', '"+cliente.getSexo()+"', '"+cliente.getNomePai()+"', '"+cliente.getNomeMae()+"', "
+				+ " '"+cliente.getContato()+"', '"+cliente.getNis()+"', '"+cliente.getDataEmissaoNis()+"', '"+cliente.isAprovacaoNis()+"', "
+				+ " '"+cliente.getDataProcessamento()+"', '"+cliente.isPessoaJuridica()+"', '"+cliente.getDataCadastro()+"', "
+				+ " '"+cliente.getDataAutoDeclaracao()+"', '"+cliente.getDataProc()+"', '"+cliente.getUsuario()+"', '"+cliente.getDataEnvioScs()+"' "
+				+ " '"+cliente.getTipoCliente()+"') ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);

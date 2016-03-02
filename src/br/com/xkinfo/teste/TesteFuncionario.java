@@ -60,24 +60,25 @@ public class TesteFuncionario {
 		}*/
 
 		// TESTE DE PESQUISA GERAL
-		/*try {
+		try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaFuncionarios();
 			for (Funcionario funcionario : funcionarios) {
-				System.out.println(funcionario.getId() + " " + funcionario.getNome());
+				String dia = ServiceFactory.getApoioservice().converteCalendar(funcionario.getDataNascimento());
+				System.out.println(funcionario.getId() + " " + funcionario.getNome() + " " +  dia);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 
 		// TESTE DE PESQUISA PARCIAL PELO NOME
-		try {
+		/*try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaNome("and");
 			for (Funcionario funcionario : funcionarios) {
 				System.out.println(funcionario.getId() + " " + funcionario.getNome());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 		// TESTE DE PESQUISA PARCIAL PELO USUARIO
 		/*try {

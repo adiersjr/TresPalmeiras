@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import br.com.xkinfo.dao.IClienteDao;
 import br.com.xkinfo.model.Cliente;
+import br.com.xkinfo.service.ServiceFactory;
 import br.com.xkinfo.util.Conexao;
 
 public class ClienteDao implements IClienteDao {
@@ -15,21 +16,32 @@ public class ClienteDao implements IClienteDao {
 	@Override
 	public int incluirCliente(Cliente cliente) throws Exception {
 		int result = -1;
+		String envioScs = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataEnvioScs());
+		String dataProcessamento = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataProcessamento());
+		String dataNascimento = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataNascimento());
+		String dataEmissaoNis = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataEmissaoNis());
+		String dataCadastro = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataCadastro());
+		String dataAutoDeclaracao = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataAutoDeclaracao());
+		String dataProc = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataProc());
+		
+		int aprovacaoNis = ServiceFactory.getApoioservice().converteBoolean(cliente.isAprovacaoNis());
+		int pessoaJuridica = ServiceFactory.getApoioservice().converteBoolean(cliente.isPessoaJuridica());
+		
+		System.out.println(cliente.getCadastro());
 		String query = "INSERT INTO CLIENTES (MUI_CODIGO, EST_SIGLA, PAI_NUMERO, TPD_NUMERO, CAD_CHAVE, CLI_NOME, CLI_CNPJCPF, CLI_DOCUMENTO, "
 				+ " CLI_ORGAOEXPEDIDOR, CLI_UFEXPEDIDOR, CLI_TITULOELEITOR, CLI_DTANASCIMENTO, CLI_FONE, CLI_RAMAL, CLI_FONECOMERCIAL, "
 				+ " CLI_RAMALCOMERCIAL, CLI_FONECELULAR, CLI_EMAIL, CLI_SENHA, CLI_SEXO, CLI_NOMEPAI, CLI_NOMEMAE, CLI_CONTATO, CLI_NIS, "
-				+ " DTAEMISSAONIS, CLI_APROVACAONIS, CLI_DTAPROCESSAMENTO, CLI_PESSOAJURIDICA, CLI_DATACAD, CLI_DATAAUTODECL, CLI_DATAPROC, "
+				+ " CLI_DTAEMISSAONIS, CLI_APROVACAONIS, CLI_DTAPROCESSAMENTO, CLI_PESSOAJURIDICA, CLI_DATACAD, CLI_DATAAUTODECL, CLI_DATAPROC, "
 				+ " CLI_USUARIO, CLI_DATA_ENVIO_SCS, CLI_TIPO_CLIENTE) "
 				+ "VALUES ("+cliente.getMunicipio().getId()+", "+cliente.getEstado().getSigla()+", "+cliente.getPais().getId()+", "
-				+ " "+cliente.getTipoDocumento().getId()+", '"+cliente.getCadastro()+"', '"+cliente.getNome()+"', '"+cliente.getCnpjCpf()+"', "
-				+ " '"+cliente.getDocumento()+"', '"+cliente.getOrgaoExpedidor()+"', '"+cliente.getUfExpedidor().getSigla()+"', "
-				+ " '"+cliente.getTituloEleitor()+"', '"+cliente.getDataNascimento()+"', '"+cliente.getFone()+"', '"+cliente.getRamal()+"', "
-				+ " '"+cliente.getFoneComercial()+"', '"+cliente.getRamalComercial()+"', '"+cliente.getFoneCelular()+"', '"+cliente.getEmail()+"', "
+				+ "  "+cliente.getTipoDocumento().getId()+", '"+cliente.getCadastro()+"', '"+cliente.getNome()+"', '"+cliente.getCnpjCpf()+"', "
+				+ " '"+cliente.getDocumento()+"', '"+cliente.getOrgaoExpedidor()+"', "+cliente.getUfExpedidor().getSigla()+", "
+				+ " '"+cliente.getTituloEleitor()+"', "+dataNascimento+", '"+cliente.getFone()+"', "+cliente.getRamal()+", "
+				+ " '"+cliente.getFoneComercial()+"', "+cliente.getRamalComercial()+", '"+cliente.getFoneCelular()+"', '"+cliente.getEmail()+"', "
 				+ " '"+cliente.getSenha()+"', '"+cliente.getSexo()+"', '"+cliente.getNomePai()+"', '"+cliente.getNomeMae()+"', "
-				+ " '"+cliente.getContato()+"', '"+cliente.getNis()+"', '"+cliente.getDataEmissaoNis()+"', '"+cliente.isAprovacaoNis()+"', "
-				+ " '"+cliente.getDataProcessamento()+"', '"+cliente.isPessoaJuridica()+"', '"+cliente.getDataCadastro()+"', "
-				+ " '"+cliente.getDataAutoDeclaracao()+"', '"+cliente.getDataProc()+"', '"+cliente.getUsuario()+"', '"+cliente.getDataEnvioScs()+"' "
-				+ " '"+cliente.getTipoCliente()+"') ";
+				+ " '"+cliente.getContato()+"', '"+cliente.getNis()+"', "+dataEmissaoNis+", "+aprovacaoNis+", "
+				+ "  "+dataProcessamento+", "+pessoaJuridica+", "+dataCadastro+", "+dataAutoDeclaracao+", "
+				+ "  "+dataProc+", '"+cliente.getUsuario()+"', '"+envioScs+"','"+cliente.getTipoCliente()+"') ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);

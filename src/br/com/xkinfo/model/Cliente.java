@@ -19,7 +19,7 @@ public class Cliente {
 	private String fone;
 	private int ramal;
 	private String foneComercial;
-	private String ramalComercial;
+	private int ramalComercial;
 	private String foneCelular;
 	private String email;
 	private String senha;
@@ -134,10 +134,10 @@ public class Cliente {
 	public void setFoneComercial(String foneComercial) {
 		this.foneComercial = foneComercial;
 	}
-	public String getRamalComercial() {
+	public int getRamalComercial() {
 		return ramalComercial;
 	}
-	public void setRamalComercial(String ramalComercial) {
+	public void setRamalComercial(int ramalComercial) {
 		this.ramalComercial = ramalComercial;
 	}
 	public String getFoneCelular() {

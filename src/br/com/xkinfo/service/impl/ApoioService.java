@@ -2,21 +2,20 @@ package br.com.xkinfo.service.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import br.com.xkinfo.service.IApoioService;
 
 public class ApoioService implements IApoioService{
 
 	@Override
-	public String converteDate(Date data) throws Exception {
+	public String converteDataBanco(Calendar data) throws Exception {
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		sdf.applyPattern("yyyy-MM-dd");
-		String dia = sdf.format(data);
+		String dia = sdf.format(data.getTime());
 		return dia;
 	}
 	
-	public String converteCalendar (Calendar data) throws Exception{
+	public String converteDataBrasil (Calendar data) throws Exception{
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		sdf.applyPattern("dd/MM/yyyy");
 		String dia = sdf.format(data.getTime());

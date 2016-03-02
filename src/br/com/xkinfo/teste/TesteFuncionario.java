@@ -63,7 +63,7 @@ public class TesteFuncionario {
 		try {
 			ArrayList<Funcionario> funcionarios = ServiceFactory.getFuncionarioservice().pesquisaFuncionarios();
 			for (Funcionario funcionario : funcionarios) {
-				String dia = ServiceFactory.getApoioservice().converteCalendar(funcionario.getDataNascimento());
+				String dia = ServiceFactory.getApoioservice().converteDataBrasil(funcionario.getDataNascimento());
 				System.out.println(funcionario.getId() + " " + funcionario.getNome() + " " +  dia);
 			}
 		} catch (Exception e) {

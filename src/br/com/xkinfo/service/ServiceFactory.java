@@ -2,8 +2,10 @@ package br.com.xkinfo.service;
 
 import br.com.xkinfo.service.impl.ApoioService;
 import br.com.xkinfo.service.impl.CargoService;
+import br.com.xkinfo.service.impl.ClienteService;
 import br.com.xkinfo.service.impl.EstadoService;
 import br.com.xkinfo.service.impl.FuncionarioService;
+import br.com.xkinfo.service.impl.MunicipioIbgeService;
 import br.com.xkinfo.service.impl.MunicipioService;
 import br.com.xkinfo.service.impl.PaisService;
 import br.com.xkinfo.service.impl.TipoDocumentoService;
@@ -17,6 +19,8 @@ public class ServiceFactory {
 	private static final IMunicpioService municipioService = new MunicipioService();
 	private static final ITipoDocumentoService tipoDocumentoService = new TipoDocumentoService();
 	private static final IApoioService apoioService = new ApoioService();
+	private static final IClienteService clienteService = new ClienteService();
+	private static final IMunicipioIbgeService municipioIbgeService = new MunicipioIbgeService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -38,5 +42,11 @@ public class ServiceFactory {
 	}
 	public static IApoioService getApoioservice() {
 		return apoioService;
+	}
+	public static IClienteService getClienteservice() {
+		return clienteService;
+	}
+	public static IMunicipioIbgeService getMunicipioibgeservice() {
+		return municipioIbgeService;
 	}
 }

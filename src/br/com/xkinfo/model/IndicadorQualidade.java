@@ -1,6 +1,6 @@
 package br.com.xkinfo.model;
 
-public class IndicadorDeQualidade {
+public class IndicadorQualidade {
 
 	private int id;
 	private Eta	eta;

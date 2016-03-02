@@ -18,7 +18,7 @@ public class FuncionarioDao implements IFuncionarioDao {
 		int result = -1;
 		String query;
 		Integer boolSituacao = ServiceFactory.getApoioservice().converteBoolean(funcionario.isSituacao());
-		String dia = ServiceFactory.getApoioservice().converteDate(funcionario.getDataNascimento().getTime());
+		String dia = ServiceFactory.getApoioservice().converteDataBanco(funcionario.getDataNascimento());
 		Integer boolAcesso = ServiceFactory.getApoioservice().converteBoolean(funcionario.isControleAcesso());
 		
 		query = "INSERT INTO FUNCIONARIOS (FUN_NOME, FUN_SITUACAO, FUN_USUARIO, FUN_SENHA, FUN_PATHFOTO, FUN_DATNASC, CAR_NUMERO, FUN_CONTROLEACESSO) ";
@@ -39,7 +39,7 @@ public class FuncionarioDao implements IFuncionarioDao {
 		int result = -1;
 		String query;
 		Integer boolSituacao = ServiceFactory.getApoioservice().converteBoolean(funcionario.isSituacao());
-		String dia = ServiceFactory.getApoioservice().converteDate(funcionario.getDataNascimento().getTime());
+		String dia = ServiceFactory.getApoioservice().converteDataBanco(funcionario.getDataNascimento());
 		Integer boolAcesso = ServiceFactory.getApoioservice().converteBoolean(funcionario.isControleAcesso());
 		
 		query = "UPDATE FUNCIONARIOS SET FUN_NOME = '"+funcionario.getNome()+"', FUN_SITUACAO = "+boolSituacao+","

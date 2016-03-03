@@ -13,7 +13,5 @@ public interface IClienteDao {
 
 	public ResultSet pesquisaClientes() throws Exception;
 	
-	public ResultSet pesquisarNome(String nome) throws Exception;
-	
-	public ResultSet pesquisaCnpjCpj(String cnpjCpf) throws Exception;
+	public ResultSet pesquisaCnpjCpj(int id) throws Exception;
 }

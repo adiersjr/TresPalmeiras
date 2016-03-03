@@ -54,32 +54,83 @@ public class ClienteDao implements IClienteDao {
 
 	@Override
 	public int alterarCliente(Cliente cliente) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		String envioScs = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataEnvioScs());
+		String dataProcessamento = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataProcessamento());
+		String dataNascimento = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataNascimento());
+		String dataEmissaoNis = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataEmissaoNis());
+		String dataCadastro = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataCadastro());
+		String dataAutoDeclaracao = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataAutoDeclaracao());
+		String dataProc = ServiceFactory.getApoioservice().converteDataBanco(cliente.getDataProc());
+		
+		int aprovacaoNis = ServiceFactory.getApoioservice().converteBoolean(cliente.isAprovacaoNis());
+		int pessoaJuridica = ServiceFactory.getApoioservice().converteBoolean(cliente.isPessoaJuridica());
+		
+		System.out.println(cliente.getCadastro());
+		String query = "UPDATE CLIENTES SET MUI_CODIGO = "+cliente.getMunicipioIbge().getId()+", EST_SIGLA = "+cliente.getEstado().getSigla()+", "
+				+ " PAI_NUMERO = "+cliente.getPais().getId()+", TPD_NUMERO = "+cliente.getTipoDocumento().getId()+", CAD_CHAVE = '"+cliente.getCadastro()+"', "
+				+ " CLI_NOME = '"+cliente.getNome()+"', CLI_CNPJCPF = '"+cliente.getCnpjCpf()+"', CLI_DOCUMENTO = '"+cliente.getDocumento()+"', "
+				+ " CLI_ORGAOEXPEDIDOR = '"+cliente.getOrgaoExpedidor()+"', CLI_UFEXPEDIDOR = "+cliente.getUfExpedidor().getSigla()+", "
+				+ " CLI_TITULOELEITOR = '"+cliente.getTituloEleitor()+"', CLI_DTANASCIMENTO = "+dataNascimento+" , CLI_FONE = '"+cliente.getFone()+"', "
+				+ " CLI_RAMAL = "+cliente.getRamal()+", CLI_FONECOMERCIAL = '"+cliente.getFoneComercial()+"', CLI_RAMALCOMERCIAL = "+cliente.getRamalComercial()+", "
+				+ " CLI_FONECELULAR = '"+cliente.getFoneCelular()+"', CLI_EMAIL = '"+cliente.getEmail()+"', CLI_SENHA = '"+cliente.getSenha()+"', "
+				+ " CLI_SEXO = '"+cliente.getSexo()+"', CLI_NOMEPAI = '"+cliente.getNomePai()+"', CLI_NOMEMAE = '"+cliente.getNomeMae()+"', "
+				+ " CLI_CONTATO = '"+cliente.getContato()+"', CLI_NIS = '"+cliente.getNis()+"', CLI_DTAEMISSAONIS = "+dataEmissaoNis+", "
+				+ " CLI_APROVACAONIS = "+aprovacaoNis+", CLI_DTAPROCESSAMENTO = "+dataProcessamento+", CLI_PESSOAJURIDICA = "+pessoaJuridica+", "
+				+ " CLI_DATACAD = "+dataCadastro+", CLI_DATAAUTODECL = "+dataAutoDeclaracao+", CLI_DATAPROC = "+dataProc+", CLI_USUARIO = '"+cliente.getUsuario()+"' "
+				+ " CLI_DATA_ENVIO_SCS = '"+envioScs+"', CLI_TIPO_CLIENTE = '"+cliente.getTipoCliente()+"' WHERE CLI_NUMERO = " + cliente.getId() + " ";
+		try {
+			st = conexao.connect().createStatement();
+			result = st.executeUpdate(query);
+			conexao.connect().close();
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public int excluirCliente(Cliente cliente) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		String query = "DELETE FROM CLIENTES WHERE CLI_NUMERO = " + cliente.getId() + " ";
+		try {
+			st = conexao.connect().createStatement();
+			result = st.executeUpdate(query);
+			conexao.connect().close();
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public ResultSet pesquisaClientes() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM CLIENTES";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override
-	public ResultSet pesquisarNome(String nome) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ResultSet pesquisaCnpjCpj(String cnpjCpf) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultSet pesquisaCnpjCpj(int id) throws Exception {
+		ResultSet rs = null;
+		String query = "SELECT * FROM CLIENTESWHERE CLI_NUMERO = " + id + " ";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 

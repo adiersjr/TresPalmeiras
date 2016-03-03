@@ -86,15 +86,12 @@ public class EstadoService implements IEstadoService{
 	public ArrayList<Estado> pesquisaEstados() throws Exception {
 		ResultSet rs = DaoFactory.getEstadodao().pesquisaEstados();
 		ArrayList<Estado> estados = new ArrayList<>();
-		Pais pais;
 		while(rs.next()){
 			estado = new Estado();
 			estado.setId(rs.getInt("EST_CODIGO"));
 			estado.setNome(rs.getString("EST_NOME"));
 			estado.setSigla(rs.getString("EST_SIGLA"));
-			pais = new Pais();
-			pais = ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO"));
-			estado.setPais(pais);
+			estado.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			estados.add(estado);
 		}
 		return estados;
@@ -104,15 +101,12 @@ public class EstadoService implements IEstadoService{
 	public ArrayList<Estado> pesquisaNome(String nome) throws Exception {
 		ResultSet rs = DaoFactory.getEstadodao().pesquisaNome(nome);
 		ArrayList<Estado> estados = new ArrayList<>();
-		Pais pais;
 		while(rs.next()){
 			estado = new Estado();
 			estado.setId(rs.getInt("EST_CODIGO"));
 			estado.setNome(rs.getString("EST_NOME"));
 			estado.setSigla(rs.getString("EST_SIGLA"));
-			pais = new Pais();
-			pais = ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO"));
-			estado.setPais(pais);
+			estado.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			estados.add(estado);
 		}
 		return estados;
@@ -121,15 +115,12 @@ public class EstadoService implements IEstadoService{
 	@Override
 	public Estado pesquisaSigla(String sigla) throws Exception {
 		ResultSet rs = DaoFactory.getEstadodao().pesquisaSigla(sigla);
-		Pais pais;
 		estado = new Estado();
 		while(rs.next()){
 			estado.setId(rs.getInt("EST_CODIGO"));
 			estado.setNome(rs.getString("EST_NOME"));
 			estado.setSigla(rs.getString("EST_SIGLA"));
-			pais = new Pais();
-			pais = ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO"));
-			estado.setPais(pais);
+			estado.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 		}
 		return estado;
 	}
@@ -138,15 +129,12 @@ public class EstadoService implements IEstadoService{
 	public ArrayList<Estado> pesquisaPais(Pais pais) throws Exception {
 		ResultSet rs = DaoFactory.getEstadodao().pesquisaPais(pais);
 		ArrayList<Estado> estados = new ArrayList<>();
-		//Pais pais;
 		while(rs.next()){
 			estado = new Estado();
 			estado.setId(rs.getInt("EST_CODIGO"));
 			estado.setNome(rs.getString("EST_NOME"));
 			estado.setSigla(rs.getString("EST_SIGLA"));
-			//pais = new Pais();
-			//pais = ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO"));
-			estado.setPais(pais);
+			estado.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			estados.add(estado);
 		}
 		return estados;
@@ -156,14 +144,11 @@ public class EstadoService implements IEstadoService{
 	public Estado pesquisaEstado(int id) throws Exception {
 		ResultSet rs = DaoFactory.getEstadodao().pesquisaEstado(id);
 		estado = new Estado();
-		Pais pais;
 		while(rs.next()){
 			estado.setId(rs.getInt("EST_CODIGO"));
 			estado.setNome(rs.getString("EST_NOME"));
 			estado.setSigla(rs.getString("EST_SIGLA"));
-			pais = new Pais();
-			pais = ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO"));
-			estado.setPais(pais);
+			estado.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 		}
 		return estado;
 	}

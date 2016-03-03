@@ -3,8 +3,6 @@ package br.com.xkinfo.service.impl;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-
 import br.com.xkinfo.service.IApoioService;
 
 public class ApoioService implements IApoioService{
@@ -38,9 +36,8 @@ public class ApoioService implements IApoioService{
 	
 	@Override
 	public Calendar converteCalendar(Date data) throws Exception{
-		Calendar cal = new GregorianCalendar();;
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
-		cal.setTime(sd.parse(data.toString()));
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(data);
 		return cal;
 	}
 

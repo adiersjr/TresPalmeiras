@@ -3,8 +3,6 @@ package br.com.xkinfo.service.impl;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-
 import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.model.Cargo;
 import br.com.xkinfo.model.Funcionario;
@@ -134,12 +132,8 @@ public class FuncionarioService implements IFuncionarioService{
 			funcionario.setUsuario(rs.getString("FUN_USUARIO"));
 			funcionario.setSenha(rs.getString("FUN_SENHA"));
 			funcionario.setPathFoto(rs.getString("FUN_PATHFOTO"));
-			Date nascimento = rs.getDate("FUN_DATNASC");
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(nascimento);
-			funcionario.setDataNascimento(cal);
-			Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO"));
-			funcionario.setCargo(cargo);
+			funcionario.setDataNascimento(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("FUN_DATNASC")));
+			funcionario.setCargo(ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO")));
 			funcionario.setControleAcesso(rs.getBoolean("FUN_CONTROLEACESSO"));
 			funcionarios.add(funcionario);
 		}
@@ -162,12 +156,8 @@ public class FuncionarioService implements IFuncionarioService{
 				funcionario.setUsuario(rs.getString("FUN_USUARIO"));
 				funcionario.setSenha(rs.getString("FUN_SENHA"));
 				funcionario.setPathFoto(rs.getString("FUN_PATHFOTO"));
-				Date nascimento = rs.getDate("FUN_DATNASC");
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(nascimento);
-				funcionario.setDataNascimento(cal);
-				Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO"));
-				funcionario.setCargo(cargo);
+				funcionario.setDataNascimento(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("FUN_DATNASC")));
+				funcionario.setCargo(ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO")));
 				funcionario.setControleAcesso(rs.getBoolean("FUN_CONTROLEACESSO"));
 				funcionarios.add(funcionario);
 			}
@@ -195,12 +185,8 @@ public class FuncionarioService implements IFuncionarioService{
 				funcionario.setUsuario(rs.getString("FUN_USUARIO"));
 				funcionario.setSenha(rs.getString("FUN_SENHA"));
 				funcionario.setPathFoto(rs.getString("FUN_PATHFOTO"));
-				Date nascimento = rs.getDate("FUN_DATNASC");
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(nascimento);
-				funcionario.setDataNascimento(cal);
-				Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO"));
-				funcionario.setCargo(cargo);
+				funcionario.setDataNascimento(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("FUN_DATNASC")));
+				funcionario.setCargo(ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO")));
 				funcionario.setControleAcesso(rs.getBoolean("FUN_CONTROLEACESSO"));
 				funcionarios.add(funcionario);
 			}
@@ -223,12 +209,8 @@ public class FuncionarioService implements IFuncionarioService{
 			funcionario.setUsuario(rs.getString("FUN_USUARIO"));
 			funcionario.setSenha(rs.getString("FUN_SENHA"));
 			funcionario.setPathFoto(rs.getString("FUN_PATHFOTO"));
-			Date nascimento = rs.getDate("FUN_DATNASC");
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(nascimento);
-			funcionario.setDataNascimento(cal);
-			Cargo cargo = ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO"));
-			funcionario.setCargo(cargo);
+			funcionario.setDataNascimento(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("FUN_DATNASC")));
+			funcionario.setCargo(ServiceFactory.getCargoservice().pesquisaCargo(rs.getInt("CAR_NUMERO")));
 			funcionario.setControleAcesso(rs.getBoolean("FUN_CONTROLEACESSO"));
 		}
 		return funcionario; 

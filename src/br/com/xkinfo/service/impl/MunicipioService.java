@@ -10,7 +10,7 @@ import br.com.xkinfo.service.IMunicipioService;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class MunicipioService implements IMunicipioService {
-	
+
 	Municipio municipio;
 
 	@Override
@@ -105,18 +105,16 @@ public class MunicipioService implements IMunicipioService {
 		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaMunicipios();
 		municipio = new Municipio();
 		ArrayList<Municipio> municipios = new ArrayList<>();
-		Estado estado;
 		while(rs.next()){
 			municipio = new Municipio();
 			municipio.setId(rs.getInt("MUN_NUMERO"));
-			estado = ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA"));
-			municipio.setEstado(estado);
+			municipio.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
 			municipio.setNome(rs.getString("MUN_NOME"));
 			municipio.setCep(rs.getString("MUN_CEP"));
 			municipio.setCodigoIbge(rs.getString("MUN_IBGE"));
 			municipio.setProdist(rs.getString("MUN_PRODIST"));
 			municipios.add(municipio);
-			
+
 		}
 		return municipios;
 	}
@@ -126,18 +124,16 @@ public class MunicipioService implements IMunicipioService {
 		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaNome(nome);
 		municipio = new Municipio();
 		ArrayList<Municipio> municipios = new ArrayList<>();
-		Estado estado;
 		while(rs.next()){
 			municipio = new Municipio();
 			municipio.setId(rs.getInt("MUN_NUMERO"));
-			estado = ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA"));
-			municipio.setEstado(estado);
+			municipio.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
 			municipio.setNome(rs.getString("MUN_NOME"));
 			municipio.setCep(rs.getString("MUN_CEP"));
 			municipio.setCodigoIbge(rs.getString("MUN_IBGE"));
 			municipio.setProdist(rs.getString("MUN_PRODIST"));
 			municipios.add(municipio);
-			
+
 		}
 		return municipios;
 	}
@@ -150,13 +146,13 @@ public class MunicipioService implements IMunicipioService {
 		while(rs.next()){
 			municipio = new Municipio();
 			municipio.setId(rs.getInt("MUN_NUMERO"));
-			municipio.setEstado(estado);
+			municipio.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
 			municipio.setNome(rs.getString("MUN_NOME"));
 			municipio.setCep(rs.getString("MUN_CEP"));
 			municipio.setCodigoIbge(rs.getString("MUN_IBGE"));
 			municipio.setProdist(rs.getString("MUN_PRODIST"));
 			municipios.add(municipio);
-			
+
 		}
 		return municipios;
 	}
@@ -164,29 +160,27 @@ public class MunicipioService implements IMunicipioService {
 	@Override
 	public Municipio pesquisaCep(String cep) throws Exception {
 		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaCep(cep);
-				municipio = new Municipio();
-				Estado estado;
-				while(rs.next()){
-					municipio.setId(rs.getInt("MUN_NUMERO"));
-					estado = ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA"));
-					municipio.setEstado(estado);
-					municipio.setNome(rs.getString("MUN_NOME"));
-					municipio.setCep(rs.getString("MUN_CEP"));
-					municipio.setCodigoIbge(rs.getString("MUN_IBGE"));
-					municipio.setProdist(rs.getString("MUN_PRODIST"));
-				}
-				return municipio;
+		municipio = new Municipio();
+		while(rs.next()){
+			municipio = new Municipio();
+			municipio.setId(rs.getInt("MUN_NUMERO"));
+			municipio.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
+			municipio.setNome(rs.getString("MUN_NOME"));
+			municipio.setCep(rs.getString("MUN_CEP"));
+			municipio.setCodigoIbge(rs.getString("MUN_IBGE"));
+			municipio.setProdist(rs.getString("MUN_PRODIST"));
+		}
+		return municipio;
 	}
 
 	@Override
 	public Municipio pesquisaIbge(String codIbge) throws Exception {
 		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaIbge(codIbge);
 		municipio = new Municipio();
-		Estado estado;
 		while(rs.next()){
+			municipio = new Municipio();
 			municipio.setId(rs.getInt("MUN_NUMERO"));
-			estado = ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA"));
-			municipio.setEstado(estado);
+			municipio.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
 			municipio.setNome(rs.getString("MUN_NOME"));
 			municipio.setCep(rs.getString("MUN_CEP"));
 			municipio.setCodigoIbge(rs.getString("MUN_IBGE"));
@@ -199,11 +193,10 @@ public class MunicipioService implements IMunicipioService {
 	public Municipio pesquisaMunicipio(int id) throws Exception {
 		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaMunicipio(id);
 		municipio = new Municipio();
-		Estado estado;
 		while(rs.next()){
+			municipio = new Municipio();
 			municipio.setId(rs.getInt("MUN_NUMERO"));
-			estado = ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA"));
-			municipio.setEstado(estado);
+			municipio.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
 			municipio.setNome(rs.getString("MUN_NOME"));
 			municipio.setCep(rs.getString("MUN_CEP"));
 			municipio.setCodigoIbge(rs.getString("MUN_IBGE"));

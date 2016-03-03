@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.model.Estado;
 import br.com.xkinfo.model.Municipio;
-import br.com.xkinfo.service.IMunicpioService;
+import br.com.xkinfo.service.IMunicipioService;
 import br.com.xkinfo.service.ServiceFactory;
 
-public class MunicipioService implements IMunicpioService {
+public class MunicipioService implements IMunicipioService {
 	
 	Municipio municipio;
 

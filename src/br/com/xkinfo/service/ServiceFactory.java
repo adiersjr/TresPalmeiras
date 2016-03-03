@@ -16,7 +16,7 @@ public class ServiceFactory {
 	private static final IFuncionarioService funcionarioService = new FuncionarioService();
 	private static final IPaisService paisService = new PaisService();
 	private static final IEstadoService estadoService = new EstadoService(); 
-	private static final IMunicpioService municipioService = new MunicipioService();
+	private static final IMunicipioService municipioService = new MunicipioService();
 	private static final ITipoDocumentoService tipoDocumentoService = new TipoDocumentoService();
 	private static final IApoioService apoioService = new ApoioService();
 	private static final IClienteService clienteService = new ClienteService();
@@ -34,7 +34,7 @@ public class ServiceFactory {
 	public static IEstadoService getEstadoservice() {
 		return estadoService;
 	}
-	public static IMunicpioService getMunicpioservice() {
+	public static IMunicipioService getMunicpioservice() {
 		return municipioService;
 	}
 	public static ITipoDocumentoService getTipodocumentoservice() {

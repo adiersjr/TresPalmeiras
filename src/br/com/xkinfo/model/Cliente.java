@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class Cliente {
 	private int id;
-	private Municipio municipio;
+	private MunicipioIbge municipioIbge;
 	private Estado estado;
 	private Pais pais;
 	private TipoDocumento tipoDocumento;
@@ -44,11 +44,11 @@ public class Cliente {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Municipio getMunicipio() {
-		return municipio;
+	public MunicipioIbge getMunicipioIbge() {
+		return municipioIbge;
 	}
-	public void setMunicipio(Municipio municipio) {
-		this.municipio = municipio;
+	public void setMunicipioIbge(MunicipioIbge municipioIbge) {
+		this.municipioIbge = municipioIbge;
 	}
 	public Estado getEstado() {
 		return estado;

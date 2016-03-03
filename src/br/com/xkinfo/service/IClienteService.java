@@ -5,13 +5,13 @@ import java.util.Calendar;
 
 import br.com.xkinfo.model.Cliente;
 import br.com.xkinfo.model.Estado;
-import br.com.xkinfo.model.Municipio;
+import br.com.xkinfo.model.MunicipioIbge;
 import br.com.xkinfo.model.Pais;
 import br.com.xkinfo.model.TipoDocumento;
 
 public interface IClienteService {
 
-	public void incluirCliente(Municipio municipio, Estado estado, Pais pais, TipoDocumento tipoDocumento, String cadastro, String nome, String cnpjCpf,
+	public void incluirCliente(MunicipioIbge municipioIbge, Estado estado, Pais pais, TipoDocumento tipoDocumento, String cadastro, String nome, String cnpjCpf,
 			String documento, String orgaoExpedidor, Estado ufExpedidor, String tituloEleitor, Calendar dataNascimento, String fone, Integer ramal,
 			String foneComercial, Integer ramalComercial, String foneCelular, String email, String senha, char sexo, String nomePai, String nomeMae, 
 			String contato, String nis, Calendar dataEmissaoNis, boolean aprovacaoNis, Calendar dataProcessamento, boolean pessoaJuridica, 

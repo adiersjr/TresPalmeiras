@@ -1,9 +1,8 @@
 package br.com.xkinfo.teste;
 
 import java.util.Calendar;
-
 import br.com.xkinfo.model.Estado;
-import br.com.xkinfo.model.Municipio;
+import br.com.xkinfo.model.MunicipioIbge;
 import br.com.xkinfo.model.Pais;
 import br.com.xkinfo.model.TipoDocumento;
 import br.com.xkinfo.service.ServiceFactory;
@@ -12,13 +11,13 @@ public class TesteCliente {
 
 	public static void main(String[] args) {
 
-		Municipio municipio = null;
+		MunicipioIbge municipio = null;
 		Estado estado = null ;
 		Pais pais = null;
 		TipoDocumento tipoDocumento = null;
 		Estado ufExpedidor = null;
 		try {
-			municipio = ServiceFactory.getMunicpioservice().pesquisaMunicipio(2);
+			municipio = ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(2);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -28,12 +27,12 @@ public class TesteCliente {
 			e1.printStackTrace();
 		}
 		try {
-			pais = ServiceFactory.getPaisservice().pesquisaPais(1);
+			pais = ServiceFactory.getPaisservice().pesquisaPais(2);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		try {
-			tipoDocumento = ServiceFactory.getTipodocumentoservice().pesquisaTipoDocumento(1);
+			tipoDocumento = ServiceFactory.getTipodocumentoservice().pesquisaTipoDocumento(2);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

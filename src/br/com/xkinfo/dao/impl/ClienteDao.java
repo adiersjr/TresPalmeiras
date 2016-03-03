@@ -33,7 +33,7 @@ public class ClienteDao implements IClienteDao {
 				+ " CLI_RAMALCOMERCIAL, CLI_FONECELULAR, CLI_EMAIL, CLI_SENHA, CLI_SEXO, CLI_NOMEPAI, CLI_NOMEMAE, CLI_CONTATO, CLI_NIS, "
 				+ " CLI_DTAEMISSAONIS, CLI_APROVACAONIS, CLI_DTAPROCESSAMENTO, CLI_PESSOAJURIDICA, CLI_DATACAD, CLI_DATAAUTODECL, CLI_DATAPROC, "
 				+ " CLI_USUARIO, CLI_DATA_ENVIO_SCS, CLI_TIPO_CLIENTE) "
-				+ "VALUES ("+cliente.getMunicipio().getId()+", "+cliente.getEstado().getSigla()+", "+cliente.getPais().getId()+", "
+				+ "VALUES ("+cliente.getMunicipioIbge().getId()+", "+cliente.getEstado().getSigla()+", "+cliente.getPais().getId()+", "
 				+ "  "+cliente.getTipoDocumento().getId()+", '"+cliente.getCadastro()+"', '"+cliente.getNome()+"', '"+cliente.getCnpjCpf()+"', "
 				+ " '"+cliente.getDocumento()+"', '"+cliente.getOrgaoExpedidor()+"', "+cliente.getUfExpedidor().getSigla()+", "
 				+ " '"+cliente.getTituloEleitor()+"', "+dataNascimento+", '"+cliente.getFone()+"', "+cliente.getRamal()+", "

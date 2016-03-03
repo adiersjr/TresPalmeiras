@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import br.com.xkinfo.model.Estado;
 import br.com.xkinfo.model.Municipio;
 
-public interface IMunicpioService {
+public interface IMunicipioService {
 	
 	public void incluirMunicipio(Estado estado, String nome, String cep, String codIbge, String prodist) throws Exception;
 

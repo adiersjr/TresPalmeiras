@@ -2,6 +2,8 @@ package br.com.xkinfo.service.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import br.com.xkinfo.service.IApoioService;
 
@@ -24,7 +26,7 @@ public class ApoioService implements IApoioService{
 
 	@Override
 	public Integer converteBoolean(boolean campo) throws Exception {
-		Integer ret = null;;
+		Integer ret = null;
 		if (campo == true){
 			ret = 1;
 		}
@@ -32,6 +34,14 @@ public class ApoioService implements IApoioService{
 			ret = 0;
 		}
 		return ret;
+	}
+	
+	@Override
+	public Calendar converteCalendar(Date data) throws Exception{
+		Calendar cal = new GregorianCalendar();;
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
+		cal.setTime(sd.parse(data.toString()));
+		return cal;
 	}
 
 }

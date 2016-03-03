@@ -119,7 +119,7 @@ public class ClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public ResultSet pesquisaCnpjCpj(int id) throws Exception {
+	public ResultSet pesquisaCliente(int id) throws Exception {
 		ResultSet rs = null;
 		String query = "SELECT * FROM CLIENTESWHERE CLI_NUMERO = " + id + " ";
 		try {

@@ -7,10 +7,10 @@ import br.com.xkinfo.model.MunicipioIbge;
 public interface IMunicipioIbgeService {
 
 	public void incluirMunicipio(String situacao, String nome, String observacao, char amazonia, char fronteira, char capital, Estado estado, 
-			String anoInstalacao, String anoExtincao, String sucessor, Float latitude, Float longitude, Float altitude, Float area) throws Exception;
+			String anoInstalacao, String anoExtincao, String sucessor, Double latitude, Double longitude, Double altitude, Double area) throws Exception;
 
 	public void alterarMunicipio(int id, String situacao, String nome, String observacao, char amazonia, char fronteira, char capital, Estado estado, 
-			String anoInstalacao, String anoExtincao, String sucessor, Float latitude, Float longitude, Float altitude, Float area) throws Exception;
+			String anoInstalacao, String anoExtincao, String sucessor, Double latitude, Double longitude, Double altitude, Double area) throws Exception;
 
 	public void excluirMunicipio(int id) throws Exception;
 

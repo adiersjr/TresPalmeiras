@@ -13,5 +13,7 @@ public interface IMunicipioIbgeDao {
 	public int excluirMunicipioIbge(MunicipioIbge municipio) throws Exception;
 
 	public ResultSet pesquisaMunicipiosIbge() throws Exception;
+	
+	public ResultSet pesquisaMunicipioIbge(int id) throws Exception;
 
 }

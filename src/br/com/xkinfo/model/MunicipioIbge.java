@@ -13,10 +13,10 @@ public class MunicipioIbge {
 	private String anoInstalacao;
 	private String anoExtincao;
 	private String sucessor;
-	private Float latitude;
-	private Float longitude;
-	private Float altitude;
-	private Float area;
+	private Double latitude;
+	private Double longitude;
+	private Double altitude;
+	private Double area;
 	
 	public int getId() {
 		return id;
@@ -84,28 +84,28 @@ public class MunicipioIbge {
 	public void setSucessor(String sucessor) {
 		this.sucessor = sucessor;
 	}
-	public Float getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Float latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	public Float getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Float longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public Float getAltitude() {
+	public Double getAltitude() {
 		return altitude;
 	}
-	public void setAltitude(Float altitude) {
+	public void setAltitude(Double altitude) {
 		this.altitude = altitude;
 	}
-	public Float getArea() {
+	public Double getArea() {
 		return area;
 	}
-	public void setArea(Float area) {
+	public void setArea(Double area) {
 		this.area = area;
 	}
 }

@@ -1,8 +1,13 @@
+<<<<<<< HEAD:src/br/com/xkinfo/model/Empresa.java
 <<<<<<< Updated upstream
 package br.com.xkinfo.model;
+=======
+package br.com.xkinfo.config.model;
+>>>>>>> origin/master:src/br/com/xkinfo/config/model/Empresa.java
 
 import java.util.Calendar;
 
+import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;
 import br.com.xkinfo.pessoa.model.Municipio;
 

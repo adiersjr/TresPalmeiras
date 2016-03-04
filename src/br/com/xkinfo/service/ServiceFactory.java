@@ -1,21 +1,9 @@
 package br.com.xkinfo.service;
 
-import br.com.xkinfo.pessoa.service.ICargoService;
-import br.com.xkinfo.pessoa.service.IClienteService;
-import br.com.xkinfo.pessoa.service.IEstadoService;
-import br.com.xkinfo.pessoa.service.IFuncionarioService;
-import br.com.xkinfo.pessoa.service.IMunicipioIbgeService;
-import br.com.xkinfo.pessoa.service.IMunicipioService;
-import br.com.xkinfo.pessoa.service.IPaisService;
-import br.com.xkinfo.pessoa.service.ITipoDocumentoService;
-import br.com.xkinfo.pessoa.service.impl.CargoService;
-import br.com.xkinfo.pessoa.service.impl.ClienteService;
-import br.com.xkinfo.pessoa.service.impl.EstadoService;
-import br.com.xkinfo.pessoa.service.impl.FuncionarioService;
-import br.com.xkinfo.pessoa.service.impl.MunicipioIbgeService;
-import br.com.xkinfo.pessoa.service.impl.MunicipioService;
-import br.com.xkinfo.pessoa.service.impl.PaisService;
-import br.com.xkinfo.pessoa.service.impl.TipoDocumentoService;
+import br.com.xkinfo.arrecadacao.service.*;
+import br.com.xkinfo.arrecadacao.service.impl.*;
+import br.com.xkinfo.pessoa.service.*;
+import br.com.xkinfo.pessoa.service.impl.*;
 import br.com.xkinfo.service.impl.ApoioService;
 
 public class ServiceFactory {
@@ -29,6 +17,7 @@ public class ServiceFactory {
 	private static final IApoioService apoioService = new ApoioService();
 	private static final IClienteService clienteService = new ClienteService();
 	private static final IMunicipioIbgeService municipioIbgeService = new MunicipioIbgeService();
+	private static final IBancoService bancoService = new BancoService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -56,5 +45,8 @@ public class ServiceFactory {
 	}
 	public static IMunicipioIbgeService getMunicipioibgeservice() {
 		return municipioIbgeService;
+	}
+	public static IBancoService getBancoservice() {
+		return bancoService;
 	}
 }

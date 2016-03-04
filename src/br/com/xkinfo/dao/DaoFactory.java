@@ -1,21 +1,9 @@
 package br.com.xkinfo.dao;
 
-import br.com.xkinfo.pessoa.dao.ICargoDao;
-import br.com.xkinfo.pessoa.dao.IClienteDao;
-import br.com.xkinfo.pessoa.dao.IEstadoDao;
-import br.com.xkinfo.pessoa.dao.IFuncionarioDao;
-import br.com.xkinfo.pessoa.dao.IMunicipioDao;
-import br.com.xkinfo.pessoa.dao.IMunicipioIbgeDao;
-import br.com.xkinfo.pessoa.dao.IPaisDao;
-import br.com.xkinfo.pessoa.dao.ITipoDocumentoDao;
-import br.com.xkinfo.pessoa.dao.impl.CargoDao;
-import br.com.xkinfo.pessoa.dao.impl.ClienteDao;
-import br.com.xkinfo.pessoa.dao.impl.EstadoDao;
-import br.com.xkinfo.pessoa.dao.impl.FuncionarioDao;
-import br.com.xkinfo.pessoa.dao.impl.MunicipioDao;
-import br.com.xkinfo.pessoa.dao.impl.MunicipioIbgeDao;
-import br.com.xkinfo.pessoa.dao.impl.PaisDao;
-import br.com.xkinfo.pessoa.dao.impl.TipoDocumentoDao;
+import br.com.xkinfo.arrecadacao.dao.impl.*;
+import br.com.xkinfo.arrecadacao.dao.*;
+import br.com.xkinfo.pessoa.dao.*;
+import br.com.xkinfo.pessoa.dao.impl.*;
 
 public class DaoFactory {
 	
@@ -27,6 +15,7 @@ public class DaoFactory {
 	private static final ITipoDocumentoDao tipoDocumentoDao = new TipoDocumentoDao();
 	private static final IClienteDao clienteDao = new ClienteDao();
 	private static final IMunicipioIbgeDao municipioIbgeDao = new MunicipioIbgeDao();
+	private static final IBancoDao bancoDao = new BancoDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -51,5 +40,8 @@ public class DaoFactory {
 	}
 	public static IMunicipioIbgeDao getMunicipioibgedao() {
 		return municipioIbgeDao;
+	}
+	public static IBancoDao getBancodao() {
+		return bancoDao;
 	}
 }

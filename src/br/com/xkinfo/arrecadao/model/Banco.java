@@ -3,7 +3,7 @@ package br.com.xkinfo.arrecadao.model;
 public class Banco {
 
 	private int id;
-	private int numero;
+	private String numero;
 	private String telefone;
 	private String nome;
 	private String inicial;
@@ -23,10 +23,10 @@ public class Banco {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 	public String getTelefone() {
@@ -41,10 +41,10 @@ public class Banco {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getIniciais() {
+	public String getInicial() {
 		return inicial;
 	}
-	public void setIniciais(String inicial) {
+	public void setInicial(String inicial) {
 		this.inicial = inicial;
 	}
 	public String getConvenio() {
@@ -71,10 +71,10 @@ public class Banco {
 	public void setConvenioG(String convenioG) {
 		this.convenioG = convenioG;
 	}
-	public Double getTarigaG() {
+	public Double getTarifaG() {
 		return tarifaG;
 	}
-	public void setTarigaG(Double tarifaG) {
+	public void setTarifaG(Double tarifaG) {
 		this.tarifaG = tarifaG;
 	}
 	public int getNsr() {

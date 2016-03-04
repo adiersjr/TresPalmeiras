@@ -1,5 +1,6 @@
-package br.com.xkinfo.model;
+package br.com.xkinfo.arrecadao.model;
 
+import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;
 import br.com.xkinfo.pessoa.model.Municipio;
 

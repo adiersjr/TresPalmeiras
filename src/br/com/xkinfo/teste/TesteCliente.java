@@ -1,23 +1,23 @@
 package br.com.xkinfo.teste;
 
-import java.util.Calendar;
+/*import java.util.Calendar;
 import br.com.xkinfo.model.Estado;
 import br.com.xkinfo.model.MunicipioIbge;
 import br.com.xkinfo.model.Pais;
-import br.com.xkinfo.model.TipoDocumento;
+import br.com.xkinfo.model.TipoDocumento;*/
 import br.com.xkinfo.service.ServiceFactory;
 
 public class TesteCliente {
 
 	public static void main(String[] args) {
 
-		MunicipioIbge municipio = null;
+		/*MunicipioIbge municipioIbge = null;
 		Estado estado = null ;
 		Pais pais = null;
 		TipoDocumento tipoDocumento = null;
 		Estado ufExpedidor = null;
 		try {
-			municipio = ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(2);
+			municipioIbge = ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(2);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -55,7 +55,7 @@ public class TesteCliente {
 		String foneCelular = "";
 		String email = "";
 		String senha = "";
-		char sexo = 'M';
+		char sexo = 'F';
 		String nomePai = "";
 		String nomeMae = "";
 		String contato = "";
@@ -69,10 +69,11 @@ public class TesteCliente {
 		Calendar dataProc = Calendar.getInstance();;
 		String usuario = "";
 		Calendar dataEnvioScs = Calendar.getInstance();;
-		String tipoCliente = "";
+		String tipoCliente = "";*/
+		int id = 11;
 
 		try {
-			ServiceFactory.getClienteservice().incluirCliente(municipio, estado, pais, tipoDocumento, cadastro, nome, cnpjCpf, documento, orgaoExpedidor, ufExpedidor, tituloEleitor, dataNascimento, fone, ramal, foneComercial, ramalComercial, foneCelular, email, senha, sexo, nomePai, nomeMae, contato, nis, dataEmissaoNis, aprovacaoNis, dataProcessamento, pessoaJuridica, dataCadastro, dataAutoDeclaracao, dataProc, usuario, dataEnvioScs, tipoCliente);
+			ServiceFactory.getClienteservice().excluirCliente(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

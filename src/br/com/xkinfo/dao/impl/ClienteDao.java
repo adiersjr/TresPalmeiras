@@ -36,12 +36,12 @@ public class ClienteDao implements IClienteDao {
 				+ "VALUES ("+cliente.getMunicipioIbge().getId()+", "+cliente.getEstado().getSigla()+", "+cliente.getPais().getId()+", "
 				+ "  "+cliente.getTipoDocumento().getId()+", '"+cliente.getCadastro()+"', '"+cliente.getNome()+"', '"+cliente.getCnpjCpf()+"', "
 				+ " '"+cliente.getDocumento()+"', '"+cliente.getOrgaoExpedidor()+"', "+cliente.getUfExpedidor().getSigla()+", "
-				+ " '"+cliente.getTituloEleitor()+"', "+dataNascimento+", '"+cliente.getFone()+"', "+cliente.getRamal()+", "
+				+ " '"+cliente.getTituloEleitor()+"', '"+dataNascimento+"', '"+cliente.getFone()+"', "+cliente.getRamal()+", "
 				+ " '"+cliente.getFoneComercial()+"', "+cliente.getRamalComercial()+", '"+cliente.getFoneCelular()+"', '"+cliente.getEmail()+"', "
 				+ " '"+cliente.getSenha()+"', '"+cliente.getSexo()+"', '"+cliente.getNomePai()+"', '"+cliente.getNomeMae()+"', "
-				+ " '"+cliente.getContato()+"', '"+cliente.getNis()+"', "+dataEmissaoNis+", "+aprovacaoNis+", "
-				+ "  "+dataProcessamento+", "+pessoaJuridica+", "+dataCadastro+", "+dataAutoDeclaracao+", "
-				+ "  "+dataProc+", '"+cliente.getUsuario()+"', '"+envioScs+"','"+cliente.getTipoCliente()+"') ";
+				+ " '"+cliente.getContato()+"', '"+cliente.getNis()+"', '"+dataEmissaoNis+"', "+aprovacaoNis+", "
+				+ " '"+dataProcessamento+"', "+pessoaJuridica+", '"+dataCadastro+"', '"+dataAutoDeclaracao+"', "
+				+ " '"+dataProc+"', '"+cliente.getUsuario()+"', '"+envioScs+"','"+cliente.getTipoCliente()+"') ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -77,7 +77,7 @@ public class ClienteDao implements IClienteDao {
 				+ " CLI_SEXO = '"+cliente.getSexo()+"', CLI_NOMEPAI = '"+cliente.getNomePai()+"', CLI_NOMEMAE = '"+cliente.getNomeMae()+"', "
 				+ " CLI_CONTATO = '"+cliente.getContato()+"', CLI_NIS = '"+cliente.getNis()+"', CLI_DTAEMISSAONIS = "+dataEmissaoNis+", "
 				+ " CLI_APROVACAONIS = "+aprovacaoNis+", CLI_DTAPROCESSAMENTO = "+dataProcessamento+", CLI_PESSOAJURIDICA = "+pessoaJuridica+", "
-				+ " CLI_DATACAD = "+dataCadastro+", CLI_DATAAUTODECL = "+dataAutoDeclaracao+", CLI_DATAPROC = "+dataProc+", CLI_USUARIO = '"+cliente.getUsuario()+"' "
+				+ " CLI_DATACAD = "+dataCadastro+", CLI_DATAAUTODECL = "+dataAutoDeclaracao+", CLI_DATAPROC = "+dataProc+", CLI_USUARIO = '"+cliente.getUsuario()+"', "
 				+ " CLI_DATA_ENVIO_SCS = '"+envioScs+"', CLI_TIPO_CLIENTE = '"+cliente.getTipoCliente()+"' WHERE CLI_NUMERO = " + cliente.getId() + " ";
 		try {
 			st = conexao.connect().createStatement();
@@ -92,7 +92,7 @@ public class ClienteDao implements IClienteDao {
 	@Override
 	public int excluirCliente(Cliente cliente) throws Exception {
 		int result = -1;
-		String query = "DELETE FROM CLIENTES WHERE CLI_NUMERO = " + cliente.getId() + " ";
+		String query = "DELETE FROM CLIENTES WHERE CLI_NUMERO = "+cliente.getId()+" ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -121,7 +121,7 @@ public class ClienteDao implements IClienteDao {
 	@Override
 	public ResultSet pesquisaCliente(int id) throws Exception {
 		ResultSet rs = null;
-		String query = "SELECT * FROM CLIENTESWHERE CLI_NUMERO = " + id + " ";
+		String query = "SELECT * FROM CLIENTES WHERE CLI_NUMERO = " + id + " ";
 		try {
 			st = conexao.connect().createStatement();
 			rs = st.executeQuery(query);

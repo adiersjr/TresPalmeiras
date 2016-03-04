@@ -133,7 +133,7 @@ public class ClienteService implements IClienteService{
 		while(rs.next()) {
 			cliente = new Cliente();
 			cliente.setId(rs.getInt("CLI_NUMERO"));
-			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getInt("MUI_NUMERO")));
+			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getInt("MUI_CODIGO")));
 			cliente.setEstado(ServiceFactory.getEstadoservice().pesquisaEstado(rs.getInt("EST_SIGLA")));
 			cliente.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			cliente.setTipoDocumento(ServiceFactory.getTipodocumentoservice().pesquisaTipoDocumento(rs.getInt("TPD_NUMERO")));
@@ -161,9 +161,9 @@ public class ClienteService implements IClienteService{
 			cliente.setAprovacaoNis(rs.getBoolean("CLI_APROVACAONIS"));
 			cliente.setDataProcessamento(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTAPROCESSAMENTO")));
 			cliente.setPessoaJuridica(rs.getBoolean("CLI_PESSOAJURIDICA"));
-			cliente.setDataCadastro(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTACAD")));
-			cliente.setDataAutoDeclaracao(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTAAUTODECL")));
-			cliente.setDataProc(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTAPROC")));
+			cliente.setDataCadastro(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATACAD")));
+			cliente.setDataAutoDeclaracao(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATAAUTODECL")));
+			cliente.setDataProc(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATAPROC")));
 			cliente.setUsuario(rs.getString("CLI_USUARIO"));
 			cliente.setDataEnvioScs(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATA_ENVIO_SCS")));
 			cliente.setTipoCliente(rs.getString("CLI_TIPO_CLIENTE"));
@@ -178,7 +178,7 @@ public class ClienteService implements IClienteService{
 		cliente = new Cliente();
 		while(rs.next()) {
 			cliente.setId(rs.getInt("CLI_NUMERO"));
-			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getInt("MUI_NUMERO")));
+			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getInt("MUI_CODIGO")));
 			cliente.setEstado(ServiceFactory.getEstadoservice().pesquisaEstado(rs.getInt("EST_SIGLA")));
 			cliente.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			cliente.setTipoDocumento(ServiceFactory.getTipodocumentoservice().pesquisaTipoDocumento(rs.getInt("TPD_NUMERO")));
@@ -206,9 +206,9 @@ public class ClienteService implements IClienteService{
 			cliente.setAprovacaoNis(rs.getBoolean("CLI_APROVACAONIS"));
 			cliente.setDataProcessamento(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTAPROCESSAMENTO")));
 			cliente.setPessoaJuridica(rs.getBoolean("CLI_PESSOAJURIDICA"));
-			cliente.setDataCadastro(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTACAD")));
-			cliente.setDataAutoDeclaracao(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTAAUTODECL")));
-			cliente.setDataProc(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DTAPROC")));
+			cliente.setDataCadastro(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATACAD")));
+			cliente.setDataAutoDeclaracao(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATAAUTODECL")));
+			cliente.setDataProc(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATAPROC")));
 			cliente.setUsuario(rs.getString("CLI_USUARIO"));
 			cliente.setDataEnvioScs(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CLI_DATA_ENVIO_SCS")));
 			cliente.setTipoCliente(rs.getString("CLI_TIPO_CLIENTE"));

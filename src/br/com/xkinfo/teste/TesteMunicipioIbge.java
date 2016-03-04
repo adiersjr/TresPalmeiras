@@ -1,10 +1,10 @@
 package br.com.xkinfo.teste;
-
+/*
 import java.util.ArrayList;
 import br.com.xkinfo.model.Estado;
 import br.com.xkinfo.model.MunicipioIbge;
 import br.com.xkinfo.service.ServiceFactory;
-
+*/
 public class TesteMunicipioIbge {
 
 	public static void main(String[] args) {

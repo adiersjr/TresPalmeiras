@@ -2,6 +2,11 @@ package br.com.xkinfo.model;
 
 import java.util.Calendar;
 
+import br.com.xkinfo.pessoa.model.Cliente;
+import br.com.xkinfo.pessoa.model.Estado;
+import br.com.xkinfo.pessoa.model.Municipio;
+import br.com.xkinfo.pessoa.model.Pais;
+
 public class Cadastro {
 
 	private int id;

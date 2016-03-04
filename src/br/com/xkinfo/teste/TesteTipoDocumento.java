@@ -1,7 +1,6 @@
 package br.com.xkinfo.teste;
 
-//import java.util.ArrayList;
-import br.com.xkinfo.model.TipoDocumento;
+import br.com.xkinfo.pessoa.model.TipoDocumento;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class TesteTipoDocumento {

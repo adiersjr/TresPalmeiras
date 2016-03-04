@@ -1,5 +1,8 @@
 package br.com.xkinfo.model;
 
+import br.com.xkinfo.pessoa.model.Estado;
+import br.com.xkinfo.pessoa.model.Municipio;
+
 public class Agencia {
 
 	private int id;

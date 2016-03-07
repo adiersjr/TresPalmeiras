@@ -3,7 +3,6 @@ package br.com.xkinfo.arrecadacao.service;
 import java.util.ArrayList;
 import br.com.xkinfo.arrecadacao.model.Agencia;
 import br.com.xkinfo.arrecadacao.model.Banco;
-import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;
 
 public interface IAgenciaService {

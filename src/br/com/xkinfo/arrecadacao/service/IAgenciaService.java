@@ -1,5 +1,22 @@
 package br.com.xkinfo.arrecadacao.service;
 
-public interface IAgenciaService {
+import java.util.ArrayList;
+import br.com.xkinfo.arrecadacao.model.Agencia;
+import br.com.xkinfo.arrecadacao.model.Banco;
+import br.com.xkinfo.model.Bairro;
+import br.com.xkinfo.pessoa.model.Estado;
 
+public interface IAgenciaService {
+	
+	public int incluirAgencia(String chave, Banco banco, int numero, String nome, String convenioF, String convenioG, int nsr, String digito, 
+			String endereco, String complemento, Bairro bairro, String cep, String municipio, Estado estado, String ddd, String telefone) throws Exception;
+	
+	public int alterarAgencia(int id, String chave, Banco banco, int numero, String nome, String convenioF, String convenioG, int nsr, String digito, 
+			String endereco, String complemento, Bairro bairro, String cep, String municipio, Estado estado, String ddd, String telefone) throws Exception;
+	
+	public int excluirAgencia(int id) throws Exception;
+
+	public ArrayList<Agencia> pesquisaAgencias() throws Exception;
+
+	public Agencia pesquisaAgencia(int id) throws Exception;
 }

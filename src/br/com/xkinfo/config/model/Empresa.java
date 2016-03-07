@@ -1,12 +1,6 @@
-<<<<<<< HEAD:src/br/com/xkinfo/model/Empresa.java
-<<<<<<< Updated upstream
-package br.com.xkinfo.model;
-=======
 package br.com.xkinfo.config.model;
->>>>>>> origin/master:src/br/com/xkinfo/config/model/Empresa.java
 
 import java.util.Calendar;
-
 import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;
 import br.com.xkinfo.pessoa.model.Municipio;
@@ -162,32 +156,3 @@ public class Empresa {
 		this.logo = logo;
 	}
 }	
-=======
-package br.com.xkinfo.model;
-
-import java.util.Calendar;
-
-public class Empresa {
-
-	private int id;
-	private String razaoSocial;
-	private String nomeFantasia;
-	private Calendar dataImplantacao;
-	private String inscricaoEstadual;
-	private String cnpj;
-	private String numeroJuntaComercial;
-	private Calendar dataJuntaComercial;
-	private String telefone;
-	private String rua;
-	private String numeroImovel;
-	private String bairro;
-	private Estado estado;
-	private String municipio;
-	private String responsavel;
-	private String cargoResponsavel;
-	private String cpfResponsavel;
-	private String contador;
-	private String cpfContador;
-	private String logo;  // no banco grava blob
-}	
->>>>>>> Stashed changes

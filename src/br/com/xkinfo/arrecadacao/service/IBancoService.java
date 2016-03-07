@@ -17,4 +17,6 @@ public interface IBancoService {
 	public ArrayList<Banco> pesquisaBancos() throws Exception;
 
 	public Banco pesquisaBanco(int id) throws Exception;
+	
+	public Banco pesquisaBanco(String numero) throws Exception;
 }

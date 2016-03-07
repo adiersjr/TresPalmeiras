@@ -1,7 +1,6 @@
 package br.com.xkinfo.arrecadacao.dao;
 
 import java.sql.ResultSet;
-
 import br.com.xkinfo.arrecadacao.model.Banco;
 
 public interface IBancoDao {
@@ -15,4 +14,6 @@ public interface IBancoDao {
 	public ResultSet pesquisaBancos() throws Exception;
 
 	public ResultSet pesquisaBanco(int id) throws Exception;
+	
+	public ResultSet pesquisaBanco(String numero) throws Exception;
 }

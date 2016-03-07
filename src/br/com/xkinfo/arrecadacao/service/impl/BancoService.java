@@ -89,7 +89,31 @@ public class BancoService implements IBancoService {
 
 	@Override
 	public Banco pesquisaBanco(int id) throws Exception {
-		ResultSet rs = DaoFactory.getBancodao().pesquisaBancos();
+		ResultSet rs = DaoFactory.getBancodao().pesquisaBanco(id);
+		while(rs.next()){
+			banco = new Banco();
+			banco.setId(rs.getInt("BAN_CODIGO"));
+			banco.setNumero(rs.getString("BAN_NUMERO"));
+			banco.setTelefone(rs.getString("BAN_FONE"));
+			banco.setNome(rs.getString("BAN_NOME"));
+			banco.setInicial(rs.getString("BAN_INICIAIS"));
+			banco.setConvenio(rs.getString("BAN_CONVENIO"));
+			banco.setTarifaF(rs.getDouble("BAN_TARIFA_F"));
+			banco.setCcCredito(rs.getString("BAN_CCCREDITO"));
+			banco.setConvenioG(rs.getString("BAN_CONVENIOG"));
+			banco.setTarifaG(rs.getDouble("BAN_TARIFA_G"));
+			banco.setNsr(rs.getInt("BAN_NSR"));
+			banco.setDiasG(rs.getInt("BAN_DIASG"));
+			banco.setDiasF(rs.getInt("BAN_DIASF"));
+			banco.setDebito(rs.getBoolean("BAN_DEBITO"));
+		}
+		return banco;
+	}
+
+
+	@Override
+	public Banco pesquisaBanco(String numero) throws Exception {
+		ResultSet rs = DaoFactory.getBancodao().pesquisaBanco(numero);
 		while(rs.next()){
 			banco = new Banco();
 			banco.setId(rs.getInt("BAN_CODIGO"));

@@ -1,7 +1,8 @@
 package br.com.xkinfo.arrecadacao.service;
 
 import java.util.ArrayList;
-import br.com.xkinfo.arrecadao.model.Banco;
+
+import br.com.xkinfo.arrecadacao.model.Banco;
 
 public interface IBancoService {
 

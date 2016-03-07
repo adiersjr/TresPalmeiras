@@ -1,4 +1,4 @@
-package br.com.xkinfo.arrecadao.model;
+package br.com.xkinfo.arrecadacao.model;
 
 public class Retorno {
 

@@ -2,8 +2,9 @@ package br.com.xkinfo.arrecadacao.service.impl;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import br.com.xkinfo.arrecadacao.model.Banco;
 import br.com.xkinfo.arrecadacao.service.IBancoService;
-import br.com.xkinfo.arrecadao.model.Banco;
 import br.com.xkinfo.dao.DaoFactory;
 
 public class BancoService implements IBancoService {

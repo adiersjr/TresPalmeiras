@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import br.com.xkinfo.arrecadacao.dao.IBancoDao;
-import br.com.xkinfo.arrecadao.model.Banco;
+import br.com.xkinfo.arrecadacao.model.Banco;
 import br.com.xkinfo.service.ServiceFactory;
 import br.com.xkinfo.util.Conexao;
 

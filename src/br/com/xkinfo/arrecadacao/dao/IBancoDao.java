@@ -1,7 +1,8 @@
 package br.com.xkinfo.arrecadacao.dao;
 
 import java.sql.ResultSet;
-import br.com.xkinfo.arrecadao.model.Banco;
+
+import br.com.xkinfo.arrecadacao.model.Banco;
 
 public interface IBancoDao {
 

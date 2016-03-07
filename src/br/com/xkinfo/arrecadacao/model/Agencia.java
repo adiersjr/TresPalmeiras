@@ -1,4 +1,4 @@
-package br.com.xkinfo.arrecadao.model;
+package br.com.xkinfo.arrecadacao.model;
 
 import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;

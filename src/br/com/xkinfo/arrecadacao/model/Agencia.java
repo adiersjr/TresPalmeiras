@@ -2,7 +2,6 @@ package br.com.xkinfo.arrecadacao.model;
 
 import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.Municipio;
 
 public class Agencia {
 
@@ -113,5 +112,17 @@ public class Agencia {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public String getChave() {
+		return chave;
+	}
+	public void setChave(String chave) {
+		this.chave = chave;
+	}
+	public String getMunicipio() {
+		return municipio;
+	}
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
 	}
 }

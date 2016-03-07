@@ -7,6 +7,7 @@ import br.com.xkinfo.pessoa.model.Municipio;
 public class Agencia {
 
 	private int id;
+	private String chave;
 	private Banco banco;
 	private int numero;
 	private String nome;
@@ -18,7 +19,7 @@ public class Agencia {
 	private String complemento;
 	private Bairro bairro;
 	private String cep;
-	private Municipio municipio;
+	private String municipio;
 	private Estado estado;
 	private String ddd;
 	private String telefone;
@@ -94,12 +95,6 @@ public class Agencia {
 	}
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-	public Municipio getMunicipio() {
-		return municipio;
-	}
-	public void setMunicipio(Municipio municipio) {
-		this.municipio = municipio;
 	}
 	public Estado getEstado() {
 		return estado;

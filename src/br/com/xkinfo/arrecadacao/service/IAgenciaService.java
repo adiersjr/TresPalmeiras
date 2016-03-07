@@ -8,11 +8,11 @@ import br.com.xkinfo.pessoa.model.Estado;
 
 public interface IAgenciaService {
 	
-	public int incluirAgencia(String chave, Banco banco, int numero, String nome, String convenioF, String convenioG, int nsr, String digito, 
-			String endereco, String complemento, Bairro bairro, String cep, String municipio, Estado estado, String ddd, String telefone) throws Exception;
+	public int incluirAgencia(String chave, Banco banco, String numero, String nome, String convenioF, String convenioG, int nsr, char digito, 
+			String endereco, String complemento, String bairro, String cep, String municipio, Estado estado, String ddd, String telefone) throws Exception;
 	
-	public int alterarAgencia(int id, String chave, Banco banco, int numero, String nome, String convenioF, String convenioG, int nsr, String digito, 
-			String endereco, String complemento, Bairro bairro, String cep, String municipio, Estado estado, String ddd, String telefone) throws Exception;
+	public int alterarAgencia(int id, String chave, Banco banco, String numero, String nome, String convenioF, String convenioG, int nsr, char digito, 
+			String endereco, String complemento, String bairro, String cep, String municipio, Estado estado, String ddd, String telefone) throws Exception;
 	
 	public int excluirAgencia(int id) throws Exception;
 

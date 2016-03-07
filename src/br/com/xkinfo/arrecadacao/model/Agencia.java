@@ -1,6 +1,5 @@
 package br.com.xkinfo.arrecadacao.model;
 
-import br.com.xkinfo.model.Bairro;
 import br.com.xkinfo.pessoa.model.Estado;
 
 public class Agencia {
@@ -8,15 +7,15 @@ public class Agencia {
 	private int id;
 	private String chave;
 	private Banco banco;
-	private int numero;
+	private String numero;
 	private String nome;
 	private String convenioF;
 	private String convenioG;
 	private int nsr;
-	private String digito;
+	private char digito;
 	private String endereco;
 	private String complemento;
-	private Bairro bairro;
+	private String bairro;
 	private String cep;
 	private String municipio;
 	private Estado estado;
@@ -35,10 +34,10 @@ public class Agencia {
 	public void setBanco(Banco banco) {
 		this.banco = banco;
 	}
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 	public String getNome() {
@@ -65,10 +64,10 @@ public class Agencia {
 	public void setNsr(int nsr) {
 		this.nsr = nsr;
 	}
-	public String getDigito() {
+	public char getDigito() {
 		return digito;
 	}
-	public void setDigito(String digito) {
+	public void setDigito(char digito) {
 		this.digito = digito;
 	}
 	public String getEndereco() {
@@ -83,10 +82,10 @@ public class Agencia {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public Bairro getBairro() {
+	public String getBairro() {
 		return bairro;
 	}
-	public void setBairro(Bairro bairro) {
+	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 	public String getCep() {

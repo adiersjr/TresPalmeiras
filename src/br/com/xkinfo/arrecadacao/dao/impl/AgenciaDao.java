@@ -1,6 +1,6 @@
 package br.com.xkinfo.arrecadacao.dao.impl;
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
 
 import br.com.xkinfo.arrecadacao.dao.IAgenciaDao;
 import br.com.xkinfo.arrecadacao.model.Agencia;
@@ -26,13 +26,13 @@ public class AgenciaDao implements IAgenciaDao{
 	}
 
 	@Override
-	public ArrayList<Agencia> pesquisaAgencias() throws Exception {
+	public ResultSet pesquisaAgencias() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Agencia pesquisaAgencia(int id) throws Exception {
+	public ResultSet pesquisaAgencia(int id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

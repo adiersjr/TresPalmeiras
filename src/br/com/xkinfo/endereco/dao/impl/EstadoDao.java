@@ -1,12 +1,12 @@
-package br.com.xkinfo.pessoa.dao.impl;
+package br.com.xkinfo.endereco.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.xkinfo.endereco.dao.IEstadoDao;
 import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.endereco.model.Pais;
-import br.com.xkinfo.pessoa.dao.IEstadoDao;
 import br.com.xkinfo.util.Conexao;
 
 public class EstadoDao implements IEstadoDao{

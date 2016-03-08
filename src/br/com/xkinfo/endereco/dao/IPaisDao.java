@@ -1,4 +1,4 @@
-package br.com.xkinfo.pessoa.dao;
+package br.com.xkinfo.endereco.dao;
 
 import java.sql.ResultSet;
 

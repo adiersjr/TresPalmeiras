@@ -1,6 +1,14 @@
 package br.com.xkinfo.dao;
 
 import br.com.xkinfo.arrecadacao.dao.impl.*;
+import br.com.xkinfo.endereco.dao.IEstadoDao;
+import br.com.xkinfo.endereco.dao.IMunicipioDao;
+import br.com.xkinfo.endereco.dao.IMunicipioIbgeDao;
+import br.com.xkinfo.endereco.dao.IPaisDao;
+import br.com.xkinfo.endereco.dao.impl.EstadoDao;
+import br.com.xkinfo.endereco.dao.impl.MunicipioDao;
+import br.com.xkinfo.endereco.dao.impl.MunicipioIbgeDao;
+import br.com.xkinfo.endereco.dao.impl.PaisDao;
 import br.com.xkinfo.arrecadacao.dao.*;
 import br.com.xkinfo.pessoa.dao.*;
 import br.com.xkinfo.pessoa.dao.impl.*;

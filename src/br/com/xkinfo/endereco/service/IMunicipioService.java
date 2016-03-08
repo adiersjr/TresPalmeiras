@@ -1,4 +1,4 @@
-package br.com.xkinfo.pessoa.service;
+package br.com.xkinfo.endereco.service;
 
 import java.util.ArrayList;
 

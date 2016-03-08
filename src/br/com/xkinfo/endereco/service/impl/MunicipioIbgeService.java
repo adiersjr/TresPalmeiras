@@ -1,4 +1,4 @@
-package br.com.xkinfo.pessoa.service.impl;
+package br.com.xkinfo.endereco.service.impl;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.endereco.model.MunicipioIbge;
-import br.com.xkinfo.pessoa.service.IMunicipioIbgeService;
+import br.com.xkinfo.endereco.service.IMunicipioIbgeService;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class MunicipioIbgeService implements IMunicipioIbgeService{

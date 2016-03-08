@@ -17,6 +17,7 @@ public class DaoFactory {
 	private static final IMunicipioIbgeDao municipioIbgeDao = new MunicipioIbgeDao();
 	private static final IBancoDao bancoDao = new BancoDao();
 	private static final IAgenciaDao agenciaDao = new AgenciaDao();
+	private static final IRetornoDao retornoDao = new RetornoDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -47,5 +48,8 @@ public class DaoFactory {
 	}
 	public static IAgenciaDao getAgenciadao() {
 		return agenciaDao;
+	}
+	public static IRetornoDao getRetornodao() {
+		return retornoDao;
 	}
 }

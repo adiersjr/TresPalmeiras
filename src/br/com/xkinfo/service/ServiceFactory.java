@@ -2,14 +2,8 @@ package br.com.xkinfo.service;
 
 import br.com.xkinfo.arrecadacao.service.*;
 import br.com.xkinfo.arrecadacao.service.impl.*;
-import br.com.xkinfo.endereco.service.IEstadoService;
-import br.com.xkinfo.endereco.service.IMunicipioIbgeService;
-import br.com.xkinfo.endereco.service.IMunicipioService;
-import br.com.xkinfo.endereco.service.IPaisService;
-import br.com.xkinfo.endereco.service.impl.EstadoService;
-import br.com.xkinfo.endereco.service.impl.MunicipioIbgeService;
-import br.com.xkinfo.endereco.service.impl.MunicipioService;
-import br.com.xkinfo.endereco.service.impl.PaisService;
+import br.com.xkinfo.endereco.service.*;
+import br.com.xkinfo.endereco.service.impl.*;
 import br.com.xkinfo.pessoa.service.*;
 import br.com.xkinfo.pessoa.service.impl.*;
 import br.com.xkinfo.service.impl.ApoioService;

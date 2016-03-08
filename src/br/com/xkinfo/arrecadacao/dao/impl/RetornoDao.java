@@ -30,7 +30,8 @@ public class RetornoDao implements IRetornoDao{
 	@Override
 	public int alterarRetorno(Retorno retorno) throws Exception {
 		int result = -1;
-		String query = "UPDATE RETORNOS SET RET_DESCRICAO = '"+retorno.getDescricao()+"' WHERE RET_RETORNO = "+retorno.getId()+" )";
+		String query = "UPDATE RETORNOS SET RET_DESCRICAO = '"+retorno.getDescricao()+"' "
+				+ "WHERE RET_RETORNO = "+retorno.getId()+" )";
 				try {
 					st = conexao.connect().createStatement();
 					result = st.executeUpdate(query);

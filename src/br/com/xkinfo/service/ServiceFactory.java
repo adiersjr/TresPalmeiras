@@ -22,6 +22,7 @@ public class ServiceFactory {
 	private static final IBancoService bancoService = new BancoService();
 	private static final IAgenciaService agenciaService = new AgenciaService();
 	private static final IRetornoService retornoService = new RetornoService();
+	private static final IBairroService bairroService = new BairroService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -58,5 +59,8 @@ public class ServiceFactory {
 	}
 	public static IRetornoService getRetornoservice() {
 		return retornoService;
+	}
+	public static IBairroService getBairroservice() {
+		return bairroService;
 	}
 }

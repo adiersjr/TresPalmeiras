@@ -3,9 +3,9 @@ package br.com.xkinfo.pessoa.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import br.com.xkinfo.pessoa.dao.ITipoDocumentoDao;
 import br.com.xkinfo.pessoa.model.TipoDocumento;
+import br.com.xkinfo.service.ServiceFactory;
 import br.com.xkinfo.util.Conexao;
 
 public class TipoDocumentoDao implements ITipoDocumentoDao{
@@ -16,13 +16,7 @@ public class TipoDocumentoDao implements ITipoDocumentoDao{
 	@Override
 	public int incluirTipoDocumento(TipoDocumento tipoDocumento) throws Exception {
 		int result = -1;
-		Integer boolPessoal = null;
-		if (tipoDocumento.isPessoal() == true){
-			boolPessoal = 1;
-		}
-		if (tipoDocumento.isPessoal() == false) {
-			boolPessoal = 0;
-		}
+		Integer boolPessoal = ServiceFactory.getApoioservice().converteBoolean(tipoDocumento.isPessoal());
 		String query = "INSERT INTO TIPODOCUMENTO (TPD_DESCRICAO, TPD_PESSOAL) "
 				+ " VALUES ('"+tipoDocumento.getDescricao()+"', "+boolPessoal+" ) ";
 		try {
@@ -38,13 +32,7 @@ public class TipoDocumentoDao implements ITipoDocumentoDao{
 	@Override
 	public int alterarTipoDocumento(TipoDocumento tipoDocumento) throws Exception {
 		int result = -1;
-		Integer boolPessoal = null;
-		if (tipoDocumento.isPessoal() == true){
-			boolPessoal = 1;
-		}
-		if (tipoDocumento.isPessoal() == false) {
-			boolPessoal = 0;
-		}
+		Integer boolPessoal = ServiceFactory.getApoioservice().converteBoolean(tipoDocumento.isPessoal());
 		String query = "UPDATE TIPODOCUMENTO SET TPD_DESCRICAO = '"+tipoDocumento.getDescricao()+"', TPD_PESSOAL = "+boolPessoal+" "
 				+ " WHERE TPD_NUMERO = "+tipoDocumento.getId()+"  ";
 		try {

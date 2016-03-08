@@ -1,4 +1,4 @@
-package br.com.xkinfo.pessoa.model;
+package br.com.xkinfo.endereco.model;
 
 public class Municipio {
 

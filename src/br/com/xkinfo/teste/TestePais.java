@@ -2,7 +2,7 @@ package br.com.xkinfo.teste;
 
 import java.util.ArrayList;
 
-import br.com.xkinfo.pessoa.model.Pais;
+import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class TestePais {

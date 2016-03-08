@@ -2,6 +2,10 @@ package br.com.xkinfo.pessoa.model;
 
 import java.util.Calendar;
 
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.MunicipioIbge;
+import br.com.xkinfo.endereco.model.Pais;
+
 public class Cliente {
 	private int id;
 	private MunicipioIbge municipioIbge;

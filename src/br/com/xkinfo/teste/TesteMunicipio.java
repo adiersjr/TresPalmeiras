@@ -2,8 +2,8 @@ package br.com.xkinfo.teste;
 
 import java.util.ArrayList;
 
-import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.Municipio;
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.Municipio;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class TesteMunicipio {

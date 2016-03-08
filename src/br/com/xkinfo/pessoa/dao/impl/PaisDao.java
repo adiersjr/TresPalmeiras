@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.pessoa.dao.IPaisDao;
-import br.com.xkinfo.pessoa.model.Pais;
 import br.com.xkinfo.util.Conexao;
 
 public class PaisDao implements IPaisDao{

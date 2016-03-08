@@ -2,8 +2,8 @@ package br.com.xkinfo.pessoa.dao;
 
 import java.sql.ResultSet;
 
-import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.Pais;
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.Pais;
 
 public interface IEstadoDao {
 	

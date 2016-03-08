@@ -2,7 +2,7 @@ package br.com.xkinfo.pessoa.dao;
 
 import java.sql.ResultSet;
 
-import br.com.xkinfo.pessoa.model.Pais;
+import br.com.xkinfo.endereco.model.Pais;
 
 public interface IPaisDao {
 

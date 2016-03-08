@@ -6,7 +6,7 @@ import br.com.xkinfo.arrecadacao.model.Agencia;
 import br.com.xkinfo.arrecadacao.model.Banco;
 import br.com.xkinfo.arrecadacao.service.IAgenciaService;
 import br.com.xkinfo.dao.DaoFactory;
-import br.com.xkinfo.pessoa.model.Estado;
+import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class AgenciaService implements IAgenciaService{

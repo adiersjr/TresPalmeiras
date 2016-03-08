@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import br.com.xkinfo.dao.DaoFactory;
-import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.Municipio;
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.Municipio;
 import br.com.xkinfo.pessoa.service.IMunicipioService;
 import br.com.xkinfo.service.ServiceFactory;
 

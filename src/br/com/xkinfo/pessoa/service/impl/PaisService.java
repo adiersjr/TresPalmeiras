@@ -3,7 +3,7 @@ package br.com.xkinfo.pessoa.service.impl;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import br.com.xkinfo.dao.DaoFactory;
-import br.com.xkinfo.pessoa.model.Pais;
+import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.pessoa.service.IPaisService;
 
 public class PaisService implements IPaisService{

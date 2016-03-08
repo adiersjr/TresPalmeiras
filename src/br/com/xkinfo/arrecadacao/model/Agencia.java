@@ -1,6 +1,6 @@
 package br.com.xkinfo.arrecadacao.model;
 
-import br.com.xkinfo.pessoa.model.Estado;
+import br.com.xkinfo.endereco.model.Estado;
 
 public class Agencia {
 

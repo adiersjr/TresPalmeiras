@@ -2,8 +2,8 @@ package br.com.xkinfo.pessoa.service;
 
 import java.util.ArrayList;
 
-import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.MunicipioIbge;
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.MunicipioIbge;
 
 public interface IMunicipioIbgeService {
 

@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.xkinfo.endereco.model.MunicipioIbge;
 import br.com.xkinfo.pessoa.dao.IMunicipioIbgeDao;
-import br.com.xkinfo.pessoa.model.MunicipioIbge;
 import br.com.xkinfo.util.Conexao;
 
 public class MunicipioIbgeDao implements IMunicipioIbgeDao{

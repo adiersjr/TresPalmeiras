@@ -3,10 +3,10 @@ package br.com.xkinfo.pessoa.service;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.MunicipioIbge;
+import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.pessoa.model.Cliente;
-import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.MunicipioIbge;
-import br.com.xkinfo.pessoa.model.Pais;
 import br.com.xkinfo.pessoa.model.TipoDocumento;
 
 public interface IClienteService {

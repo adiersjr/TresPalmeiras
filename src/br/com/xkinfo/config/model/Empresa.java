@@ -1,9 +1,10 @@
 package br.com.xkinfo.config.model;
 
 import java.util.Calendar;
+
+import br.com.xkinfo.endereco.model.Estado;
+import br.com.xkinfo.endereco.model.Municipio;
 import br.com.xkinfo.model.Bairro;
-import br.com.xkinfo.pessoa.model.Estado;
-import br.com.xkinfo.pessoa.model.Municipio;
 
 public class Empresa {
 

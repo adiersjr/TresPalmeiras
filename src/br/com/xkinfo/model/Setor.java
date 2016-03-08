@@ -2,7 +2,7 @@ package br.com.xkinfo.model;
 
 import java.util.Calendar;
 
-import br.com.xkinfo.pessoa.model.Municipio;
+import br.com.xkinfo.endereco.model.Municipio;
 
 public class Setor {
 

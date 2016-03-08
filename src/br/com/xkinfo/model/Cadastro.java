@@ -3,9 +3,11 @@ package br.com.xkinfo.model;
 import java.util.Calendar;
 
 import br.com.xkinfo.arrecadacao.model.Agencia;
+import br.com.xkinfo.endereco.model.Bairro;
 import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.endereco.model.Municipio;
 import br.com.xkinfo.endereco.model.Pais;
+import br.com.xkinfo.endereco.model.Rua;
 import br.com.xkinfo.pessoa.model.Cliente;
 
 public class Cadastro {

@@ -1,4 +1,4 @@
-package br.com.xkinfo.model;
+package br.com.xkinfo.endereco.model;
 
 public class TipoLogradouro {
 

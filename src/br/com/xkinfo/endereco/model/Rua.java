@@ -1,4 +1,6 @@
-package br.com.xkinfo.model;
+package br.com.xkinfo.endereco.model;
+
+import br.com.xkinfo.model.Eta;
 
 public class Rua {
 

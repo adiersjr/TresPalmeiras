@@ -2,6 +2,7 @@ package br.com.xkinfo.model;
 
 import java.util.Calendar;
 
+import br.com.xkinfo.endereco.model.Bairro;
 import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.endereco.model.Municipio;
 

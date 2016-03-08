@@ -1,6 +1,4 @@
-package br.com.xkinfo.model;
-
-import br.com.xkinfo.endereco.model.Municipio;
+package br.com.xkinfo.endereco.model;
 
 public class Bairro {
 

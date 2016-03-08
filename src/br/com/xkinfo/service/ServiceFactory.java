@@ -23,6 +23,7 @@ public class ServiceFactory {
 	private static final IAgenciaService agenciaService = new AgenciaService();
 	private static final IRetornoService retornoService = new RetornoService();
 	private static final IBairroService bairroService = new BairroService();
+	private static final ITipoLogradouroService tipoLogradouroService = new TipoLogradouroService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -62,5 +63,8 @@ public class ServiceFactory {
 	}
 	public static IBairroService getBairroservice() {
 		return bairroService;
+	}
+	public static ITipoLogradouroService getTipologradouroservice() {
+		return tipoLogradouroService;
 	}
 }

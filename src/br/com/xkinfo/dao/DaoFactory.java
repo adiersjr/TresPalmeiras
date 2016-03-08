@@ -21,6 +21,7 @@ public class DaoFactory {
 	private static final IAgenciaDao agenciaDao = new AgenciaDao();
 	private static final IRetornoDao retornoDao = new RetornoDao();
 	private static final IBairroDao bairroDao = new BairroDao();
+	private static final ITipoLogradouroDao tipoLogradouroDao = new TipoLogradouroDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -57,5 +58,8 @@ public class DaoFactory {
 	}
 	public static IBairroDao getBairrodao() {
 		return bairroDao;
+	}
+	public static ITipoLogradouroDao getTipologradourodao() {
+		return tipoLogradouroDao;
 	}
 }

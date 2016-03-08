@@ -8,7 +8,7 @@ public class Rua {
 	private TipoLogradouro tipoLogradouro;
 	private Eta eta;
 	private String nome;
-	private Bairro bairro;
+	private String bairro;
 	private Double valorLixo;
 	
 	public int getId() {
@@ -35,10 +35,10 @@ public class Rua {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Bairro getBairro() {
+	public String getBairro() {
 		return bairro;
 	}
-	public void setBairro(Bairro bairro) {
+	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 	public Double getValorLixo() {

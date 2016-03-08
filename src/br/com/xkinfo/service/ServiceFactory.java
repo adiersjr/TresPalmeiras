@@ -24,6 +24,7 @@ public class ServiceFactory {
 	private static final IRetornoService retornoService = new RetornoService();
 	private static final IBairroService bairroService = new BairroService();
 	private static final ITipoLogradouroService tipoLogradouroService = new TipoLogradouroService();
+	private static final IRuaService ruaService = new RuaService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -66,5 +67,8 @@ public class ServiceFactory {
 	}
 	public static ITipoLogradouroService getTipologradouroservice() {
 		return tipoLogradouroService;
+	}
+	public static IRuaService getRuaservice() {
+		return ruaService;
 	}
 }

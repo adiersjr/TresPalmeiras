@@ -1,7 +1,5 @@
 package br.com.xkinfo.cadastro.model;
 
-import br.com.xkinfo.model.GrupoAtividade;
-
 public class Atividade {
 
 	private int id;

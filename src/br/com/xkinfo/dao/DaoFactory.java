@@ -29,6 +29,7 @@ public class DaoFactory {
 	private static final IRuaDao ruaDao = new RuaDao();
 	private static final IEtaDao etaDao = new EtaDao();
 	private static final IGrupoAtividadeDao grupoAtividadeDao = new GrupoAtividadeDao();
+	private static final IAtividadeDao atividadeDao = new AtividadeDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -77,5 +78,8 @@ public class DaoFactory {
 	}
 	public static IGrupoAtividadeDao getGrupoatividadedao() {
 		return grupoAtividadeDao;
+	}
+	public static IAtividadeDao getAtividadedao() {
+		return atividadeDao;
 	}
 }

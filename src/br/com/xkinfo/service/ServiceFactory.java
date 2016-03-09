@@ -31,6 +31,7 @@ public class ServiceFactory {
 	private static final IRuaService ruaService = new RuaService();
 	private static final IEtaService etaService = new EtaService();
 	private static final IGrupoAtividadeService grupoAtividadeService = new GrupoAtividadeService();
+	private static final IAtividadeService atividadeService = new AtividadeService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -82,5 +83,8 @@ public class ServiceFactory {
 	}
 	public static IGrupoAtividadeService getGrupoatividadeservice() {
 		return grupoAtividadeService;
+	}
+	public static IAtividadeService getAtividadeservice() {
+		return atividadeService;
 	}
 }

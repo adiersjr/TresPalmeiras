@@ -8,7 +8,7 @@ import br.com.xkinfo.endereco.model.Rua;
 import br.com.xkinfo.util.Conexao;
 
 public class RuaDao implements IRuaDao{
-	
+
 	Conexao conexao = new Conexao();
 	private Statement st;
 
@@ -31,7 +31,8 @@ public class RuaDao implements IRuaDao{
 	public int alterarRua(Rua rua) throws Exception {
 		int result = -1;
 		String query = "UPDATE RUAS SET TIP_CODIGO = "+rua.getTipoLogradouro().getId()+", ETA_CODIGO = "+rua.getEta().getId()+", "
-				+ " RUA_NOME = '"+rua.getNome()+"', BAI_NOME = '"+rua.getBairro()+"', RUA_VLRLIXO = "+rua.getValorLixo()+") ";
+				+ " RUA_NOME = '"+rua.getNome()+"', BAI_NOME = '"+rua.getBairro()+"', RUA_VLRLIXO = "+rua.getValorLixo()+" "
+				+ " WHERE RUA_NUMERO = "+rua.getId()+" ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);

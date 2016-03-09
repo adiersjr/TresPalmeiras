@@ -6,6 +6,8 @@ import br.com.xkinfo.endereco.dao.*;
 import br.com.xkinfo.endereco.dao.impl.*;
 import br.com.xkinfo.pessoa.dao.*;
 import br.com.xkinfo.pessoa.dao.impl.*;
+import br.com.xkinfo.outros.dao.*;
+import br.com.xkinfo.outros.dao.impl.*;
 
 public class DaoFactory {
 	
@@ -23,6 +25,7 @@ public class DaoFactory {
 	private static final IBairroDao bairroDao = new BairroDao();
 	private static final ITipoLogradouroDao tipoLogradouroDao = new TipoLogradouroDao();
 	private static final IRuaDao ruaDao = new RuaDao();
+	private static final IEtaDao etaDao = new EtaDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -65,5 +68,8 @@ public class DaoFactory {
 	}
 	public static IRuaDao getRuadao() {
 		return ruaDao;
+	}
+	public static IEtaDao getEtadao() {
+		return etaDao;
 	}
 }

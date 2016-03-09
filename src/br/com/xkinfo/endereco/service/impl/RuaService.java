@@ -53,7 +53,7 @@ public class RuaService implements IRuaService{
 			rua = new Rua();
 			rua.setId(rs.getInt("RUA_NUMERO"));
 			rua.setTipoLogradouro(ServiceFactory.getTipologradouroservice().pesquisarTipoLogradouro(rs.getInt("TIP_CODIGO")));
-			rua.setEta(eta);
+			rua.setEta(ServiceFactory.getEtaservice().pesquisarEta(rs.getInt("ETA_CODIGO")));
 			rua.setNome(rs.getString("RUA_NOME"));
 			rua.setBairro(rs.getString("BAI_NOME"));
 			rua.setValorLixo(rs.getDouble("RUA_VLRLIXO"));
@@ -69,7 +69,7 @@ public class RuaService implements IRuaService{
 		while (rs.next()){
 			rua.setId(rs.getInt("RUA_NUMERO"));
 			rua.setTipoLogradouro(ServiceFactory.getTipologradouroservice().pesquisarTipoLogradouro(rs.getInt("TIP_CODIGO")));
-			rua.setEta(eta);
+			rua.setEta(ServiceFactory.getEtaservice().pesquisarEta(rs.getInt("ETA_CODIGO")));
 			rua.setNome(rs.getString("RUA_NOME"));
 			rua.setBairro(rs.getString("BAI_NOME"));
 			rua.setValorLixo(rs.getDouble("RUA_VLRLIXO"));

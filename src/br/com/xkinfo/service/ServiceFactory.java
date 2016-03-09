@@ -7,6 +7,8 @@ import br.com.xkinfo.endereco.service.impl.*;
 import br.com.xkinfo.pessoa.service.*;
 import br.com.xkinfo.pessoa.service.impl.*;
 import br.com.xkinfo.service.impl.ApoioService;
+import br.com.xkinfo.outros.service.*;
+import br.com.xkinfo.outros.service.impl.*;
 
 public class ServiceFactory {
 
@@ -25,6 +27,7 @@ public class ServiceFactory {
 	private static final IBairroService bairroService = new BairroService();
 	private static final ITipoLogradouroService tipoLogradouroService = new TipoLogradouroService();
 	private static final IRuaService ruaService = new RuaService();
+	private static final IEtaService etaService = new EtaService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -70,5 +73,8 @@ public class ServiceFactory {
 	}
 	public static IRuaService getRuaservice() {
 		return ruaService;
+	}
+	public static IEtaService getEtaservice() {
+		return etaService;
 	}
 }

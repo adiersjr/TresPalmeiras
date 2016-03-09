@@ -5,13 +5,13 @@ public class Taxa {
 	private int id;
 	private int numero;
 	private String descricao;
-	private String sinal;
-	private String listaOs;
-	private String fiscal;
-	private String icms;
-	private String taxado;
-	private String mostraOs;
-	private String reclama;
+	private char sinal;
+	private char listaOs;
+	private char fiscal;
+	private char icms;
+	private char taxado;
+	private char mostraOs;
+	private char reclama;
 	private int prioridade;
 	private Double valor1;
 	private Double valor2;
@@ -21,7 +21,7 @@ public class Taxa {
 	private String extenso1;
 	private String extenso2;
 	private String extenso3;
-	private String contribuicao;
+	private char contribuicao;
 	private SituacaoCadastro situacaoCadastro;
 	private boolean imprimir;
 	private String observacao;
@@ -48,46 +48,46 @@ public class Taxa {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getSinal() {
+	public char getSinal() {
 		return sinal;
 	}
-	public void setSinal(String sinal) {
+	public void setSinal(char sinal) {
 		this.sinal = sinal;
 	}
-	public String getListaOs() {
+	public char getListaOs() {
 		return listaOs;
 	}
-	public void setListaOs(String listaOs) {
+	public void setListaOs(char listaOs) {
 		this.listaOs = listaOs;
 	}
-	public String getFiscal() {
+	public char getFiscal() {
 		return fiscal;
 	}
-	public void setFiscal(String fiscal) {
+	public void setFiscal(char fiscal) {
 		this.fiscal = fiscal;
 	}
-	public String getIcms() {
+	public char getIcms() {
 		return icms;
 	}
-	public void setIcms(String icms) {
+	public void setIcms(char icms) {
 		this.icms = icms;
 	}
-	public String getTaxado() {
+	public char getTaxado() {
 		return taxado;
 	}
-	public void setTaxado(String taxado) {
+	public void setTaxado(char taxado) {
 		this.taxado = taxado;
 	}
-	public String getMostraOs() {
+	public char getMostraOs() {
 		return mostraOs;
 	}
-	public void setMostraOs(String mostraOs) {
+	public void setMostraOs(char mostraOs) {
 		this.mostraOs = mostraOs;
 	}
-	public String getReclama() {
+	public char getReclama() {
 		return reclama;
 	}
-	public void setReclama(String reclama) {
+	public void setReclama(char reclama) {
 		this.reclama = reclama;
 	}
 	public int getPrioridade() {
@@ -144,10 +144,10 @@ public class Taxa {
 	public void setExtenso3(String extenso3) {
 		this.extenso3 = extenso3;
 	}
-	public String getContribuicao() {
+	public char getContribuicao() {
 		return contribuicao;
 	}
-	public void setContribuicao(String contribuicao) {
+	public void setContribuicao(char contribuicao) {
 		this.contribuicao = contribuicao;
 	}
 	public SituacaoCadastro getSituacaoCadastro() {

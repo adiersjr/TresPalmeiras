@@ -3,7 +3,7 @@ package br.com.xkinfo.endereco.service;
 import java.util.ArrayList;
 import br.com.xkinfo.endereco.model.Rua;
 import br.com.xkinfo.endereco.model.TipoLogradouro;
-import br.com.xkinfo.model.Eta;
+import br.com.xkinfo.outros.model.Eta;
 
 public interface IRuaService {
 	

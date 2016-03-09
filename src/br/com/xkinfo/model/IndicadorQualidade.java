@@ -1,5 +1,7 @@
 package br.com.xkinfo.model;
 
+import br.com.xkinfo.outros.model.Eta;
+
 public class IndicadorQualidade {
 
 	private int id;

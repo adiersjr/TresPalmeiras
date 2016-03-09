@@ -7,7 +7,7 @@ import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.endereco.model.Rua;
 import br.com.xkinfo.endereco.model.TipoLogradouro;
 import br.com.xkinfo.endereco.service.IRuaService;
-import br.com.xkinfo.model.Eta;
+import br.com.xkinfo.outros.model.Eta;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class RuaService implements IRuaService{

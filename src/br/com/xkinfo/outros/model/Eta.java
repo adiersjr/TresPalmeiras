@@ -1,4 +1,4 @@
-package br.com.xkinfo.model;
+package br.com.xkinfo.outros.model;
 
 public class Eta {
 

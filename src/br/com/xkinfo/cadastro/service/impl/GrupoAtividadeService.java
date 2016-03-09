@@ -47,7 +47,7 @@ public class GrupoAtividadeService implements IGrupoAtividadeService{
 
 	@Override
 	public GrupoAtividade pesquisarGrupoAtividade(int id) throws Exception {
-		ResultSet rs = DaoFactory.getGrupoatividadedao().pesquisarGrupoAtividades();
+		ResultSet rs = DaoFactory.getGrupoatividadedao().pesquisarGrupoAtividade(id);
 		grupoAtividade = new GrupoAtividade();
 		while(rs.next()){
 			grupoAtividade.setId(rs.getInt("GRA_CODIGO"));

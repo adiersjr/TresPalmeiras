@@ -46,7 +46,7 @@ public class EtaService implements IEtaService{
 
 	@Override
 	public Eta pesquisarEta(int id) throws Exception {
-		ResultSet rs = DaoFactory.getEtadao().pesquisarEtas();
+		ResultSet rs = DaoFactory.getEtadao().pesquisarEta(id);
 		eta = new Eta();
 		while (rs.next()){
 			eta.setId(rs.getInt("ETA_CODIGO"));

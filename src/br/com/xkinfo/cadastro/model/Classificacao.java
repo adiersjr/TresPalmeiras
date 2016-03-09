@@ -147,7 +147,7 @@ public class Classificacao {
 	public boolean isPadrao() {
 		return padrao;
 	}
-	public void setPadraop(boolean padrao) {
+	public void setPadrao(boolean padrao) {
 		this.padrao = padrao;
 	}
 }

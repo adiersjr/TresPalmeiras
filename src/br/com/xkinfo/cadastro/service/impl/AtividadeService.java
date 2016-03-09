@@ -63,7 +63,7 @@ public class AtividadeService implements IAtividadeService {
 
 	@Override
 	public Atividade pesquisarAtividade(int id) throws Exception {
-		ResultSet rs = DaoFactory.getAtividadedao().pesquisarAtividades();
+		ResultSet rs = DaoFactory.getAtividadedao().pesquisarAtividade(id);
 		atividade = new Atividade();
 		while(rs.next()){
 			atividade.setId(rs.getInt("ATV_CODIGO"));

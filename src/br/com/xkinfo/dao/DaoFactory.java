@@ -30,6 +30,7 @@ public class DaoFactory {
 	private static final IEtaDao etaDao = new EtaDao();
 	private static final IGrupoAtividadeDao grupoAtividadeDao = new GrupoAtividadeDao();
 	private static final IAtividadeDao atividadeDao = new AtividadeDao();
+	private static final IClassificacaoDao classificacaoDao = new ClassificacaoDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -81,5 +82,8 @@ public class DaoFactory {
 	}
 	public static IAtividadeDao getAtividadedao() {
 		return atividadeDao;
+	}
+	public static IClassificacaoDao getClassificacaodao() {
+		return classificacaoDao;
 	}
 }

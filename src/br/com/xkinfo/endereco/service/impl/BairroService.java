@@ -47,7 +47,7 @@ public class BairroService implements IBairroService{
 
 	@Override
 	public Bairro pesquisaBairro(int id) throws Exception {
-		ResultSet rs = DaoFactory.getBairrodao().pesquisarBairros();
+		ResultSet rs = DaoFactory.getBairrodao().pesquisarBairro(id);
 		bairro = new Bairro();
 		while(rs.next()){
 			bairro.setId(rs.getInt("BAI_NUMERO"));

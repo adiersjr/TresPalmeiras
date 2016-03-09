@@ -64,7 +64,7 @@ public class RuaService implements IRuaService{
 
 	@Override
 	public Rua pesquisarRua(int id) throws Exception {
-		ResultSet rs = DaoFactory.getRuadao().pesquisarRuas();
+		ResultSet rs = DaoFactory.getRuadao().pesquisarRua(id);
 		rua = new Rua();
 		while (rs.next()){
 			rua.setId(rs.getInt("RUA_NUMERO"));

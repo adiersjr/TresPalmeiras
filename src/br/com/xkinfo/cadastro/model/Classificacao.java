@@ -4,11 +4,11 @@ public class Classificacao {
 
 	private int id;
 	private String chave;
-	private String tipo;
-	private String atividade;
-	private String tipoFornecedor;
-	private String fase;
-	private String iluminacaoPublica;
+	private char tipo;
+	private char atividade;
+	private char tipoFornecedor;
+	private char fase;
+	private char iluminacaoPublica;
 	private String tarifa;
 	private String descricaoClasse;
 	private String descricaoAtividade;
@@ -36,34 +36,34 @@ public class Classificacao {
 	public void setChave(String chave) {
 		this.chave = chave;
 	}
-	public String getTipo() {
+	public char getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(char tipo) {
 		this.tipo = tipo;
 	}
-	public String getAtividade() {
+	public char getAtividade() {
 		return atividade;
 	}
-	public void setAtividade(String atividade) {
+	public void setAtividade(char atividade) {
 		this.atividade = atividade;
 	}
-	public String getTipoFornecedor() {
+	public char getTipoFornecedor() {
 		return tipoFornecedor;
 	}
-	public void setTipoFornecedor(String tipoFornecedor) {
+	public void setTipoFornecedor(char tipoFornecedor) {
 		this.tipoFornecedor = tipoFornecedor;
 	}
-	public String getFase() {
+	public char getFase() {
 		return fase;
 	}
-	public void setFase(String fase) {
+	public void setFase(char fase) {
 		this.fase = fase;
 	}
-	public String getIluminacaoPublica() {
+	public char getIluminacaoPublica() {
 		return iluminacaoPublica;
 	}
-	public void setIluminacaoPublica(String iluminacaoPublica) {
+	public void setIluminacaoPublica(char iluminacaoPublica) {
 		this.iluminacaoPublica = iluminacaoPublica;
 	}
 	public String getTarifa() {

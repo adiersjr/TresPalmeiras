@@ -8,6 +8,8 @@ import br.com.xkinfo.pessoa.dao.*;
 import br.com.xkinfo.pessoa.dao.impl.*;
 import br.com.xkinfo.outros.dao.*;
 import br.com.xkinfo.outros.dao.impl.*;
+import br.com.xkinfo.cadastro.dao.*;
+import br.com.xkinfo.cadastro.dao.impl.*;
 
 public class DaoFactory {
 	
@@ -26,6 +28,7 @@ public class DaoFactory {
 	private static final ITipoLogradouroDao tipoLogradouroDao = new TipoLogradouroDao();
 	private static final IRuaDao ruaDao = new RuaDao();
 	private static final IEtaDao etaDao = new EtaDao();
+	private static final IGrupoAtividadeDao grupoAtividadeDao = new GrupoAtividadeDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -71,5 +74,8 @@ public class DaoFactory {
 	}
 	public static IEtaDao getEtadao() {
 		return etaDao;
+	}
+	public static IGrupoAtividadeDao getGrupoatividadedao() {
+		return grupoAtividadeDao;
 	}
 }

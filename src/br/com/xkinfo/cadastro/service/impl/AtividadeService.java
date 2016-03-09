@@ -1,5 +1,7 @@
 package br.com.xkinfo.cadastro.service.impl;
 
-public class AtividadeService {
+import br.com.xkinfo.cadastro.service.IAtividadeService;
+
+public class AtividadeService implements IAtividadeService {
 
 }

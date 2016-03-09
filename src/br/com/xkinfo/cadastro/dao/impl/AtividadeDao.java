@@ -1,5 +1,7 @@
 package br.com.xkinfo.cadastro.dao.impl;
 
-public class AtividadeDao {
+import br.com.xkinfo.cadastro.dao.IAtividadeDao;
+
+public class AtividadeDao implements IAtividadeDao{
 
 }

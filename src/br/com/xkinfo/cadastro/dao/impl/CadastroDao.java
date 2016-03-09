@@ -1,5 +1,7 @@
 package br.com.xkinfo.cadastro.dao.impl;
 
-public class CadastroDao {
+import br.com.xkinfo.cadastro.dao.ICadastroDao;
+
+public class CadastroDao implements ICadastroDao{
 
 }

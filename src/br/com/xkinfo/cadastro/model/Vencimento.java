@@ -1,6 +1,4 @@
-package br.com.xkinfo.model;
-
-import br.com.xkinfo.cadastro.model.Setor;
+package br.com.xkinfo.cadastro.model;
 
 public class Vencimento {
 

@@ -7,8 +7,6 @@ import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.endereco.model.Municipio;
 import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.endereco.model.Rua;
-import br.com.xkinfo.model.SituacaoCadastro;
-import br.com.xkinfo.model.Vencimento;
 import br.com.xkinfo.pessoa.model.Cliente;
 
 public class Cadastro {

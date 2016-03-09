@@ -1,5 +1,7 @@
 package br.com.xkinfo.model;
 
+import br.com.xkinfo.cadastro.model.SituacaoCadastro;
+
 public class Taxa {
 
 	private int id;

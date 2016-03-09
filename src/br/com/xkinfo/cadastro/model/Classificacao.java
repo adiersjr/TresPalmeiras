@@ -1,4 +1,4 @@
-package br.com.xkinfo.model;
+package br.com.xkinfo.cadastro.model;
 
 public class Classificacao {
 

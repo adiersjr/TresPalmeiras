@@ -1,18 +1,12 @@
 package br.com.xkinfo.cadastro.model;
 
 import java.util.Calendar;
-
 import br.com.xkinfo.arrecadacao.model.Agencia;
 import br.com.xkinfo.endereco.model.Bairro;
 import br.com.xkinfo.endereco.model.Estado;
 import br.com.xkinfo.endereco.model.Municipio;
 import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.endereco.model.Rua;
-import br.com.xkinfo.model.Atividade;
-import br.com.xkinfo.model.Classificacao;
-import br.com.xkinfo.model.Contribuicao;
-import br.com.xkinfo.model.Proprietario;
-import br.com.xkinfo.model.Setor;
 import br.com.xkinfo.model.SituacaoCadastro;
 import br.com.xkinfo.model.Vencimento;
 import br.com.xkinfo.pessoa.model.Cliente;

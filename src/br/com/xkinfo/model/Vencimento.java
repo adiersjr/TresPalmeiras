@@ -1,5 +1,7 @@
 package br.com.xkinfo.model;
 
+import br.com.xkinfo.cadastro.model.Setor;
+
 public class Vencimento {
 
 	private int id;

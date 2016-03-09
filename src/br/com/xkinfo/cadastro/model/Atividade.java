@@ -1,4 +1,6 @@
-package br.com.xkinfo.model;
+package br.com.xkinfo.cadastro.model;
+
+import br.com.xkinfo.model.GrupoAtividade;
 
 public class Atividade {
 

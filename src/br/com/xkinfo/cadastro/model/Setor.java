@@ -1,7 +1,6 @@
 package br.com.xkinfo.cadastro.model;
 
 import java.util.Calendar;
-
 import br.com.xkinfo.endereco.model.Municipio;
 
 public class Setor {
@@ -12,9 +11,9 @@ public class Setor {
 	private String setor;
 	private String descricao;
 	private String ultimaFatura;
-	private Calendar dataUltimaFatura;
+	private Calendar dataUltimaCalc;
 	private Calendar dataUltimaExtFatura;
-	private String localizacao;
+	private char localizacao;
 	private String ultimaFaturaT;
 	private Calendar dataUltimaCalCat;
 	
@@ -54,11 +53,11 @@ public class Setor {
 	public void setUltimaFatura(String ultimaFatura) {
 		this.ultimaFatura = ultimaFatura;
 	}
-	public Calendar getDataUltimaFatura() {
-		return dataUltimaFatura;
+	public Calendar getDataUltimaCalc() {
+		return dataUltimaCalc;
 	}
-	public void setDataUltimaFatura(Calendar dataUltimaFatura) {
-		this.dataUltimaFatura = dataUltimaFatura;
+	public void setDataUltimaCalc(Calendar dataUltimaCalc) {
+		this.dataUltimaCalc = dataUltimaCalc;
 	}
 	public Calendar getDataUltimaExtFatura() {
 		return dataUltimaExtFatura;
@@ -66,10 +65,10 @@ public class Setor {
 	public void setDataUltimaExtFatura(Calendar dataUltimaExtFatura) {
 		this.dataUltimaExtFatura = dataUltimaExtFatura;
 	}
-	public String getLocalizacao() {
+	public char getLocalizacao() {
 		return localizacao;
 	}
-	public void setLocalizacao(String localizacao) {
+	public void setLocalizacao(char localizacao) {
 		this.localizacao = localizacao;
 	}
 	public String getUltimaFaturaT() {

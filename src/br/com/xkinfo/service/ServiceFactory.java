@@ -9,6 +9,7 @@ import br.com.xkinfo.pessoa.service.impl.*;
 import br.com.xkinfo.service.impl.ApoioService;
 import br.com.xkinfo.outros.service.*;
 import br.com.xkinfo.outros.service.impl.*;
+import br.com.xkinfo.cadastro.dao.ISetorDao;
 import br.com.xkinfo.cadastro.service.*;
 import br.com.xkinfo.cadastro.service.impl.*;
 
@@ -40,6 +41,7 @@ public class ServiceFactory {
 	private static final IProprietarioService proprietarioService = new ProprietarioService();
 	private static final IRamalLigacaoService ramalLigacaoService = new RamalLigacaoService();
 	private static final ISetorService setorService = new SetorService();
+	private static final IVencimentoService vencimentoService = new VencimentoService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -118,5 +120,8 @@ public class ServiceFactory {
 	}
 	public static ISetorService getSetorservice() {
 		return setorService;
+	}
+	public static IVencimentoService getVencimentoservice() {
+		return vencimentoService;
 	}
 }

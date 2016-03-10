@@ -1,10 +1,7 @@
 package br.com.xkinfo.cadastro.model;
 
 import java.util.Calendar;
-
-import br.com.xkinfo.endereco.model.Bairro;
 import br.com.xkinfo.endereco.model.Estado;
-import br.com.xkinfo.endereco.model.Municipio;
 
 public class Proprietario {
 
@@ -12,11 +9,11 @@ public class Proprietario {
 	private String nome;
 	private String cnpjCpf;
 	private String telefone;
-	private Municipio municipio;
+	private String municipio;
 	private String endereco;
 	private String obs;
 	private String complemento;
-	private Bairro bairro;
+	private String bairro;
 	private String cep;
 	private String obs1;
 	private Calendar dataProcessamento;
@@ -46,10 +43,10 @@ public class Proprietario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public Municipio getMunicipio() {
+	public String getMunicipio() {
 		return municipio;
 	}
-	public void setMunicipio(Municipio municipio) {
+	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
 	}
 	public String getEndereco() {
@@ -70,10 +67,10 @@ public class Proprietario {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public Bairro getBairro() {
+	public String getBairro() {
 		return bairro;
 	}
-	public void setBairro(Bairro bairro) {
+	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 	public String getCep() {

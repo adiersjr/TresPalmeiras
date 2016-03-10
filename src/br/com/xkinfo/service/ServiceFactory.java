@@ -38,6 +38,7 @@ public class ServiceFactory {
 	private static final IContribuicaoService contribuicaoService = new ContribuicaoService();
 	private static final ICadastroService cadastroService = new CadastroService();
 	private static final IProprietarioService proprietarioService = new ProprietarioService();
+	private static final IRamalLigacaoService ramalLigacaoService = new RamalLigacaoService();
 	
 	public static ICargoService getCargoservice() {
 		return cargoService;
@@ -110,5 +111,8 @@ public class ServiceFactory {
 	}
 	public static IProprietarioService getProprietarioservice() {
 		return proprietarioService;
+	}
+	public static IRamalLigacaoService getRamalligacaoservice() {
+		return ramalLigacaoService;
 	}
 }

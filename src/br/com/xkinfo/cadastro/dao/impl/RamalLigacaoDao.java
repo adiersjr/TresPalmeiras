@@ -3,20 +3,20 @@ package br.com.xkinfo.cadastro.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import br.com.xkinfo.cadastro.dao.ISituacaoCadastroDao;
-import br.com.xkinfo.cadastro.model.SituacaoCadastro;
+import br.com.xkinfo.cadastro.dao.IRamalLigacaoDao;
+import br.com.xkinfo.cadastro.model.RamalLigacao;
 import br.com.xkinfo.util.Conexao;
 
-public class SituacaoCadastroDao implements ISituacaoCadastroDao {
+public class RamalLigacaoDao implements IRamalLigacaoDao{
 	
 	Conexao conexao = new Conexao();
 	private Statement st;
 
 	@Override
-	public int incluirSituacaoCadastro(SituacaoCadastro situacaoCadastro) throws Exception {
+	public int incluirRamalLigacao(RamalLigacao ramalLigacao) throws Exception {
 		int result = -1;
-		String query = "INSERT INTO SITUACAOCAD (SIT_NUMERO, SIT_DESCRICAO) "
-				+ " VALUES ("+situacaoCadastro.getNumero()+", '"+situacaoCadastro.getDescricao()+"') ";
+		String query = "INSERT INTO RAMALLIGACAO (RAMALLIGACAO) "
+				+ " VALUES ('"+ramalLigacao.getDescricao()+"') ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -28,10 +28,10 @@ public class SituacaoCadastroDao implements ISituacaoCadastroDao {
 	}
 
 	@Override
-	public int alterarSituacaoCadastro(SituacaoCadastro situacaoCadastro) throws Exception {
+	public int alterarRamalLigacao(RamalLigacao ramalLigacao) throws Exception {
 		int result = -1;
-		String query = "UPDATE SITUACAOCAD SET SIT_NUMERO = "+situacaoCadastro.getNumero()+", SIT_DESCRICAO = '"+situacaoCadastro.getDescricao()+"' "
-				+ " WHERE SIT_CODIGO = "+situacaoCadastro.getId()+") ";
+		String query = "UPDATE RAMALLIGACAO SET RAMALLIGACAO = '"+ramalLigacao.getDescricao()+"' "
+				+ " WHERE RAM_NUMERO = "+ramalLigacao.getId()+") ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -43,9 +43,9 @@ public class SituacaoCadastroDao implements ISituacaoCadastroDao {
 	}
 
 	@Override
-	public int excluitSituacaoCadastro(SituacaoCadastro situacaoCadastro) throws Exception {
+	public int excluirRamalLigacao(RamalLigacao ramalLigacao) throws Exception {
 		int result = -1;
-		String query = "DELETE FROM SITUACAOCAD WHERE SITUACAOCAD = "+situacaoCadastro.getId()+") ";
+		String query = "DELETE FROM RAMALLIGACAO WHERE RAM_NUMERO = "+ramalLigacao.getId()+") ";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -57,9 +57,9 @@ public class SituacaoCadastroDao implements ISituacaoCadastroDao {
 	}
 
 	@Override
-	public ResultSet pesquisarSituacaoCadastros() throws Exception {
+	public ResultSet pesquisarRamalLigacoes() throws Exception {
 		ResultSet rs = null;
-		String query = "SELECT * FROM SITUACAOCAD";
+		String query = "SELECT * FROM RAMALLIGACAO";
 		try {
 			st = conexao.connect().createStatement();
 			rs = st.executeQuery(query);
@@ -72,9 +72,9 @@ public class SituacaoCadastroDao implements ISituacaoCadastroDao {
 	}
 
 	@Override
-	public ResultSet pesquisarSituacaoCadastro(int id) throws Exception {
+	public ResultSet pesquisarRamalLigacao(int id) throws Exception {
 		ResultSet rs = null;
-		String query = "SELECT * FROM SITUACAOCAD WHERE SITUACAOCAD = "+id+") ";
+		String query = "SELECT * FROM RAMALLIGACAO WHERE RAM_NUMERO = "+id+") ";
 		try {
 			st = conexao.connect().createStatement();
 			rs = st.executeQuery(query);

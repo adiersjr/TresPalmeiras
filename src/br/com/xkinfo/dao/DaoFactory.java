@@ -36,6 +36,7 @@ public class DaoFactory {
 	private static final IContribuicaoDao contribuicaoDao = new ContribuicaoDao();
 	private static final ICadastroDao cadastroDao = new CadastroDao();
 	private static final IProprietarioDao proprietarioDao = new ProprietarioDao();
+	private static final IRamalLigacaoDao ramalLigacaoDao = new RamalLigacaoDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -105,5 +106,8 @@ public class DaoFactory {
 	}
 	public static IProprietarioDao getProprietariodao() {
 		return proprietarioDao;
+	}
+	public static IRamalLigacaoDao getRamalligacaodao() {
+		return ramalLigacaoDao;
 	}
 }

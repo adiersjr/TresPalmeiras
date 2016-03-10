@@ -4,7 +4,7 @@ import java.util.Calendar;
 import br.com.xkinfo.arrecadacao.model.Agencia;
 import br.com.xkinfo.endereco.model.Bairro;
 import br.com.xkinfo.endereco.model.Estado;
-import br.com.xkinfo.endereco.model.Municipio;
+import br.com.xkinfo.endereco.model.MunicipioIbge;
 import br.com.xkinfo.endereco.model.Pais;
 import br.com.xkinfo.endereco.model.Rua;
 import br.com.xkinfo.pessoa.model.Cliente;
@@ -12,6 +12,7 @@ import br.com.xkinfo.pessoa.model.Cliente;
 public class Cadastro {
 
 	private int id;
+	private String chave;
 	private Proprietario proprietario;
 	private Contribuicao contribuicao;
 	private SituacaoCadastro situacaoCadastro;
@@ -37,19 +38,19 @@ public class Cadastro {
 	private Double roteiro;
 	private String livro;
 	private Double kwhContratado;
-	private String vip;
-	private String dv;
+	private char vip;
+	private char dv;
 	private String retencao;
 	private String isentaEct;
 	private String lampada;
-	private String localiz;
+	private char localiz;
 	private String comple;
-	private String ramal;
+	private char ramal;
 	private Double metragem;
 	private String digMed;
 	private String voltagem;
-	private String multa;
-	private String desconto;
+	private char multa;
+	private char desconto;
 	private Double cargaInstalada;
 	private Double leituraKvarKqh;
 	private String obs;
@@ -62,9 +63,9 @@ public class Cadastro {
 	private String lacre3;
 	private String consProx;
 	private Double frente;
-	private String tensao;
-	private String tributos;
-	private String faseRede;
+	private char tensao;
+	private char tributos;
+	private char faseRede;
 	private String ie;
 	private String orgaoExpedidor;
 	private String outroDocumento;
@@ -80,17 +81,17 @@ public class Cadastro {
 	private int consumoExtra;
 	private Calendar dataTroca;
 	private String mensagem;
-	private String br_Hxl;
-	private String tipo;
+	private char br_Hxl;
+	private char tipo;
 	private String tensaoNominal;
-	private int ram_Numero;
+	private RamalLigacao ramalLigacao;
 	private String alimentador;
 	private int rota;
 	private String diaVencimento;
-	private String sexo;
+	private char sexo;
 	private String tituloEleitor;
 	private Estado estado;
-	private Municipio municipio;
+	private MunicipioIbge municipioIbge;
 	private Pais pais;
 	private String ieAuxiliar;
 	private int ramalRural;
@@ -121,6 +122,12 @@ public class Cadastro {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getChave() {
+		return chave;
+	}
+	public void setChave(String chave) {
+		this.chave = chave;
 	}
 	public Proprietario getProprietario() {
 		return proprietario;
@@ -272,16 +279,16 @@ public class Cadastro {
 	public void setKwhContratado(Double kwhContratado) {
 		this.kwhContratado = kwhContratado;
 	}
-	public String getVip() {
+	public char getVip() {
 		return vip;
 	}
-	public void setVip(String vip) {
+	public void setVip(char vip) {
 		this.vip = vip;
 	}
-	public String getDv() {
+	public char getDv() {
 		return dv;
 	}
-	public void setDv(String dv) {
+	public void setDv(char dv) {
 		this.dv = dv;
 	}
 	public String getRetencao() {
@@ -302,10 +309,10 @@ public class Cadastro {
 	public void setLampada(String lampada) {
 		this.lampada = lampada;
 	}
-	public String getLocaliz() {
+	public char getLocaliz() {
 		return localiz;
 	}
-	public void setLocaliz(String localiz) {
+	public void setLocaliz(char localiz) {
 		this.localiz = localiz;
 	}
 	public String getComple() {
@@ -314,10 +321,10 @@ public class Cadastro {
 	public void setComple(String comple) {
 		this.comple = comple;
 	}
-	public String getRamal() {
+	public char getRamal() {
 		return ramal;
 	}
-	public void setRamal(String ramal) {
+	public void setRamal(char ramal) {
 		this.ramal = ramal;
 	}
 	public Double getMetragem() {
@@ -338,16 +345,16 @@ public class Cadastro {
 	public void setVoltagem(String voltagem) {
 		this.voltagem = voltagem;
 	}
-	public String getMulta() {
+	public char getMulta() {
 		return multa;
 	}
-	public void setMulta(String multa) {
+	public void setMulta(char multa) {
 		this.multa = multa;
 	}
-	public String getDesconto() {
+	public char getDesconto() {
 		return desconto;
 	}
-	public void setDesconto(String desconto) {
+	public void setDesconto(char desconto) {
 		this.desconto = desconto;
 	}
 	public Double getCargaInstalada() {
@@ -422,22 +429,22 @@ public class Cadastro {
 	public void setFrente(Double frente) {
 		this.frente = frente;
 	}
-	public String getTensao() {
+	public char getTensao() {
 		return tensao;
 	}
-	public void setTensao(String tensao) {
+	public void setTensao(char tensao) {
 		this.tensao = tensao;
 	}
-	public String getTributos() {
+	public char getTributos() {
 		return tributos;
 	}
-	public void setTributos(String tributos) {
+	public void setTributos(char tributos) {
 		this.tributos = tributos;
 	}
-	public String getFaseRede() {
+	public char getFaseRede() {
 		return faseRede;
 	}
-	public void setFaseRede(String faseRede) {
+	public void setFaseRede(char faseRede) {
 		this.faseRede = faseRede;
 	}
 	public String getIe() {
@@ -530,16 +537,16 @@ public class Cadastro {
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
-	public String getBr_Hxl() {
+	public char getBr_Hxl() {
 		return br_Hxl;
 	}
-	public void setBr_Hxl(String br_Hxl) {
+	public void setBr_Hxl(char br_Hxl) {
 		this.br_Hxl = br_Hxl;
 	}
-	public String getTipo() {
+	public char getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(char tipo) {
 		this.tipo = tipo;
 	}
 	public String getTensaoNominal() {
@@ -548,11 +555,11 @@ public class Cadastro {
 	public void setTensaoNominal(String tensaoNominal) {
 		this.tensaoNominal = tensaoNominal;
 	}
-	public int getRam_Numero() {
-		return ram_Numero;
+	public RamalLigacao getRamalLigacao() {
+		return ramalLigacao;
 	}
-	public void setRam_Numero(int ram_Numero) {
-		this.ram_Numero = ram_Numero;
+	public void setRamalLigacao(RamalLigacao ramalLigacao) {
+		this.ramalLigacao = ramalLigacao;
 	}
 	public String getAlimentador() {
 		return alimentador;
@@ -572,10 +579,10 @@ public class Cadastro {
 	public void setDiaVencimento(String diaVencimento) {
 		this.diaVencimento = diaVencimento;
 	}
-	public String getSexo() {
+	public char getSexo() {
 		return sexo;
 	}
-	public void setSexo(String sexo) {
+	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
 	public String getTituloEleitor() {
@@ -590,11 +597,11 @@ public class Cadastro {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	public Municipio getMunicipio() {
-		return municipio;
+	public MunicipioIbge getMunicipioIbge() {
+		return municipioIbge;
 	}
-	public void setMunicipio(Municipio municipio) {
-		this.municipio = municipio;
+	public void setMunicipioIbge(MunicipioIbge municipioIbge) {
+		this.municipioIbge = municipioIbge;
 	}
 	public Pais getPais() {
 		return pais;

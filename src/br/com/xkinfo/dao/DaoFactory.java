@@ -10,6 +10,7 @@ import br.com.xkinfo.outros.dao.*;
 import br.com.xkinfo.outros.dao.impl.*;
 import br.com.xkinfo.cadastro.dao.*;
 import br.com.xkinfo.cadastro.dao.impl.*;
+import br.com.xkinfo.dao.impl.ContribuicaoDao;
 
 public class DaoFactory {
 	

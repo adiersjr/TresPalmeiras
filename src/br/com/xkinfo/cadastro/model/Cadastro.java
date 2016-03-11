@@ -14,7 +14,7 @@ public class Cadastro {
 	private int id;
 	private String chave;
 	private Proprietario proprietario;
-	private Contribuicao contribuicao;
+	private Conjunto conjunto;
 	private SituacaoCadastro situacaoCadastro;
 	private Classificacao classificacao;
 	private Agencia agencia;
@@ -135,11 +135,11 @@ public class Cadastro {
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
-	public Contribuicao getContribuicao() {
-		return contribuicao;
+	public Conjunto getConjunto() {
+		return conjunto;
 	}
-	public void setContribuicao(Contribuicao contribuicao) {
-		this.contribuicao = contribuicao;
+	public void setConjunto(Conjunto conjunto) {
+		this.conjunto = conjunto;
 	}
 	public SituacaoCadastro getSituacaoCadastro() {
 		return situacaoCadastro;

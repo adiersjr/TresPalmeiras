@@ -1,10 +1,11 @@
-package br.com.xkinfo.cadastro.dao.impl;
+package br.com.xkinfo.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import br.com.xkinfo.cadastro.dao.IContribuicaoDao;
-import br.com.xkinfo.cadastro.model.Contribuicao;
+
+import br.com.xkinfo.dao.IContribuicaoDao;
+import br.com.xkinfo.model.Contribuicao;
 import br.com.xkinfo.service.ServiceFactory;
 import br.com.xkinfo.util.Conexao;
 

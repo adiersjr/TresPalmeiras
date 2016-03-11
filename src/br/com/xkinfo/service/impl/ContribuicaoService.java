@@ -1,13 +1,13 @@
-package br.com.xkinfo.cadastro.service.impl;
+package br.com.xkinfo.service.impl;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import br.com.xkinfo.cadastro.model.Cadastro;
-import br.com.xkinfo.cadastro.model.Contribuicao;
 import br.com.xkinfo.cadastro.model.Taxa;
-import br.com.xkinfo.cadastro.service.IContribuicaoService;
 import br.com.xkinfo.dao.DaoFactory;
+import br.com.xkinfo.model.Contribuicao;
+import br.com.xkinfo.service.IContribuicaoService;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class ContribuicaoService implements IContribuicaoService{

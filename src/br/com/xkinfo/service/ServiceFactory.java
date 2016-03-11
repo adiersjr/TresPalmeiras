@@ -7,6 +7,7 @@ import br.com.xkinfo.endereco.service.impl.*;
 import br.com.xkinfo.pessoa.service.*;
 import br.com.xkinfo.pessoa.service.impl.*;
 import br.com.xkinfo.service.impl.ApoioService;
+import br.com.xkinfo.service.impl.ContribuicaoService;
 import br.com.xkinfo.outros.service.*;
 import br.com.xkinfo.outros.service.impl.*;
 import br.com.xkinfo.cadastro.dao.ISetorDao;

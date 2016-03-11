@@ -6,7 +6,7 @@ import br.com.xkinfo.arrecadacao.model.Agencia;
 import br.com.xkinfo.cadastro.model.Atividade;
 import br.com.xkinfo.cadastro.model.Cadastro;
 import br.com.xkinfo.cadastro.model.Classificacao;
-import br.com.xkinfo.cadastro.model.Contribuicao;
+import br.com.xkinfo.cadastro.model.Conjunto;
 import br.com.xkinfo.cadastro.model.Proprietario;
 import br.com.xkinfo.cadastro.model.RamalLigacao;
 import br.com.xkinfo.cadastro.model.Setor;
@@ -21,7 +21,7 @@ import br.com.xkinfo.pessoa.model.Cliente;
 
 public interface ICadastroService {
 	
-	public void incluirCadastro(String chave, Proprietario proprietario, Contribuicao contribuicao, SituacaoCadastro situacaoCadastro,
+	public void incluirCadastro(String chave, Proprietario proprietario, Conjunto conjunto, SituacaoCadastro situacaoCadastro,
 			Classificacao classificacao, Agencia agencia, Bairro bairro, Rua rua, Setor setor, Atividade atividade, String instal, String casa,
 			String apto, String contaBanco, String medKwh, String medKvar, Double fMultKwh, Double fMultKvar, Double fatorPotencia, Double leitura, 
 			Double leituraDesligado, Calendar dataLig, Calendar dataDeslig, Double roteiro, String livro, Double kwhContratado, char vip,
@@ -36,7 +36,7 @@ public interface ICadastroService {
 			Calendar dataUltimaVistoria, Calendar dataInclusao, Calendar dataEnvioScs, int nreCoRes, int nreCoCom, int nreCoInd, int nreCoPp, String tarRes,
 			String tarCom, String tarInd, String tarPp, String mesFat, String anoFat, String isentaLixo, String lacrado) throws Exception;
 	
-	public void alterarCadastro(int id, String chave, Proprietario proprietario, Contribuicao contribuicao, SituacaoCadastro situacaoCadastro,
+	public void alterarCadastro(int id, String chave, Proprietario proprietario, Conjunto conjunto, SituacaoCadastro situacaoCadastro,
 			Classificacao classificacao, Agencia agencia, Bairro bairro, Rua rua, Setor setor, Atividade atividade, String instal, String casa,
 			String apto, String contaBanco, String medKwh, String medKvar, Double fMultKwh, Double fMultKvar, Double fatorPotencia, Double leitura, 
 			Double leituraDesligado, Calendar dataLig, Calendar dataDeslig, Double roteiro, String livro, Double kwhContratado, char vip,

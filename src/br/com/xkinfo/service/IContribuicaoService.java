@@ -1,10 +1,10 @@
-package br.com.xkinfo.cadastro.service;
+package br.com.xkinfo.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import br.com.xkinfo.cadastro.model.Cadastro;
-import br.com.xkinfo.cadastro.model.Contribuicao;
 import br.com.xkinfo.cadastro.model.Taxa;
+import br.com.xkinfo.model.Contribuicao;
 
 public interface IContribuicaoService {
 	

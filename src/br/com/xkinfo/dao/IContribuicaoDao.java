@@ -1,7 +1,8 @@
-package br.com.xkinfo.cadastro.dao;
+package br.com.xkinfo.dao;
 
 import java.sql.ResultSet;
-import br.com.xkinfo.cadastro.model.Contribuicao;
+
+import br.com.xkinfo.model.Contribuicao;
 
 public interface IContribuicaoDao {
 	

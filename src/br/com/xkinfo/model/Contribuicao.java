@@ -1,6 +1,9 @@
-package br.com.xkinfo.cadastro.model;
+package br.com.xkinfo.model;
 
 import java.util.Calendar;
+
+import br.com.xkinfo.cadastro.model.Cadastro;
+import br.com.xkinfo.cadastro.model.Taxa;
 
 public class Contribuicao {
 	

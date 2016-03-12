@@ -106,4 +106,19 @@ public class ClassificacaoDao implements IClassificacaoDao{
 		return rs;
 	}
 
+	@Override
+	public ResultSet pesquisarClassificacao(String chave) throws Exception {
+		ResultSet rs = null;
+		String query = "SELECT * FROM CLASSIFICACAO WHERE CLA_CHAVE = "+chave+" ";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
 }

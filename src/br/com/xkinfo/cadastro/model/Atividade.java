@@ -2,17 +2,17 @@ package br.com.xkinfo.cadastro.model;
 
 public class Atividade {
 
-	private int id;
+	private String id;
 	private String descricao;
 	private String grupoAneel;
 	private int numero;
 	private String epe;
 	private GrupoAtividade grupoAtividade;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getDescricao() {

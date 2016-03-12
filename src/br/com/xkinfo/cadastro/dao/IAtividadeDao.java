@@ -14,6 +14,6 @@ public interface IAtividadeDao {
 	
 	public ResultSet pesquisarAtividades() throws Exception;
 	
-	public ResultSet pesquisarAtividade(int id) throws Exception;
+	public ResultSet pesquisarAtividade(String id) throws Exception;
 
 }

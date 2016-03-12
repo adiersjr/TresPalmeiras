@@ -40,7 +40,7 @@ public class MunicipioIbgeService implements IMunicipioIbgeService{
 	}
 
 	@Override
-	public void alterarMunicipio(int id, String situacao, String nome, String observacao, char amazonia, char fronteira,
+	public void alterarMunicipio(String id, String situacao, String nome, String observacao, char amazonia, char fronteira,
 			char capital, Estado estado, String anoInstalacao, String anoExtincao, String sucessor, Double latitude,
 			Double longitude, Double altitude, Double area) throws Exception {
 		
@@ -67,7 +67,7 @@ public class MunicipioIbgeService implements IMunicipioIbgeService{
 	}
 
 	@Override
-	public void excluirMunicipio(int id) throws Exception {
+	public void excluirMunicipio(String id) throws Exception {
 		municipio = pesquisaMunicipio(id);
 		DaoFactory.getMunicipioibgedao().excluirMunicipioIbge(municipio);
 	}
@@ -78,7 +78,7 @@ public class MunicipioIbgeService implements IMunicipioIbgeService{
 		ArrayList<MunicipioIbge> municipiosIbge = new ArrayList<>();
 		while (rs.next()){
 			municipio = new MunicipioIbge();
-			municipio.setId(rs.getInt("MUI_CODIGO"));
+			municipio.setId(rs.getString("MUI_CODIGO"));
 			municipio.setSituacao(rs.getString("MUI_SITUACAO"));
 			municipio.setNome(rs.getString("MUI_NOME"));
 			municipio.setObservacao(rs.getString("MUI_OBSERVACAO"));
@@ -99,11 +99,11 @@ public class MunicipioIbgeService implements IMunicipioIbgeService{
 	}
 
 	@Override
-	public MunicipioIbge pesquisaMunicipio(int id) throws Exception {
+	public MunicipioIbge pesquisaMunicipio(String id) throws Exception {
 		ResultSet rs = DaoFactory.getMunicipioibgedao().pesquisaMunicipioIbge(id);
 		municipio = new MunicipioIbge();
 		while (rs.next()){
-			municipio.setId(rs.getInt("MUI_CODIGO"));
+			municipio.setId(rs.getString("MUI_CODIGO"));
 			municipio.setSituacao(rs.getString("MUI_SITUACAO"));
 			municipio.setNome(rs.getString("MUI_NOME"));
 			municipio.setObservacao(rs.getString("MUI_OBSERVACAO"));

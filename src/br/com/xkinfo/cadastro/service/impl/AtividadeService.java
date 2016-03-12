@@ -26,7 +26,7 @@ public class AtividadeService implements IAtividadeService {
 	}
 
 	@Override
-	public void alterarAtividade(int id, String descricao, String grupoAneel, int numero, String epe,
+	public void alterarAtividade(String id, String descricao, String grupoAneel, int numero, String epe,
 			GrupoAtividade grupoAtividade) throws Exception {
 		atividade = new Atividade();
 		atividade.setId(id);
@@ -39,7 +39,7 @@ public class AtividadeService implements IAtividadeService {
 	}
 
 	@Override
-	public void excluirAtividade(int id) throws Exception {
+	public void excluirAtividade(String id) throws Exception {
 		atividade = pesquisarAtividade(id);
 		DaoFactory.getAtividadedao().excluirAtividade(atividade);
 	}
@@ -50,7 +50,7 @@ public class AtividadeService implements IAtividadeService {
 		ArrayList<Atividade> atividades = new ArrayList<>();
 		while(rs.next()){
 			atividade = new Atividade();
-			atividade.setId(rs.getInt("ATV_CODIGO"));
+			atividade.setId(rs.getString("ATV_CODIGO"));
 			atividade.setDescricao(rs.getString("ATV_DESCRICAO"));
 			atividade.setGrupoAneel(rs.getString("ATV_GRUPOANEEL"));
 			atividade.setNumero(rs.getInt("ATV_NUMERO"));
@@ -62,11 +62,11 @@ public class AtividadeService implements IAtividadeService {
 	}
 
 	@Override
-	public Atividade pesquisarAtividade(int id) throws Exception {
+	public Atividade pesquisarAtividade(String id) throws Exception {
 		ResultSet rs = DaoFactory.getAtividadedao().pesquisarAtividade(id);
 		atividade = new Atividade();
 		while(rs.next()){
-			atividade.setId(rs.getInt("ATV_CODIGO"));
+			atividade.setId(rs.getString("ATV_CODIGO"));
 			atividade.setDescricao(rs.getString("ATV_DESCRICAO"));
 			atividade.setGrupoAneel(rs.getString("ATV_GRUPOANEEL"));
 			atividade.setNumero(rs.getInt("ATV_NUMERO"));

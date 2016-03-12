@@ -39,7 +39,7 @@ public class AgenciaDao implements IAgenciaDao{
 				+ " AGE_CONVENIOG = '"+agencia.getConvenioG()+"', AGE_NSR = "+agencia.getNsr()+", AGE_DV =  '"+agencia.getDigito()+"'. "
 				+ " AGE_ENDERECO = '"+agencia.getEndereco()+"', AGE_COMPLEMENTO = '"+agencia.getComplemento()+"', AGE_BAIRRO = '"+agencia.getBairro()+"', "
 				+ " AGE_CEP = '"+agencia.getCep()+"', AGE_MUNICIPIO = '"+agencia.getMunicipio()+"', AGE_SIGLA = '"+agencia.getEstado().getSigla()+"', "
-				+ " AGE_DDD = "+agencia.getDdd()+", AGE_FONE = '"+agencia.getTelefone()+"' ";
+				+ " AGE_DDD = "+agencia.getDdd()+", AGE_FONE = '"+agencia.getTelefone()+"'  WHERE AGE_CODIGO = "+agencia.getId()+" )";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -53,7 +53,7 @@ public class AgenciaDao implements IAgenciaDao{
 	@Override
 	public int excluirAgencia(Agencia agencia) throws Exception {
 		int result = -1;
-		String query = "DELETE FROM AGENCIAS WHERE BAN_CODIGO = "+agencia.getId()+" )";
+		String query = "DELETE FROM AGENCIAS WHERE AGE_CODIGO = "+agencia.getId()+" )";
 		try {
 			st = conexao.connect().createStatement();
 			result = st.executeUpdate(query);
@@ -82,7 +82,22 @@ public class AgenciaDao implements IAgenciaDao{
 	@Override
 	public ResultSet pesquisaAgencia(int id) throws Exception {
 		ResultSet rs = null;
-		String query = "SELECT * FROM AGENCIAS WHERE BAN_CODIGO = "+id+" )";
+		String query = "SELECT * FROM AGENCIAS WHERE AGE_CODIGO = "+id+" )";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	@Override
+	public ResultSet pesquisaAgencia(String chave) throws Exception {
+		ResultSet rs = null;
+		String query = "SELECT * FROM AGENCIAS WHERE AGE_CHAVE = "+chave+" )";
 		try {
 			st = conexao.connect().createStatement();
 			rs = st.executeQuery(query);

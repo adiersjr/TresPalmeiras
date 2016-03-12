@@ -21,5 +21,7 @@ public interface IClassificacaoService {
 	public ArrayList<Classificacao> pesquisarClassificacoes() throws Exception;
 	
 	public Classificacao pesquisarClassificacao(int id) throws Exception;
+	
+	public Classificacao pesquisarClassificacao(String chave) throws Exception;
 
 }

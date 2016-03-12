@@ -14,6 +14,6 @@ public interface IVencimentoDao {
 	
 	public ResultSet pesquisarVencimentos() throws Exception;
 	
-	public ResultSet pesquisarVencimento(int id) throws Exception;
+	public ResultSet pesquisarVencimento(String id) throws Exception;
 
 }

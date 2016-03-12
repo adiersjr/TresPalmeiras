@@ -14,6 +14,6 @@ public interface IMunicipioIbgeDao {
 
 	public ResultSet pesquisaMunicipiosIbge() throws Exception;
 	
-	public ResultSet pesquisaMunicipioIbge(int id) throws Exception;
+	public ResultSet pesquisaMunicipioIbge(String id) throws Exception;
 
 }

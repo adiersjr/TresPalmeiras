@@ -23,7 +23,7 @@ public class VencimentoService implements IVencimentoService{
 	}
 
 	@Override
-	public void alterarVencimento(int id, Setor setor, int numero, String dia, boolean vip) throws Exception {
+	public void alterarVencimento(String id, Setor setor, int numero, String dia, boolean vip) throws Exception {
 		vencimento = new Vencimento();
 		vencimento.setId(id);
 		vencimento.setSetor(setor);
@@ -34,7 +34,7 @@ public class VencimentoService implements IVencimentoService{
 	}
 
 	@Override
-	public void excluirVencimento(int id) throws Exception {
+	public void excluirVencimento(String id) throws Exception {
 		vencimento = pesquisarVencimento(id);
 		DaoFactory.getVencimentodao().excluirVencimento(vencimento);
 	}
@@ -45,7 +45,7 @@ public class VencimentoService implements IVencimentoService{
 		ArrayList<Vencimento> vencimentos = new ArrayList<>();
 		while(rs.next()){
 			vencimento = new Vencimento();
-			vencimento.setId(rs.getInt("VEN_CODIGO"));
+			vencimento.setId(rs.getString("VEN_CODIGO"));
 			vencimento.setSetor(ServiceFactory.getSetorservice().pesquisarSetor(rs.getInt("SET_CHAVE")));
 			vencimento.setNumero(rs.getInt("VEN_NUMERO"));
 			vencimento.setDia(rs.getString("VEN_DIA"));
@@ -56,11 +56,11 @@ public class VencimentoService implements IVencimentoService{
 	}
 
 	@Override
-	public Vencimento pesquisarVencimento(int id) throws Exception {
+	public Vencimento pesquisarVencimento(String id) throws Exception {
 		ResultSet rs = DaoFactory.getVencimentodao().pesquisarVencimento(id);
 		vencimento = new Vencimento();
 		while(rs.next()){
-			vencimento.setId(rs.getInt("VEN_CODIGO"));
+			vencimento.setId(rs.getString("VEN_CODIGO"));
 			vencimento.setSetor(ServiceFactory.getSetorservice().pesquisarSetor(rs.getInt("SET_CHAVE")));
 			vencimento.setNumero(rs.getInt("VEN_NUMERO"));
 			vencimento.setDia(rs.getString("VEN_DIA"));

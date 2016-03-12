@@ -14,6 +14,6 @@ public interface ISituacaoCadastroDao {
 	
 	public ResultSet pesquisarSituacaoCadastros() throws Exception;
 	
-	public ResultSet pesquisarSituacaoCadastro(int id) throws Exception;
+	public ResultSet pesquisarSituacaoCadastro(char id) throws Exception;
 
 }

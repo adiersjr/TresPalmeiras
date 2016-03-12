@@ -15,5 +15,7 @@ public interface IClassificacaoDao {
 	public ResultSet pesquisarClassificacoes() throws Exception;
 	
 	public ResultSet pesquisarClassificacao(int id) throws Exception;
+	
+	public ResultSet pesquisarClassificacao(String chave) throws Exception;
 
 }

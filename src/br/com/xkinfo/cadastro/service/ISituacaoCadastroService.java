@@ -7,11 +7,11 @@ public interface ISituacaoCadastroService {
 	
 	public void incluirSituacaoCadastro(int numero, String descricao) throws Exception;
 
-	public void alterarSituacaoCadastro(int id, int numero, String descricao) throws Exception;
+	public void alterarSituacaoCadastro(char id, int numero, String descricao) throws Exception;
 	
-	public void excluirSituacaoCadastro(int id) throws Exception;
+	public void excluirSituacaoCadastro(char id) throws Exception;
 	
 	public ArrayList<SituacaoCadastro> pesquisarSituacaoCadastros() throws Exception;
 	
-	public SituacaoCadastro pesquisarSituacaoCadastro(int id) throws Exception;
+	public SituacaoCadastro pesquisarSituacaoCadastro(char id) throws Exception;
 }

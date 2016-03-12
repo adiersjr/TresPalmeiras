@@ -72,7 +72,7 @@ public class SituacaoCadastroDao implements ISituacaoCadastroDao {
 	}
 
 	@Override
-	public ResultSet pesquisarSituacaoCadastro(int id) throws Exception {
+	public ResultSet pesquisarSituacaoCadastro(char id) throws Exception {
 		ResultSet rs = null;
 		String query = "SELECT * FROM SITUACAOCAD WHERE SITUACAOCAD = "+id+") ";
 		try {

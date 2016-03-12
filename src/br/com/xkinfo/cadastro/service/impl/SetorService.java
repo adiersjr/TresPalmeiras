@@ -80,7 +80,27 @@ public class SetorService implements ISetorService{
 
 	@Override
 	public Setor pesquisarSetor(int id) throws Exception {
-		ResultSet rs = DaoFactory.getSetordao().pesquisarSetores();
+		ResultSet rs = DaoFactory.getSetordao().pesquisarSetor(id);
+		set = new Setor();
+		while(rs.next()){
+			set.setId(rs.getInt("ID"));
+			set.setChave(rs.getString("SET_CHAVE"));
+			set.setMunicipio(ServiceFactory.getMunicpioservice().pesquisaMunicipio(rs.getInt("MUN_NUMERO")));
+			set.setSetor(rs.getString("SET_SETOR"));
+			set.setDescricao(rs.getString("SET_DESCR"));
+			set.setUltimaFatura(rs.getString("SET_ULTFATUR"));
+			set.setDataUltimaCalc(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("SET_DTAULTCALC")));
+			set.setDataUltimaExtFatura(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("SET_DTAULTEXTFAT")));
+			set.setLocalizacao(rs.getString("SET_LOCALIZ").charAt(0));
+			set.setUltimaFaturaT(rs.getString("SET_ULTFATURAT"));
+			set.setDataUltimaCalCat(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("SET_DTAULTCALCAT")));
+		}
+		return set;
+	}
+
+	@Override
+	public Setor pesquisarSetor(String chave) throws Exception {
+		ResultSet rs = DaoFactory.getSetordao().pesquisarSetor(chave);
 		set = new Setor();
 		while(rs.next()){
 			set.setId(rs.getInt("ID"));

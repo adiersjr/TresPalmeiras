@@ -83,7 +83,7 @@ public class MunicipioIbgeDao implements IMunicipioIbgeDao{
 	}
 
 	@Override
-	public ResultSet pesquisaMunicipioIbge(int id) throws Exception {
+	public ResultSet pesquisaMunicipioIbge(String id) throws Exception {
 		ResultSet rs = null;
 		String query = "SELECT * FROM MUNICIPIOSIBGE WHERE MUI_CODIGO = "+id+" ";
 		try {

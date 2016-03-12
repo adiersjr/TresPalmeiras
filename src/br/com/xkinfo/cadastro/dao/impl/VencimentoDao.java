@@ -76,7 +76,7 @@ public class VencimentoDao implements IVencimentoDao{
 	}
 
 	@Override
-	public ResultSet pesquisarVencimento(int id) throws Exception {
+	public ResultSet pesquisarVencimento(String id) throws Exception {
 		ResultSet rs = null;
 		String query = "SELECT * FROM VENCIMENTOS WHERE VEN_CODIGO = "+id+" ";
 		try {

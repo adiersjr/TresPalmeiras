@@ -20,7 +20,7 @@ public class SituacaoCadastroService implements ISituacaoCadastroService{
 	}
 
 	@Override
-	public void alterarSituacaoCadastro(int id, int numero, String descricao) throws Exception {
+	public void alterarSituacaoCadastro(char id, int numero, String descricao) throws Exception {
 		situacaoCadastro = new SituacaoCadastro();
 		situacaoCadastro.setId(id);
 		situacaoCadastro.setNumero(numero);
@@ -29,7 +29,7 @@ public class SituacaoCadastroService implements ISituacaoCadastroService{
 	}
 
 	@Override
-	public void excluirSituacaoCadastro(int id) throws Exception {
+	public void excluirSituacaoCadastro(char id) throws Exception {
 		situacaoCadastro = pesquisarSituacaoCadastro(id);
 		DaoFactory.getSituacaocadastrodao().excluitSituacaoCadastro(situacaoCadastro);
 	}
@@ -40,7 +40,7 @@ public class SituacaoCadastroService implements ISituacaoCadastroService{
 		ArrayList<SituacaoCadastro> situacoes = new ArrayList<>();
 		while (rs.next()){
 			situacaoCadastro = new SituacaoCadastro();
-			situacaoCadastro.setId(rs.getInt("SIT_CODIGO"));
+			situacaoCadastro.setId(rs.getString("SIT_CODIGO").charAt(0));
 			situacaoCadastro.setNumero(rs.getInt("SIT_NUMERO"));
 			situacaoCadastro.setDescricao(rs.getString("SIT_DESC"));
 			situacoes.add(situacaoCadastro);
@@ -49,11 +49,11 @@ public class SituacaoCadastroService implements ISituacaoCadastroService{
 	}
 
 	@Override
-	public SituacaoCadastro pesquisarSituacaoCadastro(int id) throws Exception {
+	public SituacaoCadastro pesquisarSituacaoCadastro(char id) throws Exception {
 		ResultSet rs = DaoFactory.getSituacaocadastrodao().pesquisarSituacaoCadastro(id);
 		situacaoCadastro = new SituacaoCadastro();
 		while (rs.next()){
-			situacaoCadastro.setId(rs.getInt("SIT_CODIGO"));
+			situacaoCadastro.setId(rs.getString("SIT_CODIGO").charAt(0));
 			situacaoCadastro.setNumero(rs.getInt("SIT_NUMERO"));
 			situacaoCadastro.setDescricao(rs.getString("SIT_DESC"));
 		}

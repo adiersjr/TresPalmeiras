@@ -18,5 +18,7 @@ public interface ISetorService {
 	public ArrayList<Setor> pesquisarSetores() throws Exception;
 	
 	public Setor pesquisarSetor(int id) throws Exception;
+	
+	public Setor pesquisarSetor(String chave) throws Exception;
 
 }

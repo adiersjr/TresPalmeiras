@@ -92,4 +92,19 @@ public class SetorDao implements ISetorDao{
 		return rs;
 	}
 
+	@Override
+	public ResultSet pesquisarSetor(String chave) throws Exception {
+		ResultSet rs = null;
+		String query = "SELECT * FROM SETORES WHERE SET_CHAVE = "+chave+"  ";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
 }

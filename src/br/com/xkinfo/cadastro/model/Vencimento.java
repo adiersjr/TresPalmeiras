@@ -2,16 +2,16 @@ package br.com.xkinfo.cadastro.model;
 
 public class Vencimento {
 
-	private int id;
+	private String id;
 	private Setor setor;
 	private int numero;
 	private String dia;
 	private boolean vip;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Setor getSetor() {

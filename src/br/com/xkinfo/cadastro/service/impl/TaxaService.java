@@ -118,7 +118,7 @@ public class TaxaService implements ITaxaService{
 			taxa.setExtenso2(rs.getString("TAX_EXTENSO2"));
 			taxa.setExtenso3(rs.getString("TAX_EXTENSO3"));
 			taxa.setContribuicao(rs.getString("TAX_CONTRIBUICAO").charAt(0));
-			taxa.setSituacaoCadastro(ServiceFactory.getSituacaocadastroservice().pesquisarSituacaoCadastro(rs.getInt("SIT_CODIGO")));
+			taxa.setSituacaoCadastro(ServiceFactory.getSituacaocadastroservice().pesquisarSituacaoCadastro(rs.getString("SIT_CODIGO").charAt(0)));
 			taxa.setImprimir(rs.getBoolean("TAX_IMPRIMIR"));
 			taxa.setObservacao(rs.getString("TAX_OBS"));
 			taxa.setUnidade(rs.getString("TAX_UNIDADE"));
@@ -155,7 +155,7 @@ public class TaxaService implements ITaxaService{
 			taxa.setExtenso2(rs.getString("TAX_EXTENSO2"));
 			taxa.setExtenso3(rs.getString("TAX_EXTENSO3"));
 			taxa.setContribuicao(rs.getString("TAX_CONTRIBUICAO").charAt(0));
-			taxa.setSituacaoCadastro(ServiceFactory.getSituacaocadastroservice().pesquisarSituacaoCadastro(rs.getInt("SIT_CODIGO")));
+			taxa.setSituacaoCadastro(ServiceFactory.getSituacaocadastroservice().pesquisarSituacaoCadastro(rs.getString("SIT_CODIGO").charAt(0)));
 			taxa.setImprimir(rs.getBoolean("TAX_IMPRIMIR"));
 			taxa.setObservacao(rs.getString("TAX_OBS"));
 			taxa.setUnidade(rs.getString("TAX_UNIDADE"));

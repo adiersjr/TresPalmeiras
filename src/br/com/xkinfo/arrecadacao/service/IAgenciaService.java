@@ -18,4 +18,6 @@ public interface IAgenciaService {
 	public ArrayList<Agencia> pesquisaAgencias() throws Exception;
 
 	public Agencia pesquisaAgencia(int id) throws Exception;
+	
+	public Agencia pesquisaAgencia(String chave) throws Exception;
 }

@@ -15,5 +15,7 @@ public interface IAgenciaDao {
 	public ResultSet pesquisaAgencias() throws Exception;
 
 	public ResultSet pesquisaAgencia(int id) throws Exception;
+	
+	public ResultSet pesquisaAgencia(String chave) throws Exception;
 
 }

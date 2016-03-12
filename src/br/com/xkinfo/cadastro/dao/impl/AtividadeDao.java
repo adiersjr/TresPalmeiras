@@ -74,7 +74,7 @@ public class AtividadeDao implements IAtividadeDao{
 	}
 
 	@Override
-	public ResultSet pesquisarAtividade(int id) throws Exception {
+	public ResultSet pesquisarAtividade(String id) throws Exception {
 		ResultSet rs = null;
 		String query = "SELECT * FROM ATIVIDADES WHERE ATV_CODIGO = "+id+" ";
 		try {

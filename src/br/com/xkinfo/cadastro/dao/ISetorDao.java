@@ -14,5 +14,7 @@ public interface ISetorDao {
 	public ResultSet pesquisarSetores() throws Exception;
 	
 	public ResultSet pesquisarSetor(int id) throws Exception;
+	
+	public ResultSet pesquisarSetor(String chave) throws Exception;
 
 }

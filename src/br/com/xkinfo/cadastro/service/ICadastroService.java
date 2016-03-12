@@ -51,10 +51,10 @@ public interface ICadastroService {
 			Calendar dataUltimaVistoria, Calendar dataInclusao, Calendar dataEnvioScs, int nreCoRes, int nreCoCom, int nreCoInd, int nreCoPp, String tarRes,
 			String tarCom, String tarInd, String tarPp, String mesFat, String anoFat, String isentaLixo, String lacrado) throws Exception;
 	
-	public void excluirCadastro(int id) throws Exception;
+	public void excluirCadastro(String chave) throws Exception;
 	
 	public ArrayList<Cadastro> pesquisarCadastros() throws Exception;
 	
-	public Cadastro pesquisarCadastro(int id) throws Exception;
+	public Cadastro pesquisarCadastro(String chave) throws Exception;
 
 }

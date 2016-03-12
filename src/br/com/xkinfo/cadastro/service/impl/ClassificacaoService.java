@@ -140,4 +140,34 @@ public class ClassificacaoService implements IClassificacaoService{
 		return classificacao;
 	}
 
+	@Override
+	public Classificacao pesquisarClassificacao(String chave) throws Exception {
+		ResultSet rs = DaoFactory.getClassificacaodao().pesquisarClassificacao(chave);
+		classificacao = new Classificacao();
+		while (rs.next()){
+			classificacao.setId(rs.getInt("ID"));
+			classificacao.setChave(rs.getString("CLA_CHAVE"));
+			classificacao.setTipo(rs.getString("CLA_TIPO").charAt(0));
+			classificacao.setAtividade(rs.getString("CLA_ATIVIDADE").charAt(0));
+			classificacao.setTipoFornecedor(rs.getString("CLA_TIPOFORN").charAt(0));
+			classificacao.setFase(rs.getString("CLA_FASE").charAt(0));
+			classificacao.setIluminacaoPublica(rs.getString("CLA_ILUMPUB").charAt(0));
+			classificacao.setTarifa(rs.getString("CLA_TARIFA"));
+			classificacao.setDescricaoClasse(rs.getString("CLA_DESCCLASSE"));
+			classificacao.setDescricaoAtividade(rs.getString("CLA_DESCATIVIDADE"));
+			classificacao.setDescricaoTipoFornecedor(rs.getString("CLA_DESCTIPOFORN"));
+			classificacao.setDescricaoFase(rs.getString("CLA_DESCFASE"));
+			classificacao.setDescricaoIluminacao(rs.getString("CLA_DESCILUM"));
+			classificacao.setDescricaoTarifa(rs.getString("CLA_DESCTARIFA"));
+			classificacao.setAliquota(rs.getInt("CLA_ALIQ"));
+			classificacao.setDesativado(rs.getBoolean("CLA_DESATIVADO"));
+			classificacao.setTn(rs.getString("CLA_TN"));
+			classificacao.setTn_inf(rs.getString("CLA_TN_INF"));
+			classificacao.setTn_sup(rs.getString("CLA_TN_SUP"));
+			classificacao.setSubgrupo(rs.getString("CLA_SUBGRUPO"));
+			classificacao.setPadrao(rs.getBoolean("CLA_PADRAO"));
+		}
+		return classificacao;
+	}
+
 }

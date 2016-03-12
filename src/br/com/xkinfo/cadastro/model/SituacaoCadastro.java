@@ -2,14 +2,14 @@ package br.com.xkinfo.cadastro.model;
 
 public class SituacaoCadastro {
 
-	private int id;
+	private char id;
 	private int numero;
 	private String descricao;
 	
-	public int getId() {
+	public char getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(char id) {
 		this.id = id;
 	}
 	public int getNumero() {

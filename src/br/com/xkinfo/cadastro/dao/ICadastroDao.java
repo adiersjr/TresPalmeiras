@@ -13,6 +13,6 @@ public interface ICadastroDao {
 
 	public ResultSet pesquisarCadastros() throws Exception;
 
-	public ResultSet pesquisarCadastro(int id) throws Exception;
+	public ResultSet pesquisarCadastro(String id) throws Exception;
 
 }

@@ -40,6 +40,7 @@ public class DaoFactory {
 	private static final IRamalLigacaoDao ramalLigacaoDao = new RamalLigacaoDao();
 	private static final ISetorDao setorDao = new SetorDao();
 	private static final IVencimentoDao vencimentoDao = new VencimentoDao();
+	private static final IConjuntoDao conjuntoDao = new ConjuntoDao();
 	
 	public static ICargoDao getCargodao() {
 		return cargoDao;
@@ -118,5 +119,8 @@ public class DaoFactory {
 	}
 	public static IVencimentoDao getVencimentodao() {
 		return vencimentoDao;
+	}
+	public static IConjuntoDao getConjuntodao() {
+		return conjuntoDao;
 	}
 }

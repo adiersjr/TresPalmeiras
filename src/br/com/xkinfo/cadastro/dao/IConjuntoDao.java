@@ -9,10 +9,10 @@ public interface IConjuntoDao {
 	
 	public int alterarConjunto(Conjunto conjunto) throws Exception;
 	
-	public int excluitConjunto(Conjunto conjunto) throws Exception;
+	public int excluirConjunto(Conjunto conjunto) throws Exception;
 	
 	public ResultSet pesquisarConjuntos() throws Exception;
 	
-	public ResultSet pesquisarConjunto(int id) throws Exception;
+	public ResultSet pesquisarConjunto(String numero) throws Exception;
 
 }

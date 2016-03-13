@@ -49,7 +49,7 @@ public class ContribuicaoService implements IContribuicaoService{
 		while(rs.next()){
 			contribuicao = new Contribuicao();
 			contribuicao.setId(rs.getInt("CON_NUMERO"));
-			contribuicao.setCadastro(ServiceFactory.getCadastroservice().pesquisarCadastro(rs.getInt("CAD_CHAVE")));
+			contribuicao.setCadastro(ServiceFactory.getCadastroservice().pesquisarCadastro(rs.getString("CAD_CHAVE")));
 			contribuicao.setValor(rs.getDouble("CON_VALOR"));
 			contribuicao.setData(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CON_DATA")));
 			contribuicao.setTaxa(ServiceFactory.getTaxaservice().pesquisarTaxa(rs.getInt("TAX_CODIGO")));
@@ -64,7 +64,7 @@ public class ContribuicaoService implements IContribuicaoService{
 		contribuicao = new Contribuicao();
 		while(rs.next()){
 			contribuicao.setId(rs.getInt("CON_NUMERO"));
-			contribuicao.setCadastro(ServiceFactory.getCadastroservice().pesquisarCadastro(rs.getInt("CAD_CHAVE")));
+			contribuicao.setCadastro(ServiceFactory.getCadastroservice().pesquisarCadastro(rs.getString("CAD_CHAVE")));
 			contribuicao.setValor(rs.getDouble("CON_VALOR"));
 			contribuicao.setData(ServiceFactory.getApoioservice().converteCalendar(rs.getDate("CON_DATA")));
 			contribuicao.setTaxa(ServiceFactory.getTaxaservice().pesquisarTaxa(rs.getInt("TAX_CODIGO")));

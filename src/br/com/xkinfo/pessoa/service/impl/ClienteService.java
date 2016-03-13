@@ -133,7 +133,7 @@ public class ClienteService implements IClienteService{
 		while(rs.next()) {
 			cliente = new Cliente();
 			cliente.setId(rs.getInt("CLI_NUMERO"));
-			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getInt("MUI_CODIGO")));
+			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getString("MUI_CODIGO")));
 			cliente.setEstado(ServiceFactory.getEstadoservice().pesquisaEstado(rs.getInt("EST_SIGLA")));
 			cliente.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			cliente.setTipoDocumento(ServiceFactory.getTipodocumentoservice().pesquisaTipoDocumento(rs.getInt("TPD_NUMERO")));
@@ -178,7 +178,7 @@ public class ClienteService implements IClienteService{
 		cliente = new Cliente();
 		while(rs.next()) {
 			cliente.setId(rs.getInt("CLI_NUMERO"));
-			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getInt("MUI_CODIGO")));
+			cliente.setMunicipioIbge(ServiceFactory.getMunicipioibgeservice().pesquisaMunicipio(rs.getString("MUI_CODIGO")));
 			cliente.setEstado(ServiceFactory.getEstadoservice().pesquisaEstado(rs.getInt("EST_SIGLA")));
 			cliente.setPais(ServiceFactory.getPaisservice().pesquisaPais(rs.getInt("PAI_NUMERO")));
 			cliente.setTipoDocumento(ServiceFactory.getTipodocumentoservice().pesquisaTipoDocumento(rs.getInt("TPD_NUMERO")));

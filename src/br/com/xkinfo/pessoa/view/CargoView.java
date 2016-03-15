@@ -3,8 +3,6 @@ package br.com.xkinfo.pessoa.view;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
@@ -12,10 +10,10 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 
 public class CargoView extends JPanel {
+	
 	private JTable tabela;
 	private JTextField txtCodigo;
 	private JTextField txtDescricao;
@@ -56,6 +54,7 @@ public class CargoView extends JPanel {
 		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
 		
 		txtCodigo = new JTextField();
+		txtCodigo.setEditable(false);
 		txtCodigo.setColumns(10);
 		
 		txtDescricao = new JTextField();

@@ -1,5 +1,9 @@
 package br.com.xkinfo.arrecadacao.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Banco {
 
 	private int id;
@@ -16,6 +20,15 @@ public class Banco {
 	private int diasG;
 	private int diasF;
 	private boolean debito;
+	private List<Agencia> agencias = new ArrayList<>();
+	
+	public Banco() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Banco(String nome) {
+		this.nome = nome;
+	}
 	
 	public int getId() {
 		return id;
@@ -100,5 +113,15 @@ public class Banco {
 	}
 	public void setDebito(boolean debito) {
 		this.debito = debito;
+	}
+	@Override
+	public String toString() {
+		return getNome();
+	}
+	public void addAgencia(Agencia agencia){
+		agencias.add(agencia);
+	}
+	public List<Agencia> getAgencias(){
+		return Collections.unmodifiableList(agencias);
 	}
 }

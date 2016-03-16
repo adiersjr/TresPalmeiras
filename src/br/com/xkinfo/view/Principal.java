@@ -1,14 +1,15 @@
 package br.com.xkinfo.view;
 
 import java.awt.EventQueue;
+
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import br.com.xkinfo.pessoa.view.CargoView;
 import java.awt.Dimension;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -16,8 +17,8 @@ import javax.swing.JMenuItem;
 
 public class Principal extends JFrame {
 
-	private JPanel contentPane;
 	private CardLayout cardLayout;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -52,6 +53,7 @@ public class Principal extends JFrame {
 		menuBar.add(mnGec);
 
 		JMenuItem mntmCargos = new JMenuItem("Cargos");
+		mntmCargos.setName("cargo");
 		mnGec.add(mntmCargos);
 
 		JMenu mnGef = new JMenu("GEF");
@@ -61,22 +63,19 @@ public class Principal extends JFrame {
 		JMenu mnGem = new JMenu("GEM");
 		menuBar.add(mnGem);
 
-		/*contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));*/
-
+		getContentPane().setLayout(new CardLayout(0, 0));
 		GroupLayout layout = new GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(
-				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGap(0, 579, Short.MAX_VALUE)
-				);
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGap(0, 800, Short.MAX_VALUE));
 		layout.setVerticalGroup(
-				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGap(0, 579, Short.MAX_VALUE)
 				);
+		init();
+	}
 
+	private void init() {
 		setLayout(new BorderLayout());
 		add(getCardLayout(), BorderLayout.CENTER);
 	}
@@ -98,7 +97,7 @@ public class Principal extends JFrame {
 			contentPane.add(new TelaReserva(), "telaReserva");
 			contentPane.add(new TelaLocacao(), "telaLocacao");
 			contentPane.add(new TelaDevolucao(), "telaDevolucao");*/
-			cardLayout.show(contentPane, "nada");
+			cardLayout.show(contentPane, "cargo");
 			contentPane.setBackground(Color.GREEN);
 			return contentPane;
 		} else {

@@ -96,7 +96,7 @@ public class BancoDao implements IBancoDao{
 	@Override
 	public ResultSet pesquisaBanco(String numero) throws Exception {
 		ResultSet rs = null;
-		String query = "SELECT * FROM BANCOS WHERE BAN_NUMERO = '"+numero+"' )";
+		String query = "SELECT * FROM BANCOS WHERE BAN_NUMERO = '"+numero+"' ";
 		try {
 			st = conexao.connect().createStatement();
 			rs = st.executeQuery(query);

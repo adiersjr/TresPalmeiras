@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import br.com.xkinfo.arrecadacao.dao.IAgenciaDao;
 import br.com.xkinfo.arrecadacao.model.Agencia;
+import br.com.xkinfo.arrecadacao.model.Banco;
 import br.com.xkinfo.util.Conexao;
 
 public class AgenciaDao implements IAgenciaDao{
@@ -79,6 +80,21 @@ public class AgenciaDao implements IAgenciaDao{
 		return rs;
 	}
 
+	@Override
+	public ResultSet pesquisaAgencias(Banco banco) throws Exception{
+		ResultSet rs = null;
+		String query = "SELECT * FROM AGENCIAS BAN_NUMERO = '"+banco.getNumero()+"' ";
+		try {
+			st = conexao.connect().createStatement();
+			rs = st.executeQuery(query);
+			conexao.connect().close();
+			return rs;
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
 	@Override
 	public ResultSet pesquisaAgencia(int id) throws Exception {
 		ResultSet rs = null;

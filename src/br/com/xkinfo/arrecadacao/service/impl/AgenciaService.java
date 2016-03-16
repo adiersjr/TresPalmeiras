@@ -84,6 +84,34 @@ public class AgenciaService implements IAgenciaService{
 			agencia.setConvenioF(rs.getString("AGE_CONVENIOF"));
 			agencia.setConvenioG(rs.getString("AGE_CONVENIOG"));
 			agencia.setNsr(rs.getInt("AGE_NSR"));
+			//agencia.setDigito(rs.getString("AGE_DV").charAt(0));
+			agencia.setEndereco(rs.getString("AGE_ENDERECO"));
+			agencia.setComplemento(rs.getString("AGE_COMPLEMENTO"));
+			agencia.setBairro(rs.getString("AGE_BAIRRO"));
+			agencia.setCep(rs.getString("AGE_CEP"));
+			agencia.setMunicipio(rs.getString("AGE_MUNICIPIO"));
+			agencia.setEstado(ServiceFactory.getEstadoservice().pesquisaSigla(rs.getString("EST_SIGLA")));
+			agencia.setDdd(rs.getString("AGE_DDD"));
+			agencia.setTelefone(rs.getString("AGE_FONE"));
+			agencias.add(agencia);
+		}
+		return agencias;
+	}
+
+	@Override
+	public ArrayList<Agencia> pesquisaAgencias(Banco banco) throws Exception{
+		ResultSet rs = DaoFactory.getAgenciadao().pesquisaAgencias(banco);
+		ArrayList<Agencia> agencias = new ArrayList<>();
+		while(rs.next()){
+			agencia = new Agencia();
+			agencia.setId(rs.getInt("AGE_CODIGO"));
+			agencia.setChave(rs.getString("AGE_CHAVE"));
+			agencia.setBanco(ServiceFactory.getBancoservice().pesquisaBanco(rs.getString("BAN_NUMERO")));
+			agencia.setNumero(rs.getString("AGE_NUMERO"));
+			agencia.setNome(rs.getString("AGE_NOME"));
+			agencia.setConvenioF(rs.getString("AGE_CONVENIOF"));
+			agencia.setConvenioG(rs.getString("AGE_CONVENIOG"));
+			agencia.setNsr(rs.getInt("AGE_NSR"));
 			agencia.setDigito(rs.getString("AGE_DV").charAt(0));
 			agencia.setEndereco(rs.getString("AGE_ENDERECO"));
 			agencia.setComplemento(rs.getString("AGE_COMPLEMENTO"));
@@ -97,7 +125,7 @@ public class AgenciaService implements IAgenciaService{
 		}
 		return agencias;
 	}
-
+	
 	@Override
 	public Agencia pesquisaAgencia(int id) throws Exception {
 		ResultSet rs = DaoFactory.getAgenciadao().pesquisaAgencia(id);

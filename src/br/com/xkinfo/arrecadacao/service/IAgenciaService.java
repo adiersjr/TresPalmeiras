@@ -16,6 +16,8 @@ public interface IAgenciaService {
 	public int excluirAgencia(int id) throws Exception;
 
 	public ArrayList<Agencia> pesquisaAgencias() throws Exception;
+	
+	public ArrayList<Agencia> pesquisaAgencias(Banco banco) throws Exception;
 
 	public Agencia pesquisaAgencia(int id) throws Exception;
 	

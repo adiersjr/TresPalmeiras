@@ -1,4 +1,4 @@
-package br.com.xkinfo.arrecadacao.model;
+package teste;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -14,6 +14,7 @@ import javax.swing.JTree;
 import javax.swing.border.EmptyBorder;
 import javax.swing.tree.TreeModel;
 
+import br.com.xkinfo.arrecadacao.model.Banco;
 import br.com.xkinfo.service.ServiceFactory;
 
 public class Tela extends JDialog {
@@ -22,6 +23,20 @@ public class Tela extends JDialog {
 	private JScrollPane scrlTree = null;
 	private JTree treeLivros = null;
 	private TreeModel treeModel;
+	
+	public static void main(String[] args) {
+		List<Banco> bancos = null;
+		try {
+			bancos = ServiceFactory.getBancoservice().pesquisaBancos();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Tela tela = new Tela(new BancoTreeModel(bancos));
+		tela.setVisible(true);
+
+	}
 	
 	public Tela(TreeModel treeModel) {
 		super();
@@ -63,28 +78,6 @@ public class Tela extends JDialog {
 		return treeLivros;
 	}
 
-	public static void main(String[] args) {
-		List<Banco> bancos = null;
-		List<Agencia> agencias = null;
-		try {
-			bancos = ServiceFactory.getBancoservice().pesquisaBancos();
-			agencias = ServiceFactory.getAgenciaservice().pesquisaAgencias();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		for (Agencia agencia : agencias) {
-			for (Banco banco : bancos) {
-				if (banco.getId() == agencia.getBanco().getId()){
-					banco.addAgencia(agencia);
-				}
-			}
-		}
-		
-		Tela tela = new Tela(new BancoTreeModel(bancos));
-		tela.setVisible(true);
-
-	}
+	
 
 }

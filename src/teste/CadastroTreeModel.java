@@ -1,4 +1,4 @@
-package br.com.xkinfo.arrecadacao.model;
+package teste;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +6,17 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-public class BancoTreeModel implements TreeModel{
+import br.com.xkinfo.arrecadacao.model.Agencia;
+import br.com.xkinfo.arrecadacao.model.Banco;
 
-	private String raiz = "Bancos";
+public class CadastroTreeModel implements TreeModel{
+
+	private String raiz = "Root";
 	private List<TreeModelListener> listeners = new ArrayList<>();
-	private List<Banco> bancos;
+	private List<Object> listas;
 
-	public BancoTreeModel(List<Banco> bancos) {
-		this.bancos = bancos;
+	public CadastroTreeModel(List<Object> listas) {
+		this.listas = listas;
 	}
 
 	@Override
@@ -24,11 +27,11 @@ public class BancoTreeModel implements TreeModel{
 	@Override
 	public Object getChild(Object parent, int index) {
 		if (parent == raiz) // É o nó principal?
-			return bancos.get(index); // Pegamos da lista de livro
-		if (parent instanceof Banco) // O pai é um livro?
+			return listas.get(index); // Pegamos da lista de livro
+		if (parent instanceof Object) // O pai é um livro?
 		{
 			// Devolvemos um autor
-			return ((Banco) parent).getAgencias().get(index);
+			return ((Object) parent).getClass();
 		}
 		// Se o pai não é nenhum desses. Melhor dar erro.
 		throw new IllegalArgumentException("Invalid parent class"
@@ -39,9 +42,9 @@ public class BancoTreeModel implements TreeModel{
 	public int getChildCount(Object parent) {
 		// Mesma lógica.
 		if (parent == raiz)
-			return bancos.size();
+			return listas.size();
 		if (parent instanceof Banco) // O pai é um livro?
-			return ((Banco) parent).getAgencias().size();
+			return ((Object) parent).getClass()
 		// Se o pai não é nenhum desses. Melhor dar erro.
 		throw new IllegalArgumentException("Invalid parent class"
 				+ parent.getClass().getSimpleName());

@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.CargoTableModel;
+import br.com.xkinfo.view.Principal;
 
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
@@ -151,11 +152,12 @@ public class ConsultaCargo extends JPanel {
                     Integer linhaSelecionada = tabela.getSelectedRow();
                     Cargo cargoSelecionado = ((CargoTableModel) tabela.getModel()).getCargos().get(linhaSelecionada);
                     if (cargoSelecionado != null) {
-                    	principal
+                    	frame.
+                    	/*principal
                         CadastroCargo cadastroCargo = new CadastroCargo(cargoSelecionado);
                         //cadastroCargo.setLocationRelativeTo(scrollPane.getParent());
                         cadastroCargo.setVisible(true);
-                        tabela.setModel(new CargoTableModel());
+                        tabela.setModel(new CargoTableModel());*/
                     }
                 }
             }

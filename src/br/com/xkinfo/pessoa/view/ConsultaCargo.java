@@ -22,7 +22,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CargoView extends JPanel {
+public class ConsultaCargo extends JPanel {
 
 	private JTable tabela;
 	private JTextField txtCodigo;
@@ -38,7 +38,7 @@ public class CargoView extends JPanel {
 	 * Create the panel.
 	 * Construtor do Panel.
 	 */
-	public CargoView() {
+	public ConsultaCargo() {
 		setPreferredSize(new Dimension(600, 400));
 		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Cargos", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 

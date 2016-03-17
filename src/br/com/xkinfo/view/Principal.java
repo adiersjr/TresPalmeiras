@@ -40,6 +40,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		setMinimumSize(new Dimension(800, 600));
 		setTitle("Principal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,20 +65,11 @@ public class Principal extends JFrame {
 		menuBar.add(mnGem);
 
 		getContentPane().setLayout(new CardLayout(0, 0));
-		GroupLayout layout = new GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 800, Short.MAX_VALUE));
-		layout.setVerticalGroup(
-				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 579, Short.MAX_VALUE)
-				);
 		init();
 	}
 
 	private void init() {
-		setLayout(new BorderLayout());
-		add(getCardLayout(), BorderLayout.CENTER);
+		getContentPane().add(getCardLayout(), BorderLayout.CENTER);
 	}
 
 	private JPanel getCardLayout(){

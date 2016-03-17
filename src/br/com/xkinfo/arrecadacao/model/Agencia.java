@@ -21,12 +21,6 @@ public class Agencia {
 	private Estado estado;
 	private String ddd;
 	private String telefone;
-	public Agencia() {
-		// TODO Auto-generated constructor stub
-	}
-	public Agencia(String nome) {
-		this.nome = nome;
-	}
 	
 	public int getId() {
 		return id;
@@ -129,9 +123,5 @@ public class Agencia {
 	}
 	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
-	}
-	@Override
-	public String toString() {
-		return getNome();
 	}
 }

@@ -5,6 +5,10 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
+
+import br.com.xkinfo.pessoa.model.Cargo;
+import br.com.xkinfo.pessoa.util.CargoTableModel;
+
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -19,28 +23,28 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class ConsultaCargo extends JPanel {
 
 	private JTable tabela;
-	private JTextField txtCodigo;
-	private JTextField txtDescricao;
+	private JTextField tfCodigo;
+	private JTextField tfDescricao;
 
-	private int coluna0 = 50;
+	private int coluna0 = 20;
 	private int coluna1 = 150;
 	DefaultTableCellRenderer direita;
-	DefaultTableCellRenderer esquerda;
-	DefaultTableCellRenderer centro;
+    DefaultTableCellRenderer esquerda;
+    DefaultTableCellRenderer centro;
 
 	/**
 	 * Create the panel.
 	 * Construtor do Panel.
 	 */
 	public ConsultaCargo() {
+		setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setPreferredSize(new Dimension(600, 400));
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Cargos", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Consulta Cargo", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -86,12 +90,12 @@ public class ConsultaCargo extends JPanel {
 
 		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
 
-		txtCodigo = new JTextField();
-		txtCodigo.setEditable(false);
-		txtCodigo.setColumns(10);
+		tfCodigo = new JTextField();
+		tfCodigo.setEditable(false);
+		tfCodigo.setColumns(10);
 
-		txtDescricao = new JTextField();
-		txtDescricao.setColumns(200);
+		tfDescricao = new JTextField();
+		tfDescricao.setColumns(200);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 				gl_panel.createParallelGroup(Alignment.LEADING)
@@ -99,11 +103,11 @@ public class ConsultaCargo extends JPanel {
 						.addContainerGap()
 						.addComponent(lblCodigo)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(txtCodigo, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+						.addComponent(tfCodigo, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
 						.addGap(18)
 						.addComponent(lblDescricao)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(txtDescricao, GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+						.addComponent(tfDescricao, GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
 						.addContainerGap())
 				);
 		gl_panel.setVerticalGroup(
@@ -112,33 +116,49 @@ public class ConsultaCargo extends JPanel {
 						.addContainerGap()
 						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblCodigo)
-								.addComponent(txtCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(tfCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblDescricao)
-								.addComponent(txtDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(tfDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addContainerGap(29, Short.MAX_VALUE))
 				);
 		panel.setLayout(gl_panel);
 
 		tabela = new JTable();
+		tabela.setModel(new CargoTableModel()); /// COPIADO DO NETBEANS
 		scrollPane.setViewportView(tabela);
 		setLayout(groupLayout);
 
 		// Copiado do Netbeans....
-		centro = new DefaultTableCellRenderer();
-		centro.setHorizontalAlignment(SwingConstants.CENTER);
-		esquerda = new DefaultTableCellRenderer();
-		esquerda.setHorizontalAlignment(SwingConstants.LEFT);
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(coluna0);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(coluna1);
+		tabela.getColumnModel().getColumn(0).setCellRenderer(centro);
+		tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
+        ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		
 		// Lógica para manipular uma linha do JTable quando esta é selecionada    
-		ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
-		linhaModeloSelecao.addListSelectionListener(new ListSelectionListener() {
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				// Ignora o evento enquanto os valores da linha selecionada
-				// estão sendo atualizados
-				if (e.getValueIsAdjusting()) {
-					return;
-				}
-			}
-		});
+        ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
+        linhaModeloSelecao.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                // Ignora o evento enquanto os valores da linha selecionada
+                // estão sendo atualizados
+                if (e.getValueIsAdjusting()) {
+                    return;
+                }
+                // Verifica se existe uma linha selecionada. O
+                // valor deve ser maior ou igual a 0, que é o número da linha
+                if (tabela.getSelectedRow() >= 0) {
+                    Integer linhaSelecionada = tabela.getSelectedRow();
+                    Cargo cargoSelecionado = ((CargoTableModel) tabela.getModel()).getCargos().get(linhaSelecionada);
+                    if (cargoSelecionado != null) {
+                    	principal
+                        CadastroCargo cadastroCargo = new CadastroCargo(cargoSelecionado);
+                        //cadastroCargo.setLocationRelativeTo(scrollPane.getParent());
+                        cadastroCargo.setVisible(true);
+                        tabela.setModel(new CargoTableModel());
+                    }
+                }
+            }
+        });
 	}
 }

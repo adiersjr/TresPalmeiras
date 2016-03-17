@@ -7,7 +7,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import br.com.xkinfo.pessoa.view.CadastraCargo;
+import br.com.xkinfo.pessoa.view.CadastroCargo;
 import br.com.xkinfo.pessoa.view.ConsultaCargo;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -86,7 +86,7 @@ public class Principal extends JFrame {
 			painelCardLayout.setLayout(cardLayout);
 
 			painelCardLayout.add(new ConsultaCargo(), "primeiro");
-			painelCardLayout.add(new CadastraCargo(), "segundo");
+			painelCardLayout.add(new CadastroCargo(), "segundo");
 			//painelCardLayout.add(new ConsultaCargo(), "primeiro");
 			//cardLayout.show(painelCardLayout, "telaLocacao");
 			//painelCardLayout.setBackground(Color.GREEN);

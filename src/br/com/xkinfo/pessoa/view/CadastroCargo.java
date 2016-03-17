@@ -7,14 +7,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class CadastraCargo extends JPanel {
+import br.com.xkinfo.pessoa.model.Cargo;
+
+public class CadastroCargo extends JPanel {
 	private JTextField tfDescricao;
 	private JTextField tfCodigo;
 
 	/**
 	 * Create the panel.
 	 */
-	public CadastraCargo() {
+	public CadastroCargo() {
 		
 		JLabel lblCodigo = new JLabel("Codigo:");
 		
@@ -58,4 +60,9 @@ public class CadastraCargo extends JPanel {
 		setLayout(groupLayout);
 
 	}
+
+	public CadastroCargo(Cargo cargo){
+		
+	}
+
 }

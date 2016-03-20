@@ -31,9 +31,9 @@ public class EstadoService implements IEstadoService{
 			estado.setSigla(sigla);
 			estado.setPais(pais);
 			estado.setCodigoIbge(codigoIbge);
-			int ret = DaoFactory.getEstadodao().incluirEstado(estado);
+			int ret = DaoFactory.getEstadoDao().incluirEstado(estado);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Inclusï¿½o efetuada com Sucesso!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
@@ -59,11 +59,11 @@ public class EstadoService implements IEstadoService{
 			estado.setSigla(sigla);
 			estado.setPais(pais);
 			estado.setCodigoIbge(codigoIbge);
-			int ret = DaoFactory.getEstadodao().alterarEstado(estado);
+			int ret = DaoFactory.getEstadoDao().alterarEstado(estado);
 			if (ret == 1){
-				System.out.println("Alteração efetuada com Sucesso!");
+				System.out.println("Alteraï¿½ï¿½o efetuada com Sucesso!");
 			} else {
-				System.out.println("Registro não encontrado!");
+				System.out.println("Registro nï¿½o encontrado!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
@@ -73,18 +73,18 @@ public class EstadoService implements IEstadoService{
 	@Override
 	public void excluirEstado(int id) throws Exception {
 		estado = pesquisaEstado(id);
-		int ret = DaoFactory.getEstadodao().excluirEstado(estado);
+		int ret = DaoFactory.getEstadoDao().excluirEstado(estado);
 		if (ret == 1){
-			System.out.println("Exclusão efetuada com sucesso!");
+			System.out.println("Exclusï¿½o efetuada com sucesso!");
 		}
 		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
 	}
 
 	@Override
 	public ArrayList<Estado> pesquisaEstados() throws Exception {
-		ResultSet rs = DaoFactory.getEstadodao().pesquisaEstados();
+		ResultSet rs = DaoFactory.getEstadoDao().pesquisaEstados();
 		ArrayList<Estado> estados = new ArrayList<>();
 		while(rs.next()){
 			estado = new Estado();
@@ -99,7 +99,7 @@ public class EstadoService implements IEstadoService{
 
 	@Override
 	public ArrayList<Estado> pesquisaNome(String nome) throws Exception {
-		ResultSet rs = DaoFactory.getEstadodao().pesquisaNome(nome);
+		ResultSet rs = DaoFactory.getEstadoDao().pesquisaNome(nome);
 		ArrayList<Estado> estados = new ArrayList<>();
 		while(rs.next()){
 			estado = new Estado();
@@ -114,7 +114,7 @@ public class EstadoService implements IEstadoService{
 
 	@Override
 	public Estado pesquisaSigla(String sigla) throws Exception {
-		ResultSet rs = DaoFactory.getEstadodao().pesquisaSigla(sigla);
+		ResultSet rs = DaoFactory.getEstadoDao().pesquisaSigla(sigla);
 		estado = new Estado();
 		while(rs.next()){
 			estado.setId(rs.getInt("EST_CODIGO"));
@@ -127,7 +127,7 @@ public class EstadoService implements IEstadoService{
 
 	@Override
 	public ArrayList<Estado> pesquisaPais(Pais pais) throws Exception {
-		ResultSet rs = DaoFactory.getEstadodao().pesquisaPais(pais);
+		ResultSet rs = DaoFactory.getEstadoDao().pesquisaPais(pais);
 		ArrayList<Estado> estados = new ArrayList<>();
 		while(rs.next()){
 			estado = new Estado();
@@ -142,7 +142,7 @@ public class EstadoService implements IEstadoService{
 
 	@Override
 	public Estado pesquisaEstado(int id) throws Exception {
-		ResultSet rs = DaoFactory.getEstadodao().pesquisaEstado(id);
+		ResultSet rs = DaoFactory.getEstadoDao().pesquisaEstado(id);
 		estado = new Estado();
 		while(rs.next()){
 			estado.setId(rs.getInt("EST_CODIGO"));

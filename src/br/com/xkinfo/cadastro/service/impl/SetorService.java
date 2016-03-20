@@ -28,7 +28,7 @@ public class SetorService implements ISetorService{
 		set.setLocalizacao(localizacao);
 		set.setUltimaFaturaT(ultimaFaturaT);
 		set.setDataUltimaCalCat(dataUltimaCalCat);
-		DaoFactory.getSetordao().incluirSetor(set);
+		DaoFactory.getSetorDao().incluirSetor(set);
 	}
 
 	@Override
@@ -47,18 +47,18 @@ public class SetorService implements ISetorService{
 		set.setLocalizacao(localizacao);
 		set.setUltimaFaturaT(ultimaFaturaT);
 		set.setDataUltimaCalCat(dataUltimaCalCat);
-		DaoFactory.getSetordao().alterarSetor(set);
+		DaoFactory.getSetorDao().alterarSetor(set);
 	}
 
 	@Override
 	public void excluirSetor(int id) throws Exception {
 		set = pesquisarSetor(id);
-		DaoFactory.getSetordao().excluirSetor(set);
+		DaoFactory.getSetorDao().excluirSetor(set);
 	}
 
 	@Override
 	public ArrayList<Setor> pesquisarSetores() throws Exception {
-		ResultSet rs = DaoFactory.getSetordao().pesquisarSetores();
+		ResultSet rs = DaoFactory.getSetorDao().pesquisarSetores();
 		ArrayList<Setor> setores = new ArrayList<>();
 		while(rs.next()){
 			set = new Setor();
@@ -80,7 +80,7 @@ public class SetorService implements ISetorService{
 
 	@Override
 	public Setor pesquisarSetor(int id) throws Exception {
-		ResultSet rs = DaoFactory.getSetordao().pesquisarSetor(id);
+		ResultSet rs = DaoFactory.getSetorDao().pesquisarSetor(id);
 		set = new Setor();
 		while(rs.next()){
 			set.setId(rs.getInt("ID"));
@@ -100,7 +100,7 @@ public class SetorService implements ISetorService{
 
 	@Override
 	public Setor pesquisarSetor(String chave) throws Exception {
-		ResultSet rs = DaoFactory.getSetordao().pesquisarSetor(chave);
+		ResultSet rs = DaoFactory.getSetorDao().pesquisarSetor(chave);
 		set = new Setor();
 		while(rs.next()){
 			set.setId(rs.getInt("ID"));

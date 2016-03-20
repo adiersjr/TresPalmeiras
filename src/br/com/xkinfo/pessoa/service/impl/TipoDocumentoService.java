@@ -14,14 +14,14 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 	public void incluirTipoDocumento(String descricao, boolean pessoal) throws Exception {
 		String valida = descricao.replaceAll(" ", "");
 		if(valida.isEmpty()){
-			System.out.println("Campo descrição do cargo é obrigatório!");
+			System.out.println("Campo descriÃ§Ã£oo do cargo Ã© obrigatÃ³rio!");
 		}else {
 			tipoDocumento = new TipoDocumento();
 			tipoDocumento.setDescricao(descricao);
 			tipoDocumento.setPessoal(pessoal);
-			int ret = DaoFactory.getTipodocumentodao().incluirTipoDocumento(tipoDocumento);
+			int ret = DaoFactory.getTipodocumentoDao().incluirTipoDocumento(tipoDocumento);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Inclusï¿½o efetuada com Sucesso!");
 			}		
 		}
 	}
@@ -31,15 +31,15 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 		String valida = descricao.replaceAll(" ", "");
 		int ide = id;
 		if(valida.isEmpty()){
-			System.out.println("Campo descrição do cargo é obrigatório!");
+			System.out.println("Campo descriï¿½ï¿½o do cargo ï¿½ obrigatï¿½rio!");
 		}else {
 			tipoDocumento = new TipoDocumento();
 			tipoDocumento.setId(ide);
 			tipoDocumento.setDescricao(descricao);
 			tipoDocumento.setPessoal(pessoal);
-			int ret = DaoFactory.getTipodocumentodao().alterarTipoDocumento(tipoDocumento);
+			int ret = DaoFactory.getTipodocumentoDao().alterarTipoDocumento(tipoDocumento);
 			if (ret == 1){
-				System.out.println("Alteração efetuada com Sucesso!");
+				System.out.println("Alteraï¿½ï¿½o efetuada com Sucesso!");
 			}		
 		}
 	}
@@ -47,18 +47,18 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 	@Override
 	public void excluirTipoDocumento(int id) throws Exception {
 		tipoDocumento = pesquisaTipoDocumento(id);
-		int ret = DaoFactory.getTipodocumentodao().excluirTipoDocumento(tipoDocumento);
+		int ret = DaoFactory.getTipodocumentoDao().excluirTipoDocumento(tipoDocumento);
 		if (ret == 1){
-			System.out.println("Exclusão efetuada com sucesso!");
+			System.out.println("Exclusï¿½o efetuada com sucesso!");
 		}
 		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
 	}
 
 	@Override
 	public ArrayList<TipoDocumento> pesquisaTipoDocumentos() throws Exception {
-		ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaTipoDocumentos();
+		ResultSet rs = DaoFactory.getTipodocumentoDao().pesquisaTipoDocumentos();
 		ArrayList<TipoDocumento> tipoDocumentos = new ArrayList<>();
 		while(rs.next()){
 			tipoDocumento = new TipoDocumento();
@@ -75,9 +75,9 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 		String valida = descricao.replaceAll(" ", "");
 		ArrayList<TipoDocumento> tipoDocumentos = new ArrayList<>();
 		if(valida.isEmpty()){
-			System.out.println("Campo descrição do cargo é obrigatório!");
+			System.out.println("Campo descriï¿½ï¿½o do cargo ï¿½ obrigatï¿½rio!");
 		} else {
-			ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaDescricao(descricao);
+			ResultSet rs = DaoFactory.getTipodocumentoDao().pesquisaDescricao(descricao);
 			while(rs.next()){
 				tipoDocumento = new TipoDocumento();
 				tipoDocumento.setId(rs.getInt("TPD_NUMERO"));
@@ -86,7 +86,7 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 				tipoDocumentos.add(tipoDocumento);
 			}
 			if (tipoDocumentos.size() == 0){
-				System.out.println("Não possui dados com esse argumento!");
+				System.out.println("Nï¿½o possui dados com esse argumento!");
 			} else {
 				return tipoDocumentos;
 			}
@@ -96,7 +96,7 @@ public class TipoDocumentoService implements ITipoDocumentoService{
 
 	@Override
 	public TipoDocumento pesquisaTipoDocumento(int id) throws Exception {
-		ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaTipoDocumento(id);
+		ResultSet rs = DaoFactory.getTipodocumentoDao().pesquisaTipoDocumento(id);
 		tipoDocumento = new TipoDocumento();
 		while(rs.next()){
 			tipoDocumento = new TipoDocumento();

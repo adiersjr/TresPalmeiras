@@ -34,7 +34,7 @@ public class AgenciaService implements IAgenciaService{
 		agencia.setEstado(estado);
 		agencia.setDdd(ddd);
 		agencia.setTelefone(telefone);
-		int ret = DaoFactory.getAgenciadao().incluirAgencia(agencia);
+		int ret = DaoFactory.getAgenciaDao().incluirAgencia(agencia);
 		return ret;
 	}
 
@@ -60,19 +60,19 @@ public class AgenciaService implements IAgenciaService{
 		agencia.setEstado(estado);
 		agencia.setDdd(ddd);
 		agencia.setTelefone(telefone);
-		int ret = DaoFactory.getAgenciadao().alterarAgencia(agencia);
+		int ret = DaoFactory.getAgenciaDao().alterarAgencia(agencia);
 		return ret;
 	}
 
 	@Override
 	public int excluirAgencia(int id) throws Exception {
 		agencia = pesquisaAgencia(id);
-		return DaoFactory.getAgenciadao().excluirAgencia(agencia);
+		return DaoFactory.getAgenciaDao().excluirAgencia(agencia);
 	}
 
 	@Override
 	public ArrayList<Agencia> pesquisaAgencias() throws Exception {
-		ResultSet rs = DaoFactory.getAgenciadao().pesquisaAgencias();
+		ResultSet rs = DaoFactory.getAgenciaDao().pesquisaAgencias();
 		ArrayList<Agencia> agencias = new ArrayList<>();
 		while(rs.next()){
 			agencia = new Agencia();
@@ -100,7 +100,7 @@ public class AgenciaService implements IAgenciaService{
 
 	@Override
 	public ArrayList<Agencia> pesquisaAgencias(Banco banco) throws Exception{
-		ResultSet rs = DaoFactory.getAgenciadao().pesquisaAgencias(banco);
+		ResultSet rs = DaoFactory.getAgenciaDao().pesquisaAgencias(banco);
 		ArrayList<Agencia> agencias = new ArrayList<>();
 		while(rs.next()){
 			agencia = new Agencia();
@@ -128,7 +128,7 @@ public class AgenciaService implements IAgenciaService{
 	
 	@Override
 	public Agencia pesquisaAgencia(int id) throws Exception {
-		ResultSet rs = DaoFactory.getAgenciadao().pesquisaAgencia(id);
+		ResultSet rs = DaoFactory.getAgenciaDao().pesquisaAgencia(id);
 		agencia = new Agencia();
 		while(rs.next()){
 			agencia.setId(rs.getInt("AGE_CODIGO"));
@@ -154,7 +154,7 @@ public class AgenciaService implements IAgenciaService{
 
 	@Override
 	public Agencia pesquisaAgencia(String chave) throws Exception {
-		ResultSet rs = DaoFactory.getAgenciadao().pesquisaAgencia(chave);
+		ResultSet rs = DaoFactory.getAgenciaDao().pesquisaAgencia(chave);
 		agencia = new Agencia();
 		while(rs.next()){
 			agencia.setId(rs.getInt("AGE_CODIGO"));

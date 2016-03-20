@@ -51,9 +51,9 @@ public class FuncionarioService implements IFuncionarioService{
 			funcionario.setDataNascimento(dataNascimento);
 			funcionario.setCargo(cargo);
 			funcionario.setControleAcesso(controleAcesso);
-			int ret = DaoFactory.getFuncionariodao().incluirFuncionario(funcionario);
+			int ret = DaoFactory.getFuncionarioDao().incluirFuncionario(funcionario);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Inclusï¿½o efetuada com Sucesso!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
@@ -99,9 +99,9 @@ public class FuncionarioService implements IFuncionarioService{
 			funcionario.setDataNascimento(dataNascimento);
 			funcionario.setCargo(cargo);
 			funcionario.setControleAcesso(controleAcesso);
-			int ret = DaoFactory.getFuncionariodao().alterarFuncionario(funcionario);
+			int ret = DaoFactory.getFuncionarioDao().alterarFuncionario(funcionario);
 			if (ret == 1){
-				System.out.println("Alteração efetuada com Sucesso!");
+				System.out.println("Alteraï¿½ï¿½o efetuada com Sucesso!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
@@ -111,18 +111,18 @@ public class FuncionarioService implements IFuncionarioService{
 	@Override
 	public void excluirFuncionario(int id) throws Exception {
 		Funcionario funcionario = pesquisaFuncionario(id);
-		int ret = DaoFactory.getFuncionariodao().excluirFuncionario(funcionario);
+		int ret = DaoFactory.getFuncionarioDao().excluirFuncionario(funcionario);
 		if (ret == 1){
-			System.out.println("Exclusão efetuada com sucesso!");
+			System.out.println("Exclusï¿½o efetuada com sucesso!");
 		}
 		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
 	}
 
 	@Override
 	public ArrayList<Funcionario> pesquisaFuncionarios() throws Exception {
-		ResultSet rs = DaoFactory.getFuncionariodao().pesquisaFuncionarios();
+		ResultSet rs = DaoFactory.getFuncionarioDao().pesquisaFuncionarios();
 		ArrayList<Funcionario> funcionarios = new ArrayList<>();
 		while(rs.next()){
 			Funcionario funcionario = new Funcionario();
@@ -145,9 +145,9 @@ public class FuncionarioService implements IFuncionarioService{
 		String valida = nome.replaceAll(" ", "");
 		ArrayList<Funcionario> funcionarios = new ArrayList<>();
 		if(valida.isEmpty()){
-			System.out.println("Campo nome é obrigatório!");
+			System.out.println("Campo nome ï¿½ obrigatï¿½rio!");
 		} else {
-			ResultSet rs = DaoFactory.getFuncionariodao().pesquisaNome(nome);
+			ResultSet rs = DaoFactory.getFuncionarioDao().pesquisaNome(nome);
 			while(rs.next()){
 				Funcionario funcionario = new Funcionario();
 				funcionario.setId(rs.getInt("FUN_NUMERO"));
@@ -162,7 +162,7 @@ public class FuncionarioService implements IFuncionarioService{
 				funcionarios.add(funcionario);
 			}
 			if (funcionarios.size() == 0){
-				System.out.println("Não possui dados com esse argumento!");
+				System.out.println("Nï¿½o possui dados com esse argumento!");
 			}
 			return funcionarios;
 		}
@@ -174,9 +174,9 @@ public class FuncionarioService implements IFuncionarioService{
 		String valida = usuario.replaceAll(" ", "");
 		ArrayList<Funcionario> funcionarios = new ArrayList<>();
 		if(valida.isEmpty()){
-			System.out.println("Campo nome é obrigatório!");
+			System.out.println("Campo nome ï¿½ obrigatï¿½rio!");
 		} else {
-			ResultSet rs = DaoFactory.getFuncionariodao().pesquisaUsuario(usuario);
+			ResultSet rs = DaoFactory.getFuncionarioDao().pesquisaUsuario(usuario);
 			while(rs.next()){
 				Funcionario funcionario = new Funcionario();
 				funcionario.setId(rs.getInt("FUN_NUMERO"));
@@ -191,7 +191,7 @@ public class FuncionarioService implements IFuncionarioService{
 				funcionarios.add(funcionario);
 			}
 			if (funcionarios.size() == 0){
-				System.out.println("Não possui dados com esse argumento!");
+				System.out.println("Nï¿½o possui dados com esse argumento!");
 			}
 			return funcionarios;
 		}
@@ -200,7 +200,7 @@ public class FuncionarioService implements IFuncionarioService{
 
 	@Override
 	public Funcionario pesquisaFuncionario(int id) throws Exception {
-		ResultSet rs = DaoFactory.getFuncionariodao().pesquisaFuncionario(id);
+		ResultSet rs = DaoFactory.getFuncionarioDao().pesquisaFuncionario(id);
 		Funcionario funcionario = new Funcionario();
 		while(rs.next()){
 			funcionario.setId(rs.getInt("FUN_NUMERO"));

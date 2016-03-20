@@ -14,13 +14,13 @@ public class CargoService implements ICargoService {
 	public void incluirCargo(String descricao) throws Exception {
 		String valida = descricao.replaceAll(" ", "");
 		if(valida.isEmpty()){
-			System.out.println("Campo descrição do cargo é obrigatório!");
+			System.out.println("Campo descriï¿½ï¿½o do cargo ï¿½ obrigatï¿½rio!");
 		}else {
 			cargo = new Cargo();
 			cargo.setDescricao(descricao);
-			int ret = DaoFactory.getCargodao().incluirCargo(cargo);
+			int ret = DaoFactory.getCargoDao().incluirCargo(cargo);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Inclusï¿½o efetuada com Sucesso!");
 			}		
 		}
 	}
@@ -29,17 +29,17 @@ public class CargoService implements ICargoService {
 	public void alterarCargo(int id, String descricao) throws Exception {
 		String valida = descricao.replaceAll(" ", "");
 		if(valida.isEmpty()){
-			System.out.println("Campo descrição do cargo é obrigatório!");
+			System.out.println("Campo descriï¿½ï¿½o do cargo ï¿½ obrigatï¿½rio!");
 		} else {
 			cargo = new Cargo();
 			cargo.setId(id);
 			cargo.setDescricao(descricao);
-			int ret = DaoFactory.getCargodao().alterarCargo(cargo);
+			int ret = DaoFactory.getCargoDao().alterarCargo(cargo);
 			if (ret == 1){
-				System.out.println("Alteração efetuada com sucesso!");
+				System.out.println("Alteraï¿½ï¿½o efetuada com sucesso!");
 			}
 			if (ret == 0){
-				System.out.println("Registro não existe, favor verificar!");
+				System.out.println("Registro nï¿½o existe, favor verificar!");
 			}
 		}
 	}
@@ -47,18 +47,18 @@ public class CargoService implements ICargoService {
 	@Override
 	public void excluirCargo(int id) throws Exception {
 		cargo = pesquisaCargo(id);
-		int ret = DaoFactory.getCargodao().excluirCargo(cargo);
+		int ret = DaoFactory.getCargoDao().excluirCargo(cargo);
 		if (ret == 1){
-			System.out.println("Exclusão efetuada com sucesso!");
+			System.out.println("Exclusï¿½o efetuada com sucesso!");
 		}
 		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
 	}
 
 	@Override
 	public ArrayList<Cargo> pesquisaCargos() throws Exception {
-		ResultSet rs = DaoFactory.getCargodao().pesquisaCargos();
+		ResultSet rs = DaoFactory.getCargoDao().pesquisaCargos();
 		ArrayList<Cargo> cargos = new ArrayList<>();
 		while(rs.next()){
 			cargo = new Cargo();
@@ -74,9 +74,9 @@ public class CargoService implements ICargoService {
 		String valida = descricao.replaceAll(" ", "");
 		ArrayList<Cargo> cargos = new ArrayList<>();
 		if(valida.isEmpty()){
-			System.out.println("Campo descrição do cargo é obrigatório!");
+			System.out.println("Campo descriï¿½ï¿½o do cargo ï¿½ obrigatï¿½rio!");
 		} else {
-			ResultSet rs = DaoFactory.getCargodao().pesquisaDescricao(descricao);
+			ResultSet rs = DaoFactory.getCargoDao().pesquisaDescricao(descricao);
 			while(rs.next()){
 				Cargo cargo = new Cargo();
 				cargo.setId(rs.getInt("CAR_NUMERO"));
@@ -84,7 +84,7 @@ public class CargoService implements ICargoService {
 				cargos.add(cargo);
 			}
 			if (cargos.size() == 0){
-				System.out.println("Não possui dados com esse argumento!");
+				System.out.println("Nï¿½o possui dados com esse argumento!");
 			} else {
 				return cargos;
 			}
@@ -94,7 +94,7 @@ public class CargoService implements ICargoService {
 
 	@Override
 	public Cargo pesquisaCargo(int id) throws Exception{
-		ResultSet rs = DaoFactory.getCargodao().pesquisaCargo(id);
+		ResultSet rs = DaoFactory.getCargoDao().pesquisaCargo(id);
 		cargo = new Cargo();
 		while(rs.next()){
 			cargo.setId(rs.getInt("CAR_NUMERO"));

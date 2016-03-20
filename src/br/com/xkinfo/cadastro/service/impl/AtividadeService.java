@@ -22,7 +22,7 @@ public class AtividadeService implements IAtividadeService {
 		atividade.setNumero(numero);
 		atividade.setEpe(epe);
 		atividade.setGrupoAtividade(grupoAtividade);
-		DaoFactory.getAtividadedao().incluirAtividade(atividade);
+		DaoFactory.getAtividadeDao().incluirAtividade(atividade);
 	}
 
 	@Override
@@ -35,18 +35,18 @@ public class AtividadeService implements IAtividadeService {
 		atividade.setNumero(numero);
 		atividade.setEpe(epe);
 		atividade.setGrupoAtividade(grupoAtividade);
-		DaoFactory.getAtividadedao().alterarAtividade(atividade);
+		DaoFactory.getAtividadeDao().alterarAtividade(atividade);
 	}
 
 	@Override
 	public void excluirAtividade(String id) throws Exception {
 		atividade = pesquisarAtividade(id);
-		DaoFactory.getAtividadedao().excluirAtividade(atividade);
+		DaoFactory.getAtividadeDao().excluirAtividade(atividade);
 	}
 
 	@Override
 	public ArrayList<Atividade> pesquisarAtividades() throws Exception {
-		ResultSet rs = DaoFactory.getAtividadedao().pesquisarAtividades();
+		ResultSet rs = DaoFactory.getAtividadeDao().pesquisarAtividades();
 		ArrayList<Atividade> atividades = new ArrayList<>();
 		while(rs.next()){
 			atividade = new Atividade();
@@ -63,7 +63,7 @@ public class AtividadeService implements IAtividadeService {
 
 	@Override
 	public Atividade pesquisarAtividade(String id) throws Exception {
-		ResultSet rs = DaoFactory.getAtividadedao().pesquisarAtividade(id);
+		ResultSet rs = DaoFactory.getAtividadeDao().pesquisarAtividade(id);
 		atividade = new Atividade();
 		while(rs.next()){
 			atividade.setId(rs.getString("ATV_CODIGO"));

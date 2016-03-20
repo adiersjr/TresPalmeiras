@@ -60,7 +60,7 @@ public class ClienteService implements IClienteService{
 		cliente.setTipoCliente(tipoCliente);
 
 		if(validaSexo(cliente.getSexo())){
-			DaoFactory.getClientedao().incluirCliente(cliente);
+			DaoFactory.getClienteDao().incluirCliente(cliente);
 		} else {
 			System.out.println("Favor preencher corretamente o Sexo!");
 		}
@@ -114,7 +114,7 @@ public class ClienteService implements IClienteService{
 		cliente.setTipoCliente(tipoCliente);
 
 		if(validaSexo(cliente.getSexo())){
-			DaoFactory.getClientedao().alterarCliente(cliente);
+			DaoFactory.getClienteDao().alterarCliente(cliente);
 		} else {
 			System.out.println("Favor preencher corretamente o Sexo!");
 		}
@@ -123,12 +123,12 @@ public class ClienteService implements IClienteService{
 	@Override
 	public void excluirCliente(int id) throws Exception {
 		cliente = pesquisaCliente(id);
-		DaoFactory.getClientedao().excluirCliente(cliente);
+		DaoFactory.getClienteDao().excluirCliente(cliente);
 	}
 
 	@Override
 	public ArrayList<Cliente> pesquisaClientes() throws Exception {
-		ResultSet rs = DaoFactory.getClientedao().pesquisaClientes();
+		ResultSet rs = DaoFactory.getClienteDao().pesquisaClientes();
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		while(rs.next()) {
 			cliente = new Cliente();
@@ -174,7 +174,7 @@ public class ClienteService implements IClienteService{
 
 	@Override
 	public Cliente pesquisaCliente(int id) throws Exception {
-		ResultSet rs = DaoFactory.getClientedao().pesquisaCliente(id);
+		ResultSet rs = DaoFactory.getClienteDao().pesquisaCliente(id);
 		cliente = new Cliente();
 		while(rs.next()) {
 			cliente.setId(rs.getInt("CLI_NUMERO"));

@@ -41,86 +41,102 @@ public class DaoFactory {
 	private static final ISetorDao setorDao = new SetorDao();
 	private static final IVencimentoDao vencimentoDao = new VencimentoDao();
 	private static final IConjuntoDao conjuntoDao = new ConjuntoDao();
+	private static final IArrecadaBDao arrecadaBDao = new ArrecadaBDao();
+	private static final IArrecadaEDao arrecadaEDao = new ArrecadaEDao();
+	private static final IArrecadaFDao arrecadaFDao = new ArrecadaFDao();
+	private static final IArrecadaGDao arrecadaGDao = new ArrecadaGDao();
 	
-	public static ICargoDao getCargodao() {
+	public static ICargoDao getCargoDao() {
 		return cargoDao;
 	}
-	public static IFuncionarioDao getFuncionariodao() {
+	public static IFuncionarioDao getFuncionarioDao() {
 		return funcionarioDao;
 	}
-	public static IPaisDao getPaisdao() {
+	public static IPaisDao getPaisDao() {
 		return paisDao;
 	}
-	public static IEstadoDao getEstadodao() {
+	public static IEstadoDao getEstadoDao() {
 		return estadoDao;
 	}
-	public static IMunicipioDao getMunicipiodao() {
+	public static IMunicipioDao getMunicipioDao() {
 		return municipioDao;
 	}
-	public static ITipoDocumentoDao getTipodocumentodao() {
+	public static ITipoDocumentoDao getTipodocumentoDao() {
 		return tipoDocumentoDao;
 	}
-	public static IClienteDao getClientedao() {
+	public static IClienteDao getClienteDao() {
 		return clienteDao;
 	}
-	public static IMunicipioIbgeDao getMunicipioibgedao() {
+	public static IMunicipioIbgeDao getMunicipioibgeDao() {
 		return municipioIbgeDao;
 	}
-	public static IBancoDao getBancodao() {
+	public static IBancoDao getBancoDao() {
 		return bancoDao;
 	}
-	public static IAgenciaDao getAgenciadao() {
+	public static IAgenciaDao getAgenciaDao() {
 		return agenciaDao;
 	}
-	public static IRetornoDao getRetornodao() {
+	public static IRetornoDao getRetornoDao() {
 		return retornoDao;
 	}
-	public static IBairroDao getBairrodao() {
+	public static IBairroDao getBairroDao() {
 		return bairroDao;
 	}
-	public static ITipoLogradouroDao getTipologradourodao() {
+	public static ITipoLogradouroDao getTipologradouroDao() {
 		return tipoLogradouroDao;
 	}
-	public static IRuaDao getRuadao() {
+	public static IRuaDao getRuaDao() {
 		return ruaDao;
 	}
-	public static IEtaDao getEtadao() {
+	public static IEtaDao getEtaDao() {
 		return etaDao;
 	}
-	public static IGrupoAtividadeDao getGrupoatividadedao() {
+	public static IGrupoAtividadeDao getGrupoatividadeDao() {
 		return grupoAtividadeDao;
 	}
-	public static IAtividadeDao getAtividadedao() {
+	public static IAtividadeDao getAtividadeDao() {
 		return atividadeDao;
 	}
-	public static IClassificacaoDao getClassificacaodao() {
+	public static IClassificacaoDao getClassificacaoDao() {
 		return classificacaoDao;
 	}
-	public static ITaxaDao getTaxadao() {
+	public static ITaxaDao getTaxaDao() {
 		return taxaDao;
 	}
-	public static ISituacaoCadastroDao getSituacaocadastrodao() {
+	public static ISituacaoCadastroDao getSituacaocadastroDao() {
 		return situacaoCadastroDao;
 	}
-	public static IContribuicaoDao getContribuicaodao() {
+	public static IContribuicaoDao getContribuicaoDao() {
 		return contribuicaoDao;
 	}
-	public static ICadastroDao getCadastrodao() {
+	public static ICadastroDao getCadastroDao() {
 		return cadastroDao;
 	}
-	public static IProprietarioDao getProprietariodao() {
+	public static IProprietarioDao getProprietarioDao() {
 		return proprietarioDao;
 	}
-	public static IRamalLigacaoDao getRamalligacaodao() {
+	public static IRamalLigacaoDao getRamalligacaoDao() {
 		return ramalLigacaoDao;
 	}
-	public static ISetorDao getSetordao() {
+	public static ISetorDao getSetorDao() {
 		return setorDao;
 	}
-	public static IVencimentoDao getVencimentodao() {
+	public static IVencimentoDao getVencimentoDao() {
 		return vencimentoDao;
 	}
-	public static IConjuntoDao getConjuntodao() {
+	public static IConjuntoDao getConjuntoDao() {
 		return conjuntoDao;
+	}
+	public static IArrecadaBDao getArrecadaBDao(){
+		return arrecadaBDao;
+	}
+	public static IArrecadaEDao getArrecadaEDao(){
+		return arrecadaEDao;
+	}
+	public static IArrecadaFDao getArrecadaFDao(){
+		return arrecadaFDao;
+	}
+	public static IArrecadaGDao getArrecadaGDao(){
+		return arrecadaGDao;
 	}
 }

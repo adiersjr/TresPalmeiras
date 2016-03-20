@@ -41,9 +41,9 @@ public class MunicipioService implements IMunicipioService {
 			municipio.setCep(cep);
 			municipio.setCodigoIbge(codIbge);
 			municipio.setProdist(prodist);
-			int ret = DaoFactory.getMunicipiodao().incluirMunicipio(municipio);
+			int ret = DaoFactory.getMunicipioDao().incluirMunicipio(municipio);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Inclusï¿½o efetuada com Sucesso!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
@@ -79,9 +79,9 @@ public class MunicipioService implements IMunicipioService {
 			municipio.setCep(cep);
 			municipio.setCodigoIbge(codIbge);
 			municipio.setProdist(prodist);
-			int ret = DaoFactory.getMunicipiodao().alterarMunicipio(municipio);
+			int ret = DaoFactory.getMunicipioDao().alterarMunicipio(municipio);
 			if (ret == 1){
-				System.out.println("Alteração efetuada com Sucesso!");
+				System.out.println("Alteraï¿½ï¿½o efetuada com Sucesso!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
@@ -91,18 +91,18 @@ public class MunicipioService implements IMunicipioService {
 	@Override
 	public void excluirMunicipio(int id) throws Exception {
 		municipio = pesquisaMunicipio(id);
-		int ret = DaoFactory.getMunicipiodao().excluirMunicipio(municipio);
+		int ret = DaoFactory.getMunicipioDao().excluirMunicipio(municipio);
 		if (ret == 1){
-			System.out.println("Exclusão efetuada com sucesso!");
+			System.out.println("Exclusï¿½o efetuada com sucesso!");
 		}
 		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
 	}
 
 	@Override
 	public ArrayList<Municipio> pesquisaMunicipios() throws Exception {
-		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaMunicipios();
+		ResultSet rs = DaoFactory.getMunicipioDao().pesquisaMunicipios();
 		municipio = new Municipio();
 		ArrayList<Municipio> municipios = new ArrayList<>();
 		while(rs.next()){
@@ -121,7 +121,7 @@ public class MunicipioService implements IMunicipioService {
 
 	@Override
 	public ArrayList<Municipio> pesquisaNome(String nome) throws Exception {
-		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaNome(nome);
+		ResultSet rs = DaoFactory.getMunicipioDao().pesquisaNome(nome);
 		municipio = new Municipio();
 		ArrayList<Municipio> municipios = new ArrayList<>();
 		while(rs.next()){
@@ -140,7 +140,7 @@ public class MunicipioService implements IMunicipioService {
 
 	@Override
 	public ArrayList<Municipio> pesquisaEstado(Estado estado) throws Exception {
-		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaEstado(estado);
+		ResultSet rs = DaoFactory.getMunicipioDao().pesquisaEstado(estado);
 		municipio = new Municipio();
 		ArrayList<Municipio> municipios = new ArrayList<>();
 		while(rs.next()){
@@ -159,7 +159,7 @@ public class MunicipioService implements IMunicipioService {
 
 	@Override
 	public Municipio pesquisaCep(String cep) throws Exception {
-		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaCep(cep);
+		ResultSet rs = DaoFactory.getMunicipioDao().pesquisaCep(cep);
 		municipio = new Municipio();
 		while(rs.next()){
 			municipio = new Municipio();
@@ -175,7 +175,7 @@ public class MunicipioService implements IMunicipioService {
 
 	@Override
 	public Municipio pesquisaIbge(String codIbge) throws Exception {
-		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaIbge(codIbge);
+		ResultSet rs = DaoFactory.getMunicipioDao().pesquisaIbge(codIbge);
 		municipio = new Municipio();
 		while(rs.next()){
 			municipio = new Municipio();
@@ -191,7 +191,7 @@ public class MunicipioService implements IMunicipioService {
 
 	@Override
 	public Municipio pesquisaMunicipio(int id) throws Exception {
-		ResultSet rs = DaoFactory.getMunicipiodao().pesquisaMunicipio(id);
+		ResultSet rs = DaoFactory.getMunicipioDao().pesquisaMunicipio(id);
 		municipio = new Municipio();
 		while(rs.next()){
 			municipio = new Municipio();

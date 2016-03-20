@@ -15,7 +15,7 @@ public class RamalLigacaoService implements IRamalLigacaoService{
 	public void incluirRamalLigacao(String descricao) throws Exception {
 		ramalLigacao = new RamalLigacao();
 		ramalLigacao.setDescricao(descricao);
-		DaoFactory.getRamalligacaodao().incluirRamalLigacao(ramalLigacao);
+		DaoFactory.getRamalligacaoDao().incluirRamalLigacao(ramalLigacao);
 	}
 
 	@Override
@@ -23,18 +23,18 @@ public class RamalLigacaoService implements IRamalLigacaoService{
 		ramalLigacao = new RamalLigacao();
 		ramalLigacao.setId(id);
 		ramalLigacao.setDescricao(descricao);
-		DaoFactory.getRamalligacaodao().alterarRamalLigacao(ramalLigacao);
+		DaoFactory.getRamalligacaoDao().alterarRamalLigacao(ramalLigacao);
 	}
 
 	@Override
 	public void excluirRamalLigacao(int id) throws Exception {
 		ramalLigacao = pesquisarRamalLigacao(id);
-		DaoFactory.getRamalligacaodao().excluirRamalLigacao(ramalLigacao);
+		DaoFactory.getRamalligacaoDao().excluirRamalLigacao(ramalLigacao);
 	}
 
 	@Override
 	public ArrayList<RamalLigacao> pesquisarRamalLigacoes() throws Exception {
-		ResultSet rs = DaoFactory.getRamalligacaodao().pesquisarRamalLigacoes();
+		ResultSet rs = DaoFactory.getRamalligacaoDao().pesquisarRamalLigacoes();
 		ArrayList<RamalLigacao> ramalLigacoes = new ArrayList<>();
 		while(rs.next()){
 			ramalLigacao = new RamalLigacao();
@@ -47,7 +47,7 @@ public class RamalLigacaoService implements IRamalLigacaoService{
 
 	@Override
 	public RamalLigacao pesquisarRamalLigacao(int id) throws Exception {
-		ResultSet rs = DaoFactory.getRamalligacaodao().pesquisarRamalLigacao(id);
+		ResultSet rs = DaoFactory.getRamalligacaoDao().pesquisarRamalLigacao(id);
 		ramalLigacao = new RamalLigacao();
 		while(rs.next()){
 			ramalLigacao.setId(rs.getInt("RAM_NUMERO"));

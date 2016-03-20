@@ -23,7 +23,7 @@ public class RuaService implements IRuaService{
 		rua.setNome(nome);
 		rua.setBairro(bairro);
 		rua.setValorLixo(valorLixo);
-		DaoFactory.getRuadao().incluirRua(rua);
+		DaoFactory.getRuaDao().incluirRua(rua);
 	}
 
 	@Override
@@ -36,18 +36,18 @@ public class RuaService implements IRuaService{
 		rua.setNome(nome);
 		rua.setBairro(bairro);
 		rua.setValorLixo(valorLixo);
-		DaoFactory.getRuadao().alterarRua(rua);
+		DaoFactory.getRuaDao().alterarRua(rua);
 	}
 
 	@Override
 	public void excluirRua(int id) throws Exception {
 		rua = pesquisarRua(id);
-		DaoFactory.getRuadao().excluirRua(rua);
+		DaoFactory.getRuaDao().excluirRua(rua);
 	}
 
 	@Override
 	public ArrayList<Rua> pesquisarRuas() throws Exception {
-		ResultSet rs = DaoFactory.getRuadao().pesquisarRuas();
+		ResultSet rs = DaoFactory.getRuaDao().pesquisarRuas();
 		ArrayList<Rua> ruas = new ArrayList<>();
 		while (rs.next()){
 			rua = new Rua();
@@ -64,7 +64,7 @@ public class RuaService implements IRuaService{
 
 	@Override
 	public Rua pesquisarRua(int id) throws Exception {
-		ResultSet rs = DaoFactory.getRuadao().pesquisarRua(id);
+		ResultSet rs = DaoFactory.getRuaDao().pesquisarRua(id);
 		rua = new Rua();
 		while (rs.next()){
 			rua.setId(rs.getInt("RUA_NUMERO"));

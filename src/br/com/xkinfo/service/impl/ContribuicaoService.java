@@ -21,7 +21,7 @@ public class ContribuicaoService implements IContribuicaoService{
 		contribuicao.setValor(valor);
 		contribuicao.setData(data);
 		contribuicao.setTaxa(taxa);
-		DaoFactory.getContribuicaodao().incluirContribuicao(contribuicao);
+		DaoFactory.getContribuicaoDao().incluirContribuicao(contribuicao);
 	}
 
 	@Override
@@ -33,18 +33,18 @@ public class ContribuicaoService implements IContribuicaoService{
 		contribuicao.setValor(valor);
 		contribuicao.setData(data);
 		contribuicao.setTaxa(taxa);
-		DaoFactory.getContribuicaodao().alterarContribuicao(contribuicao);
+		DaoFactory.getContribuicaoDao().alterarContribuicao(contribuicao);
 	}
 
 	@Override
 	public void excluirContribuicao(int id) throws Exception {
 		contribuicao = pesquisarContribuicao(id);
-		DaoFactory.getContribuicaodao().excluirContribuicao(contribuicao);
+		DaoFactory.getContribuicaoDao().excluirContribuicao(contribuicao);
 	}
 
 	@Override
 	public ArrayList<Contribuicao> pesquisarContribuicoes() throws Exception {
-		ResultSet rs = DaoFactory.getContribuicaodao().pesquisarContribuicoes();
+		ResultSet rs = DaoFactory.getContribuicaoDao().pesquisarContribuicoes();
 		ArrayList<Contribuicao> contribuicoes = new ArrayList<>();
 		while(rs.next()){
 			contribuicao = new Contribuicao();
@@ -60,7 +60,7 @@ public class ContribuicaoService implements IContribuicaoService{
 
 	@Override
 	public Contribuicao pesquisarContribuicao(int id) throws Exception {
-		ResultSet rs = DaoFactory.getContribuicaodao().pesquisarContribuicoes();
+		ResultSet rs = DaoFactory.getContribuicaoDao().pesquisarContribuicoes();
 		contribuicao = new Contribuicao();
 		while(rs.next()){
 			contribuicao.setId(rs.getInt("CON_NUMERO"));

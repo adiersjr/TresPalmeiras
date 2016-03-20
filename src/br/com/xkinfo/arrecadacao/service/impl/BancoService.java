@@ -30,7 +30,7 @@ public class BancoService implements IBancoService {
 		banco.setDiasF(diasF);
 		banco.setDebito(debito);
 		
-		return DaoFactory.getBancodao().incluirBanco(banco);
+		return DaoFactory.getBancoDao().incluirBanco(banco);
 	}
 
 	@Override
@@ -53,18 +53,18 @@ public class BancoService implements IBancoService {
 		banco.setDiasF(diasF);
 		banco.setDebito(debito);
 		
-		return DaoFactory.getBancodao().alterarBanco(banco);
+		return DaoFactory.getBancoDao().alterarBanco(banco);
 	}
 
 	@Override
 	public int excluirBanco(int id) throws Exception {
 		banco = pesquisaBanco(id);
-		return DaoFactory.getBancodao().excluirBanco(banco);
+		return DaoFactory.getBancoDao().excluirBanco(banco);
 	}
 
 	@Override
 	public ArrayList<Banco> pesquisaBancos() throws Exception {
-		ResultSet rs = DaoFactory.getBancodao().pesquisaBancos();
+		ResultSet rs = DaoFactory.getBancoDao().pesquisaBancos();
 		ArrayList<Banco> bancos = new ArrayList<>();
 		while(rs.next()){
 			banco = new Banco();
@@ -89,7 +89,7 @@ public class BancoService implements IBancoService {
 
 	@Override
 	public Banco pesquisaBanco(int id) throws Exception {
-		ResultSet rs = DaoFactory.getBancodao().pesquisaBanco(id);
+		ResultSet rs = DaoFactory.getBancoDao().pesquisaBanco(id);
 		while(rs.next()){
 			banco = new Banco();
 			banco.setId(rs.getInt("BAN_CODIGO"));
@@ -113,7 +113,7 @@ public class BancoService implements IBancoService {
 
 	@Override
 	public Banco pesquisaBanco(String numero) throws Exception {
-		ResultSet rs = DaoFactory.getBancodao().pesquisaBanco(numero);
+		ResultSet rs = DaoFactory.getBancoDao().pesquisaBanco(numero);
 		while(rs.next()){
 			banco = new Banco();
 			banco.setId(rs.getInt("BAN_CODIGO"));

@@ -15,7 +15,7 @@ public class GrupoAtividadeService implements IGrupoAtividadeService{
 	public void incluirGrupoAtividade(String descricao) throws Exception {
 		grupoAtividade = new GrupoAtividade();
 		grupoAtividade.setDescricao(descricao);
-		DaoFactory.getGrupoatividadedao().incluirGrupoAtividade(grupoAtividade);
+		DaoFactory.getGrupoatividadeDao().incluirGrupoAtividade(grupoAtividade);
 	}
 
 	@Override
@@ -23,18 +23,18 @@ public class GrupoAtividadeService implements IGrupoAtividadeService{
 		grupoAtividade = new GrupoAtividade();
 		grupoAtividade.setId(id);
 		grupoAtividade.setDescricao(descricao);
-		DaoFactory.getGrupoatividadedao().alterarGrupoAtividade(grupoAtividade);
+		DaoFactory.getGrupoatividadeDao().alterarGrupoAtividade(grupoAtividade);
 	}
 
 	@Override
 	public void excluirGrupoAtividade(int id) throws Exception {
 		grupoAtividade = pesquisarGrupoAtividade(id);
-		DaoFactory.getGrupoatividadedao().excluirGrupoAtividade(grupoAtividade);
+		DaoFactory.getGrupoatividadeDao().excluirGrupoAtividade(grupoAtividade);
 	}
 
 	@Override
 	public ArrayList<GrupoAtividade> pesquisarGrupoAtividades() throws Exception {
-		ResultSet rs = DaoFactory.getGrupoatividadedao().pesquisarGrupoAtividades();
+		ResultSet rs = DaoFactory.getGrupoatividadeDao().pesquisarGrupoAtividades();
 		ArrayList<GrupoAtividade> grupos = new ArrayList<>();
 		while(rs.next()){
 			grupoAtividade = new GrupoAtividade();
@@ -47,7 +47,7 @@ public class GrupoAtividadeService implements IGrupoAtividadeService{
 
 	@Override
 	public GrupoAtividade pesquisarGrupoAtividade(int id) throws Exception {
-		ResultSet rs = DaoFactory.getGrupoatividadedao().pesquisarGrupoAtividade(id);
+		ResultSet rs = DaoFactory.getGrupoatividadeDao().pesquisarGrupoAtividade(id);
 		grupoAtividade = new GrupoAtividade();
 		while(rs.next()){
 			grupoAtividade.setId(rs.getInt("GRA_CODIGO"));

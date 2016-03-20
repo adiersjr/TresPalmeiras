@@ -25,12 +25,12 @@ public class PaisService implements IPaisService{
 			pais = new Pais();
 			pais.setNome(nome);
 			pais.setSigla(sigla);
-			int ret = DaoFactory.getPaisdao().incluirPais(pais);
+			int ret = DaoFactory.getPaisDao().incluirPais(pais);
 			if (ret == 1){
-				System.out.println("Inclusão efetuada com Sucesso!");
+				System.out.println("Inclusï¿½o efetuada com Sucesso!");
 			}
 		}else {
-			System.out.println("O(s) campo(s) não foi(ram) preenchido(s): \n" + valida);
+			System.out.println("O(s) campo(s) nï¿½o foi(ram) preenchido(s): \n" + valida);
 		}		
 	}
 
@@ -50,30 +50,30 @@ public class PaisService implements IPaisService{
 			pais.setId(id);
 			pais.setNome(nome);
 			pais.setSigla(sigla);
-			int ret = DaoFactory.getPaisdao().alterarPais(pais);
+			int ret = DaoFactory.getPaisDao().alterarPais(pais);
 			if (ret == 1){
-				System.out.println("Alteração efetuada com Sucesso!");
+				System.out.println("Alteraï¿½ï¿½o efetuada com Sucesso!");
 			}
 		}else {
-			System.out.println("O(s) campo(s) não foi(ram) preenchido(s): \n" + valida);
+			System.out.println("O(s) campo(s) nï¿½o foi(ram) preenchido(s): \n" + valida);
 		}		
 	}
 
 	@Override
 	public void excluirPais(int id) throws Exception {
 		pais = pesquisaPais(id);
-		int ret = DaoFactory.getPaisdao().excluirPais(pais);
+		int ret = DaoFactory.getPaisDao().excluirPais(pais);
 		if (ret == 1){
-			System.out.println("Exclusão efetuada com sucesso!");
+			System.out.println("Exclusï¿½o efetuada com sucesso!");
 		}
 		if (ret == 0){
-			System.out.println("Registro não existe, favor verificar!");
+			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
 	}
 
 	@Override
 	public ArrayList<Pais> pesquisaPaises() throws Exception {
-		ResultSet rs = DaoFactory.getPaisdao().pesquisaPaises();
+		ResultSet rs = DaoFactory.getPaisDao().pesquisaPaises();
 		ArrayList<Pais> paises = new ArrayList<>();
 		while(rs.next()){
 			Pais pais = new Pais();
@@ -87,7 +87,7 @@ public class PaisService implements IPaisService{
 
 	@Override
 	public ArrayList<Pais> pesquisaNome(String nome) throws Exception {
-		ResultSet rs = DaoFactory.getPaisdao().pesquisaNome(nome);
+		ResultSet rs = DaoFactory.getPaisDao().pesquisaNome(nome);
 		ArrayList<Pais> paises = new ArrayList<>();
 		while(rs.next()){
 			Pais pais = new Pais();
@@ -101,7 +101,7 @@ public class PaisService implements IPaisService{
 
 	@Override
 	public Pais pesquisaPais(int id) throws Exception {
-		ResultSet rs = DaoFactory.getPaisdao().pesquisaPais(id);
+		ResultSet rs = DaoFactory.getPaisDao().pesquisaPais(id);
 		pais = new Pais();
 		while(rs.next()){
 			pais.setId(rs.getInt("PAI_NUMERO"));

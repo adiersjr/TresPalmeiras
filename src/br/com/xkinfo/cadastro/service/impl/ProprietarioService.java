@@ -31,7 +31,7 @@ public class ProprietarioService implements IProprietarioService{
 		proprietario.setObs1(obs1);
 		proprietario.setDataProcessamento(dataProcessamento);
 		proprietario.setEstado(estado);
-		DaoFactory.getProprietariodao().incluirProprietario(proprietario);
+		DaoFactory.getProprietarioDao().incluirProprietario(proprietario);
 	}
 
 	@Override
@@ -52,18 +52,18 @@ public class ProprietarioService implements IProprietarioService{
 		proprietario.setObs1(obs1);
 		proprietario.setDataProcessamento(dataProcessamento);
 		proprietario.setEstado(estado);
-		DaoFactory.getProprietariodao().alterarProprietario(proprietario);
+		DaoFactory.getProprietarioDao().alterarProprietario(proprietario);
 	}
 
 	@Override
 	public void excluirProprietario(int id) throws Exception {
 		proprietario = pesquisarProprietario(id);
-		DaoFactory.getProprietariodao().excluirProprietario(proprietario);
+		DaoFactory.getProprietarioDao().excluirProprietario(proprietario);
 	}
 
 	@Override
 	public ArrayList<Proprietario> pesquisarProprietarios() throws Exception {
-		ResultSet rs = DaoFactory.getProprietariodao().pesquisarProprietarios();
+		ResultSet rs = DaoFactory.getProprietarioDao().pesquisarProprietarios();
 		ArrayList<Proprietario> proprietarios = new ArrayList<>();
 		while(rs.next()){
 			proprietario = new Proprietario();
@@ -87,7 +87,7 @@ public class ProprietarioService implements IProprietarioService{
 
 	@Override
 	public Proprietario pesquisarProprietario(int id) throws Exception {
-		ResultSet rs = DaoFactory.getProprietariodao().pesquisarProprietario(id);
+		ResultSet rs = DaoFactory.getProprietarioDao().pesquisarProprietario(id);
 		proprietario = new Proprietario();
 		while(rs.next()){
 			proprietario.setId(rs.getInt("PRO_NUMERO"));

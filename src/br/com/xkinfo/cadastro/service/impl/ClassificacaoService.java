@@ -38,7 +38,7 @@ public class ClassificacaoService implements IClassificacaoService{
 		classificacao.setTn_sup(tn_sup);
 		classificacao.setSubgrupo(subgrupo);
 		classificacao.setPadrao(padrao);
-		DaoFactory.getClassificacaodao().incluirClassificacao(classificacao);
+		DaoFactory.getClassificacaoDao().incluirClassificacao(classificacao);
 	}
 
 	@Override
@@ -69,18 +69,18 @@ public class ClassificacaoService implements IClassificacaoService{
 		classificacao.setTn_sup(tn_sup);
 		classificacao.setSubgrupo(subgrupo);
 		classificacao.setPadrao(padrao);
-		DaoFactory.getClassificacaodao().alterarClassificacao(classificacao);
+		DaoFactory.getClassificacaoDao().alterarClassificacao(classificacao);
 	}
 
 	@Override
 	public void excluirClassificacao(int id) throws Exception {
 		classificacao = pesquisarClassificacao(id);
-		DaoFactory.getClassificacaodao().excluirClassificacao(classificacao);
+		DaoFactory.getClassificacaoDao().excluirClassificacao(classificacao);
 	}
 
 	@Override
 	public ArrayList<Classificacao> pesquisarClassificacoes() throws Exception {
-		ResultSet rs = DaoFactory.getClassificacaodao().pesquisarClassificacoes();
+		ResultSet rs = DaoFactory.getClassificacaoDao().pesquisarClassificacoes();
 		ArrayList<Classificacao> classificacoes = new ArrayList<>();
 		while (rs.next()){
 			classificacao = new Classificacao();
@@ -112,7 +112,7 @@ public class ClassificacaoService implements IClassificacaoService{
 
 	@Override
 	public Classificacao pesquisarClassificacao(int id) throws Exception {
-		ResultSet rs = DaoFactory.getClassificacaodao().pesquisarClassificacao(id);
+		ResultSet rs = DaoFactory.getClassificacaoDao().pesquisarClassificacao(id);
 		classificacao = new Classificacao();
 		while (rs.next()){
 			classificacao.setId(rs.getInt("ID"));
@@ -142,7 +142,7 @@ public class ClassificacaoService implements IClassificacaoService{
 
 	@Override
 	public Classificacao pesquisarClassificacao(String chave) throws Exception {
-		ResultSet rs = DaoFactory.getClassificacaodao().pesquisarClassificacao(chave);
+		ResultSet rs = DaoFactory.getClassificacaoDao().pesquisarClassificacao(chave);
 		classificacao = new Classificacao();
 		while (rs.next()){
 			classificacao.setId(rs.getInt("ID"));

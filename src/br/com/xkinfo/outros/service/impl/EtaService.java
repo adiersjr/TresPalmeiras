@@ -14,7 +14,7 @@ public class EtaService implements IEtaService{
 	public void incluirEta(String descricao) throws Exception {
 		eta = new Eta();
 		eta.setDescricao(descricao);
-		DaoFactory.getEtadao().incluirEta(eta);
+		DaoFactory.getEtaDao().incluirEta(eta);
 	}
 
 	@Override
@@ -22,18 +22,18 @@ public class EtaService implements IEtaService{
 		eta = new Eta();
 		eta.setId(id);
 		eta.setDescricao(descricao);
-		DaoFactory.getEtadao().alterarEta(eta);
+		DaoFactory.getEtaDao().alterarEta(eta);
 	}
 
 	@Override
 	public void excluirEta(int id) throws Exception {
 		eta = pesquisarEta(id);
-		DaoFactory.getEtadao().excluirEta(eta);
+		DaoFactory.getEtaDao().excluirEta(eta);
 	}
 
 	@Override
 	public ArrayList<Eta> pesquisarEtas() throws Exception {
-		ResultSet rs = DaoFactory.getEtadao().pesquisarEtas();
+		ResultSet rs = DaoFactory.getEtaDao().pesquisarEtas();
 		ArrayList<Eta> etas = new ArrayList<>();
 		while (rs.next()){
 			eta = new Eta();
@@ -46,7 +46,7 @@ public class EtaService implements IEtaService{
 
 	@Override
 	public Eta pesquisarEta(int id) throws Exception {
-		ResultSet rs = DaoFactory.getEtadao().pesquisarEta(id);
+		ResultSet rs = DaoFactory.getEtaDao().pesquisarEta(id);
 		eta = new Eta();
 		while (rs.next()){
 			eta.setId(rs.getInt("ETA_CODIGO"));

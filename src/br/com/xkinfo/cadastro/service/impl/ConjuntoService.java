@@ -22,7 +22,7 @@ public class ConjuntoService implements IConjuntoService{
 		conjunto.setMetaFec(metaFec);
 		conjunto.setLocalAtinge(localAtinge);
 		conjunto.setAtivo(ativo);
-		DaoFactory.getConjuntodao().incluirConjunto(conjunto);
+		DaoFactory.getConjuntoDao().incluirConjunto(conjunto);
 	}
 
 	@Override
@@ -37,20 +37,20 @@ public class ConjuntoService implements IConjuntoService{
 		conjunto.setMetaFec(metaFec);
 		conjunto.setLocalAtinge(localAtinge);
 		conjunto.setAtivo(ativo);
-		DaoFactory.getConjuntodao().alterarConjunto(conjunto);
+		DaoFactory.getConjuntoDao().alterarConjunto(conjunto);
 	}
 
 	@Override
 	public void excluirConjunto(String numero) throws Exception {
 		conjunto = pesquisarConjunto(numero);
-		DaoFactory.getConjuntodao().excluirConjunto(conjunto);
+		DaoFactory.getConjuntoDao().excluirConjunto(conjunto);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public ArrayList<Conjunto> pesquisarConjuntos() throws Exception {
-		ResultSet rs = DaoFactory.getConjuntodao().pesquisarConjuntos();
+		ResultSet rs = DaoFactory.getConjuntoDao().pesquisarConjuntos();
 		ArrayList<Conjunto> conjuntos = new ArrayList<>();
 		while(rs.next()){
 			conjunto = new Conjunto();
@@ -69,7 +69,7 @@ public class ConjuntoService implements IConjuntoService{
 
 	@Override
 	public Conjunto pesquisarConjunto(String numero) throws Exception {
-		ResultSet rs = DaoFactory.getConjuntodao().pesquisarConjunto(numero);
+		ResultSet rs = DaoFactory.getConjuntoDao().pesquisarConjunto(numero);
 		conjunto = new Conjunto();
 		while(rs.next()){
 			conjunto.setNumero(rs.getString("CON_NUMERO"));

@@ -14,7 +14,7 @@ public class RetornoService implements IRetornoService{
 	public void incluirRetorno(String descricao) throws Exception {
 		retorno = new Retorno();
 		retorno.setDescricao(descricao);
-		int ret =  DaoFactory.getRetornodao().incluirRetorno(retorno);
+		int ret =  DaoFactory.getRetornoDao().incluirRetorno(retorno);
 		System.out.println(ret);
 	}
 
@@ -23,20 +23,20 @@ public class RetornoService implements IRetornoService{
 		retorno = new Retorno();
 		retorno.setId(id);
 		retorno.setDescricao(descricao);
-		int ret = DaoFactory.getRetornodao().alterarRetorno(retorno);
+		int ret = DaoFactory.getRetornoDao().alterarRetorno(retorno);
 		System.out.println(ret);
 	}
 
 	@Override
 	public void excluirRetorno(int id) throws Exception {
 		retorno = pesquisaRetorno(id);
-		int ret = DaoFactory.getRetornodao().excluirRetorno(retorno);
+		int ret = DaoFactory.getRetornoDao().excluirRetorno(retorno);
 		System.out.println(ret);
 	}
 
 	@Override
 	public ArrayList<Retorno> pesquisarRetornos() throws Exception {
-		ResultSet rs = DaoFactory.getRetornodao().pesquisaRetornos();
+		ResultSet rs = DaoFactory.getRetornoDao().pesquisaRetornos();
 		ArrayList<Retorno> retornos = new ArrayList<>();
 		while(rs.next()) {
 			retorno = new Retorno();
@@ -49,7 +49,7 @@ public class RetornoService implements IRetornoService{
 
 	@Override
 	public Retorno pesquisaRetorno(int id) throws Exception {
-		ResultSet rs = DaoFactory.getRetornodao().pesquisaRetorno(id);
+		ResultSet rs = DaoFactory.getRetornoDao().pesquisaRetorno(id);
 		retorno = new Retorno();
 		while(rs.next()) {
 			retorno.setId(rs.getInt("RET_RETORNO"));

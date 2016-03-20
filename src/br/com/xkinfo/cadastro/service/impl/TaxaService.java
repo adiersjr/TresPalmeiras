@@ -46,7 +46,7 @@ public class TaxaService implements ITaxaService{
 		taxa.setClasseSped(classeSped);
 		taxa.setCodigo(codigo);
 		taxa.setParcelas(parcelas);
-		DaoFactory.getTaxadao().incluirTaxa(taxa);
+		DaoFactory.getTaxaDao().incluirTaxa(taxa);
 	}
 
 	@Override
@@ -83,18 +83,18 @@ public class TaxaService implements ITaxaService{
 		taxa.setClasseSped(classeSped);
 		taxa.setCodigo(codigo);
 		taxa.setParcelas(parcelas);
-		DaoFactory.getTaxadao().alterarTaxa(taxa);
+		DaoFactory.getTaxaDao().alterarTaxa(taxa);
 	}
 
 	@Override
 	public void excluirTaxa(int id) throws Exception {
 		taxa = pesquisarTaxa(id);
-		DaoFactory.getTaxadao().excluirTaxa(taxa);
+		DaoFactory.getTaxaDao().excluirTaxa(taxa);
 	}
 
 	@Override
 	public ArrayList<Taxa> pesquisarTaxas() throws Exception {
-		ResultSet rs = DaoFactory.getTaxadao().pesquisaTaxas();
+		ResultSet rs = DaoFactory.getTaxaDao().pesquisaTaxas();
 		ArrayList<Taxa> taxas = new ArrayList<>();
 		while(rs.next()){
 			taxa = new Taxa();
@@ -132,7 +132,7 @@ public class TaxaService implements ITaxaService{
 
 	@Override
 	public Taxa pesquisarTaxa(int id) throws Exception {
-		ResultSet rs = DaoFactory.getTaxadao().pesquisaTaxa(id);
+		ResultSet rs = DaoFactory.getTaxaDao().pesquisaTaxa(id);
 		taxa = new Taxa();
 		while(rs.next()){
 			taxa.setId(rs.getInt("TAX_CODIGO"));

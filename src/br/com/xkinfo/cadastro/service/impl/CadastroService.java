@@ -152,7 +152,7 @@ public class CadastroService implements ICadastroService{
 		cadastro.setAnoFat(anoFat);
 		cadastro.setIsentaLixo(isentaLixo);
 		cadastro.setLacrado(lacrado);
-		DaoFactory.getCadastrodao().incluirCadastro(cadastro);
+		DaoFactory.getCadastroDao().incluirCadastro(cadastro);
 
 	}
 
@@ -282,18 +282,18 @@ public class CadastroService implements ICadastroService{
 		cadastro.setAnoFat(anoFat);
 		cadastro.setIsentaLixo(isentaLixo);
 		cadastro.setLacrado(lacrado);
-		DaoFactory.getCadastrodao().alterarCadastro(cadastro);
+		DaoFactory.getCadastroDao().alterarCadastro(cadastro);
 	}
 
 	@Override
 	public void excluirCadastro(String chave) throws Exception {
 		cadastro = pesquisarCadastro(chave);
-		DaoFactory.getCadastrodao().excluirCadastro(cadastro);
+		DaoFactory.getCadastroDao().excluirCadastro(cadastro);
 	}
 
 	@Override
 	public ArrayList<Cadastro> pesquisarCadastros() throws Exception {
-		ResultSet rs = DaoFactory.getCadastrodao().pesquisarCadastros();
+		ResultSet rs = DaoFactory.getCadastroDao().pesquisarCadastros();
 		ArrayList<Cadastro> cadastros = new ArrayList<>();
 		while(rs.next()){
 			cadastro = new Cadastro();
@@ -409,7 +409,7 @@ public class CadastroService implements ICadastroService{
 
 	@Override
 	public Cadastro pesquisarCadastro(String chave) throws Exception {
-		ResultSet rs = DaoFactory.getCadastrodao().pesquisarCadastro(chave);
+		ResultSet rs = DaoFactory.getCadastroDao().pesquisarCadastro(chave);
 		cadastro = new Cadastro();
 		while(rs.next()){
 			cadastro.setId(rs.getInt("CAD_CHAVE"));

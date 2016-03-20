@@ -15,7 +15,7 @@ public class TipoLogradouroService implements ITipoLogradouroService{
 	public void incluirTipoLogradouro(String descricao) throws Exception {
 		tipoLogradouro = new TipoLogradouro();
 		tipoLogradouro.setDescricao(descricao);
-		DaoFactory.getTipologradourodao().incluirTipoLogradouro(tipoLogradouro);
+		DaoFactory.getTipologradouroDao().incluirTipoLogradouro(tipoLogradouro);
 	}
 
 	@Override
@@ -23,18 +23,18 @@ public class TipoLogradouroService implements ITipoLogradouroService{
 		tipoLogradouro = new TipoLogradouro();
 		tipoLogradouro.setId(id);
 		tipoLogradouro.setDescricao(descricao);
-		DaoFactory.getTipologradourodao().alterarTipoLogradouro(tipoLogradouro);
+		DaoFactory.getTipologradouroDao().alterarTipoLogradouro(tipoLogradouro);
 	}
 
 	@Override
 	public void excluitTipoLogradouro(int id) throws Exception {
 		tipoLogradouro = pesquisarTipoLogradouro(id);
-		DaoFactory.getTipologradourodao().excluitTipoLogradouro(tipoLogradouro);
+		DaoFactory.getTipologradouroDao().excluitTipoLogradouro(tipoLogradouro);
 	}
 
 	@Override
 	public ArrayList<TipoLogradouro> pesquisarTipoLogradouros() throws Exception {
-		ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaTipoDocumentos();
+		ResultSet rs = DaoFactory.getTipodocumentoDao().pesquisaTipoDocumentos();
 		ArrayList<TipoLogradouro> tipoLogradouros = new ArrayList<>();
 		while (rs.next()){
 			tipoLogradouro = new TipoLogradouro();
@@ -47,7 +47,7 @@ public class TipoLogradouroService implements ITipoLogradouroService{
 
 	@Override
 	public TipoLogradouro pesquisarTipoLogradouro(int id) throws Exception {
-		ResultSet rs = DaoFactory.getTipodocumentodao().pesquisaTipoDocumentos();
+		ResultSet rs = DaoFactory.getTipodocumentoDao().pesquisaTipoDocumentos();
 		tipoLogradouro = new TipoLogradouro();
 		while (rs.next()){
 			tipoLogradouro.setId(rs.getInt("TIP_CODIGO"));

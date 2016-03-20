@@ -19,7 +19,7 @@ public class VencimentoService implements IVencimentoService{
 		vencimento.setNumero(numero);
 		vencimento.setDia(dia);
 		vencimento.setVip(vip);
-		DaoFactory.getVencimentodao().incluirVencimento(vencimento);
+		DaoFactory.getVencimentoDao().incluirVencimento(vencimento);
 	}
 
 	@Override
@@ -30,18 +30,18 @@ public class VencimentoService implements IVencimentoService{
 		vencimento.setNumero(numero);
 		vencimento.setDia(dia);
 		vencimento.setVip(vip);
-		DaoFactory.getVencimentodao().alterarVencimento(vencimento);
+		DaoFactory.getVencimentoDao().alterarVencimento(vencimento);
 	}
 
 	@Override
 	public void excluirVencimento(String id) throws Exception {
 		vencimento = pesquisarVencimento(id);
-		DaoFactory.getVencimentodao().excluirVencimento(vencimento);
+		DaoFactory.getVencimentoDao().excluirVencimento(vencimento);
 	}
 
 	@Override
 	public ArrayList<Vencimento> pesquisarVencimentos() throws Exception {
-		ResultSet rs = DaoFactory.getVencimentodao().pesquisarVencimentos();
+		ResultSet rs = DaoFactory.getVencimentoDao().pesquisarVencimentos();
 		ArrayList<Vencimento> vencimentos = new ArrayList<>();
 		while(rs.next()){
 			vencimento = new Vencimento();
@@ -57,7 +57,7 @@ public class VencimentoService implements IVencimentoService{
 
 	@Override
 	public Vencimento pesquisarVencimento(String id) throws Exception {
-		ResultSet rs = DaoFactory.getVencimentodao().pesquisarVencimento(id);
+		ResultSet rs = DaoFactory.getVencimentoDao().pesquisarVencimento(id);
 		vencimento = new Vencimento();
 		while(rs.next()){
 			vencimento.setId(rs.getString("VEN_CODIGO"));

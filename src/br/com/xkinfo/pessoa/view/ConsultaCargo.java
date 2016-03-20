@@ -136,23 +136,22 @@ public class ConsultaCargo extends JPanel {
 		tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
         ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
 		
-		// Lógica para manipular uma linha do JTable quando esta é selecionada    
+		// Lï¿½gica para manipular uma linha do JTable quando esta ï¿½ selecionada    
         ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
         linhaModeloSelecao.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 // Ignora o evento enquanto os valores da linha selecionada
-                // estão sendo atualizados
+                // estï¿½o sendo atualizados
                 if (e.getValueIsAdjusting()) {
                     return;
                 }
                 // Verifica se existe uma linha selecionada. O
-                // valor deve ser maior ou igual a 0, que é o número da linha
+                // valor deve ser maior ou igual a 0, que ï¿½ o nï¿½mero da linha
                 if (tabela.getSelectedRow() >= 0) {
                     Integer linhaSelecionada = tabela.getSelectedRow();
                     Cargo cargoSelecionado = ((CargoTableModel) tabela.getModel()).getCargos().get(linhaSelecionada);
                     if (cargoSelecionado != null) {
-                    	frame.
                     	/*principal
                         CadastroCargo cadastroCargo = new CadastroCargo(cargoSelecionado);
                         //cadastroCargo.setLocationRelativeTo(scrollPane.getParent());

@@ -6,13 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import br.com.xkinfo.pessoa.view.CadastroCargo;
 import br.com.xkinfo.pessoa.view.ConsultaCargo;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Dimension;
 
 public class Principal extends JFrame {
 
@@ -46,6 +46,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		setMinimumSize(new Dimension(800, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 463);
 
@@ -89,7 +90,6 @@ public class Principal extends JFrame {
 			painelCardLayout.setLayout(cardLayout);
 
 			painelCardLayout.add(new ConsultaCargo(), "primeiro");
-			painelCardLayout.add(new CadastroCargo(), "segundo");
 			//painelCardLayout.add(new ConsultaCargo(), "primeiro");
 			//cardLayout.show(painelCardLayout, "telaLocacao");
 			//painelCardLayout.setBackground(Color.GREEN);

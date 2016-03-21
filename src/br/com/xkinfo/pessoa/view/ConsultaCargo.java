@@ -5,7 +5,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
-
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.CargoTableModel;
 import java.awt.Dimension;
@@ -23,29 +22,21 @@ import javax.swing.JButton;
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ConsultaCargo extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTable tabela;
 	private JTextField tfCodigo;
 	private JTextField tfDescricao;
-
 	private int coluna0 = 20;
 	private int coluna1 = 150;
 	DefaultTableCellRenderer direita;
     DefaultTableCellRenderer esquerda;
     DefaultTableCellRenderer centro;
 
-	/**
-	 * Create the panel.
-	 * Construtor do Panel.
-	 */
 	public ConsultaCargo() {
 		setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setPreferredSize(new Dimension(600, 400));
@@ -61,6 +52,14 @@ public class ConsultaCargo extends JPanel {
 		btnCancelar.setMinimumSize(new Dimension(100, 23));
 
 		JButton btnNovo = new JButton("Novo");
+		btnNovo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastroCargo cadastro = new CadastroCargo();
+				cadastro.setLocationRelativeTo(scrollPane.getParent());
+				cadastro.setVisible(true);
+				atualizar();
+			}
+		});
 		btnNovo.setMinimumSize(new Dimension(100, 23));
 		btnNovo.setPreferredSize(new Dimension(100, 23));
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -133,37 +132,46 @@ public class ConsultaCargo extends JPanel {
 		scrollPane.setViewportView(tabela);
 		setLayout(groupLayout);
 
-		// Copiado do Netbeans....
-		tabela.getColumnModel().getColumn(0).setPreferredWidth(coluna0);
-		tabela.getColumnModel().getColumn(1).setPreferredWidth(coluna1);
-		tabela.getColumnModel().getColumn(0).setCellRenderer(centro);
-		tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
-        ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		criar();
 		
-		// L�gica para manipular uma linha do JTable quando esta � selecionada    
+		// Logica para manipular uma linha do JTable quando esta eh selecionada    
         ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
         linhaModeloSelecao.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 // Ignora o evento enquanto os valores da linha selecionada
-                // est�o sendo atualizados
+                // estao sendo atualizados
                 if (e.getValueIsAdjusting()) {
                     return;
                 }
                 // Verifica se existe uma linha selecionada. O
-                // valor deve ser maior ou igual a 0, que � o n�mero da linha
+                // valor deve ser maior ou igual a 0, que eh o numero da linha
                 if (tabela.getSelectedRow() >= 0) {
                     Integer linhaSelecionada = tabela.getSelectedRow();
                     Cargo cargoSelecionado = ((CargoTableModel) tabela.getModel()).getCargos().get(linhaSelecionada);
                     if (cargoSelecionado != null) {
-                    	/*principal
                         CadastroCargo cadastroCargo = new CadastroCargo(cargoSelecionado);
-                        //cadastroCargo.setLocationRelativeTo(scrollPane.getParent());
+                        cadastroCargo.setLocationRelativeTo(scrollPane.getParent());
                         cadastroCargo.setVisible(true);
-                        tabela.setModel(new CargoTableModel());*/
+                        tabela.setModel(new CargoTableModel());
+                        atualizar();
                     }
                 }
             }
         });
+	}
+	
+	private void atualizar(){
+		System.out.println("teste");
+		tabela.setModel(new CargoTableModel());
+		criar();
+	}
+	
+	private void criar(){
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(coluna0);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(coluna1);
+		tabela.getColumnModel().getColumn(0).setCellRenderer(centro);
+		tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
+        ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
 	}
 }

@@ -8,8 +8,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.CargoTableModel;
-import br.com.xkinfo.view.Principal;
-
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -28,6 +26,10 @@ import java.awt.Font;
 
 public class ConsultaCargo extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable tabela;
 	private JTextField tfCodigo;
 	private JTextField tfDescricao;

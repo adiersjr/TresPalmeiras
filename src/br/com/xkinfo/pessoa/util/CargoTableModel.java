@@ -7,8 +7,12 @@ import br.com.xkinfo.service.ServiceFactory;
 
 public class CargoTableModel extends AbstractTableModel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Cargo> cargos;
-	private String[] cabecalho = {"Código", "Descrição"};
+	private String[] cabecalho = {"Cï¿½digo", "Descriï¿½ï¿½o"};
 	
 	public CargoTableModel() {
 		try {

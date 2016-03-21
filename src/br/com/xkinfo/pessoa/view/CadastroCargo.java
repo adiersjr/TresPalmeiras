@@ -10,6 +10,10 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import br.com.xkinfo.pessoa.model.Cargo;
 
 public class CadastroCargo extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField tfDescricao;
 	private JTextField tfCodigo;
 

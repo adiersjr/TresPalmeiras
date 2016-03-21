@@ -12,7 +12,7 @@ public class CargoTableModel extends AbstractTableModel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<Cargo> cargos;
-	private String[] cabecalho = {"Cï¿½digo", "Descriï¿½ï¿½o"};
+	private String[] cabecalho = {"Código", "Descrição"};
 	
 	public CargoTableModel() {
 		try {

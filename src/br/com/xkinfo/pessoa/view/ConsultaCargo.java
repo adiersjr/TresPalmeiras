@@ -1,179 +1,159 @@
 package br.com.xkinfo.pessoa.view;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
-import br.com.xkinfo.pessoa.model.Cargo;
-import br.com.xkinfo.pessoa.util.CargoTableModel;
-
-import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
-import javax.swing.border.EtchedBorder;
-import javax.swing.JButton;
-import javax.swing.UIManager;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Frame;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import br.com.xkinfo.pessoa.model.Cargo;
+import br.com.xkinfo.pessoa.util.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class ConsultaCargo extends JPanel {
+public class ConsultaCargo extends JDialog {
 
+	private final JPanel contentPanel = new JPanel();
 	private static final long serialVersionUID = 1L;
+	private JTextField textField;
 	private JTable tabela;
-	private JTextField tfCodigo;
-	private JTextField tfDescricao;
-	private int coluna0 = 20;
-	private int coluna1 = 150;
+	
 	DefaultTableCellRenderer direita;
     DefaultTableCellRenderer esquerda;
     DefaultTableCellRenderer centro;
-    
-	public ConsultaCargo(Frame parent) {
-		setFont(new Font("Tahoma", Font.PLAIN, 12));
-		setPreferredSize(new Dimension(600, 400));
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Consulta Cargo", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 
-		JPanel panel = new JPanel();
-		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-
-		JScrollPane scrollPane = new JScrollPane();
-
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setPreferredSize(new Dimension(100, 23));
-		btnCancelar.setMinimumSize(new Dimension(100, 23));
-
-		JButton btnNovo = new JButton("Novo");
-		btnNovo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CadastroCargo cadastro = new CadastroCargo();
-				cadastro.setLocationRelativeTo(scrollPane.getParent());
-				cadastro.setVisible(true);
-				repaint();
+	public ConsultaCargo() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				ativar(e);
 			}
 		});
-		btnNovo.setMinimumSize(new Dimension(100, 23));
-		btnNovo.setPreferredSize(new Dimension(100, 23));
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-				groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
-								.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(btnNovo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap())
-				);
-		groupLayout.setVerticalGroup(
-				groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNovo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap())
-				);
-
-		JLabel lblCodigo = new JLabel("Codigo:");
-
-		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
-
-		tfCodigo = new JTextField();
-		tfCodigo.setEditable(false);
-		tfCodigo.setColumns(10);
-
-		tfDescricao = new JTextField();
-		tfDescricao.setColumns(200);
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-				gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(lblCodigo)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(tfCodigo, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-						.addGap(18)
-						.addComponent(lblDescricao)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(tfDescricao, GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-						.addContainerGap())
-				);
-		gl_panel.setVerticalGroup(
-				gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblCodigo)
-								.addComponent(tfCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblDescricao)
-								.addComponent(tfDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(29, Short.MAX_VALUE))
-				);
-		panel.setLayout(gl_panel);
-
-		tabela = new JTable();
-		tabela.setModel(new CargoTableModel()); /// COPIADO DO NETBEANS
-		scrollPane.setViewportView(tabela);
-		setLayout(groupLayout);
-
-		//criar();
+		inicio();
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		criarTela();
 		
-		// Logica para manipular uma linha do JTable quando esta eh selecionada    
-        ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
+		ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
         linhaModeloSelecao.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 // Ignora o evento enquanto os valores da linha selecionada
-                // estao sendo atualizados
+                // estão sendo atualizados
                 if (e.getValueIsAdjusting()) {
                     return;
                 }
                 // Verifica se existe uma linha selecionada. O
-                // valor deve ser maior ou igual a 0, que eh o numero da linha
+                // valor deve ser maior ou igual a 0, que é o número da linha
                 if (tabela.getSelectedRow() >= 0) {
                     Integer linhaSelecionada = tabela.getSelectedRow();
                     Cargo cargoSelecionado = ((CargoTableModel) tabela.getModel()).getCargos().get(linhaSelecionada);
                     if (cargoSelecionado != null) {
-                        CadastroCargo cadastroCargo = new CadastroCargo(cargoSelecionado);
-                        cadastroCargo.setLocationRelativeTo(scrollPane.getParent());
-                        cadastroCargo.setVisible(true);
-                        //tabela.setModel(new CargoTableModel());
-                        repaint();
-                       // atualizar();
+                        /*CadastroSituacao cadastroSituacao = new CadastroSituacao(cargoSelecionado, null, true);
+                        cadastroSituacao.setLocationRelativeTo(this);
+                        cadastroSituacao.setVisible(true);
+                        tabela.setModel(new CargoTableModel());*/
                     }
                 }
             }
         });
 	}
+
+	/**
+	 * Create the dialog.
+	 */
+	private void inicio(){
+		setModalityType(ModalityType.APPLICATION_MODAL);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		
+		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
+		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
+		gl_contentPanel.setHorizontalGroup(
+			gl_contentPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblDescricao)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(80, Short.MAX_VALUE))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+		);
+		gl_contentPanel.setVerticalGroup(
+			gl_contentPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPanel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblDescricao)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+		);
+		{
+			tabela = new JTable();
+			scrollPane.setViewportView(tabela);
+		}
+		contentPanel.setLayout(gl_contentPanel);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						btnCancelar(e);
+					}
+				});
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+	private void criarTela(){
+        tabela.getColumnModel().getColumn(0).setCellRenderer(esquerda);
+        tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
+        ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+    }
 	
-	/*private void atualizar(){
-		System.out.println("teste");
-		tabela.setModel(new CargoTableModel());
-		criar();
+	private void btnCancelar(ActionEvent e){
+		dispose();
 	}
 	
-	private void criar(){
-		tabela.getColumnModel().getColumn(0).setPreferredWidth(coluna0);
-		tabela.getColumnModel().getColumn(1).setPreferredWidth(coluna1);
-		tabela.getColumnModel().getColumn(0).setCellRenderer(centro);
-		tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
-        ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
-	}*/
+	private void ativar(WindowEvent e){
+		tabela.updateUI();
+		tabela.getRowHeight(0);
+		tabela.setModel(new CargoTableModel());
+		criarTela();
+	}
 }

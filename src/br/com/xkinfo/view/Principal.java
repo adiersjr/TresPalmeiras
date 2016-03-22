@@ -6,8 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import br.com.xkinfo.pessoa.view.ConsultaCargo;
-import br.com.xkinfo.pessoa.view.TesteView;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -68,7 +68,7 @@ public class Principal extends JFrame {
 		mntmCargo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				cardLayout.show(painelCardLayout, "primeiro");
+				mnCargo(e);
 			}
 		});
 		mnCadastro.add(mntmCargo);
@@ -77,25 +77,12 @@ public class Principal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setContentPane(getCardLayout());
 	}
-	public JPanel getCardLayout() {
-		if (painelCardLayout == null) {
-			cardLayout = new CardLayout();
-			painelCardLayout = new JPanel();
-			painelCardLayout.setLayout(cardLayout);
-
-			painelCardLayout.add(new TesteView(), "zero");
-			painelCardLayout.add(new ConsultaCargo(this), "primeiro");
-			//painelCardLayout.add(new ConsultaCargo(), "primeiro");
-			cardLayout.show(painelCardLayout, "zero");
-			//painelCardLayout.setBackground(Color.GREEN);
-
-			return painelCardLayout;
-		} else {
-			return painelCardLayout;
-		}
+	
+	private void mnCargo(MouseEvent e){
+		ConsultaCargo consultaCargo = new ConsultaCargo();
+		consultaCargo.setLocationRelativeTo(this);
+		consultaCargo.setVisible(true);
 	}
-
 
 }

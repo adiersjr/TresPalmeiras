@@ -1,7 +1,6 @@
 package br.com.xkinfo.view;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -22,8 +21,6 @@ public class Principal extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel painelCardLayout;
-	private CardLayout cardLayout;
 	private JPanel contentPane;
 
 	/**

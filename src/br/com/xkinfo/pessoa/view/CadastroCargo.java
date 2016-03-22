@@ -2,6 +2,8 @@ package br.com.xkinfo.pessoa.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Frame;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -24,7 +26,6 @@ public class CadastroCargo extends JDialog {
 	private JTextField tfCodigo;
 	private JButton okButton;
 	private Cargo cargo;
-
 	
 	public CadastroCargo(){
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -44,6 +45,8 @@ public class CadastroCargo extends JDialog {
 	}
 
 	private void inicio(String titulo){
+		requestFocus();
+		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new TitledBorder(null, titulo, TitledBorder.LEADING, TitledBorder.TOP, null, null));

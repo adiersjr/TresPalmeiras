@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import br.com.xkinfo.pessoa.view.ConsultaCargo;
+import br.com.xkinfo.pessoa.view.TesteView;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -20,9 +22,9 @@ public class Principal extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 	private JPanel painelCardLayout;
 	private CardLayout cardLayout;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -65,14 +67,8 @@ public class Principal extends JFrame {
 		JMenuItem mntmCargo = new JMenuItem("Cargo");
 		mntmCargo.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				cardLayout = new CardLayout();
-				cardLayout.show(painelCardLayout, "segundo");
-				dispose();
-			}
-			@Override
 			public void mousePressed(MouseEvent e) {
-				cardLayout.show(painelCardLayout, "segundo");
+				cardLayout.show(painelCardLayout, "primeiro");
 			}
 		});
 		mnCadastro.add(mntmCargo);
@@ -83,15 +79,16 @@ public class Principal extends JFrame {
 		setContentPane(contentPane);
 		setContentPane(getCardLayout());
 	}
-	private JPanel getCardLayout() {
+	public JPanel getCardLayout() {
 		if (painelCardLayout == null) {
 			cardLayout = new CardLayout();
 			painelCardLayout = new JPanel();
 			painelCardLayout.setLayout(cardLayout);
 
-			painelCardLayout.add(new ConsultaCargo(), "primeiro");
+			painelCardLayout.add(new TesteView(), "zero");
+			painelCardLayout.add(new ConsultaCargo(this), "primeiro");
 			//painelCardLayout.add(new ConsultaCargo(), "primeiro");
-			//cardLayout.show(painelCardLayout, "telaLocacao");
+			cardLayout.show(painelCardLayout, "zero");
 			//painelCardLayout.setBackground(Color.GREEN);
 
 			return painelCardLayout;

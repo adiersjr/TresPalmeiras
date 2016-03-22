@@ -7,6 +7,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.CargoTableModel;
+
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -16,12 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -36,8 +37,8 @@ public class ConsultaCargo extends JPanel {
 	DefaultTableCellRenderer direita;
     DefaultTableCellRenderer esquerda;
     DefaultTableCellRenderer centro;
-
-	public ConsultaCargo() {
+    
+	public ConsultaCargo(Frame parent) {
 		setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setPreferredSize(new Dimension(600, 400));
 		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Consulta Cargo", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -57,7 +58,7 @@ public class ConsultaCargo extends JPanel {
 				CadastroCargo cadastro = new CadastroCargo();
 				cadastro.setLocationRelativeTo(scrollPane.getParent());
 				cadastro.setVisible(true);
-				atualizar();
+				repaint();
 			}
 		});
 		btnNovo.setMinimumSize(new Dimension(100, 23));
@@ -132,7 +133,7 @@ public class ConsultaCargo extends JPanel {
 		scrollPane.setViewportView(tabela);
 		setLayout(groupLayout);
 
-		criar();
+		//criar();
 		
 		// Logica para manipular uma linha do JTable quando esta eh selecionada    
         ListSelectionModel linhaModeloSelecao = tabela.getSelectionModel();
@@ -153,15 +154,16 @@ public class ConsultaCargo extends JPanel {
                         CadastroCargo cadastroCargo = new CadastroCargo(cargoSelecionado);
                         cadastroCargo.setLocationRelativeTo(scrollPane.getParent());
                         cadastroCargo.setVisible(true);
-                        tabela.setModel(new CargoTableModel());
-                        atualizar();
+                        //tabela.setModel(new CargoTableModel());
+                        repaint();
+                       // atualizar();
                     }
                 }
             }
         });
 	}
 	
-	private void atualizar(){
+	/*private void atualizar(){
 		System.out.println("teste");
 		tabela.setModel(new CargoTableModel());
 		criar();
@@ -173,5 +175,5 @@ public class ConsultaCargo extends JPanel {
 		tabela.getColumnModel().getColumn(0).setCellRenderer(centro);
 		tabela.getColumnModel().getColumn(1).setCellRenderer(esquerda);
         ((DefaultTableCellRenderer) tabela.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
-	}
+	}*/
 }

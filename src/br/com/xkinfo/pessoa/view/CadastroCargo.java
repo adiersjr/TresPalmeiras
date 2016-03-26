@@ -27,6 +27,8 @@ public class CadastroCargo extends JDialog {
 	private String botao;
 	private JTextField tfCodigo;
 	private int controle;
+	JButton btnExcluir;
+	Cargo cargo;
 
 	public CadastroCargo(){
 		setModalityType(ModalityType.APPLICATION_MODAL);
@@ -34,6 +36,7 @@ public class CadastroCargo extends JDialog {
 		inicio();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		controle = 0;
+		btnExcluir.setVisible(false);
 	}
 
 	public CadastroCargo(Cargo cargo) {
@@ -44,6 +47,7 @@ public class CadastroCargo extends JDialog {
 		tfCodigo.setText(String.valueOf(cargo.getId()).trim());
 		tfDescricao.setText(cargo.getDescricao().trim());
 		controle = 1;
+		this.cargo = cargo;
 	}
 
 	public void inicio() {
@@ -111,6 +115,14 @@ public class CadastroCargo extends JDialog {
 						btnSair(e);
 					}
 				});
+				
+				btnExcluir = new JButton("Excluir");
+				btnExcluir.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						btnExcluir(e);
+					}
+				});
+				buttonPane.add(btnExcluir);
 				btnSair.setActionCommand("Cancel");
 				buttonPane.add(btnSair);
 			}
@@ -140,4 +152,12 @@ public class CadastroCargo extends JDialog {
 		dispose();
 	}
 
+	private void btnExcluir(ActionEvent e){
+		try {
+			ServiceFactory.getCargoservice().excluirCargo(cargo.getId());
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		dispose();
+	}
 }

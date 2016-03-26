@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.Component;
 
 public class ConsultaCargo extends JDialog {
 
@@ -36,6 +37,8 @@ public class ConsultaCargo extends JDialog {
 	DefaultTableCellRenderer direita;
 	DefaultTableCellRenderer esquerda;
 	DefaultTableCellRenderer centro;
+	private JButton btnNovo;
+	private JButton btnSair;
 
 	public ConsultaCargo() {
 		addWindowListener(new WindowAdapter() {
@@ -94,26 +97,27 @@ public class ConsultaCargo extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton btnNovo = new JButton("Novo");
+				btnNovo = new JButton("Novo");
+				btnNovo.setAlignmentX(Component.CENTER_ALIGNMENT);
 				btnNovo.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						btnNovo(e);
 					}
 				});
 				btnNovo.setActionCommand("OK");
-				buttonPane.add(btnNovo);
 				getRootPane().setDefaultButton(btnNovo);
 			}
 			{
-				JButton btnSair = new JButton("Sair");
+				btnSair = new JButton("Sair");
 				btnSair.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						btnSair(e);
 					}
 				});
 				btnSair.setActionCommand("Cancel");
-				buttonPane.add(btnSair);
 			}
+			buttonPane.add(btnNovo);
+			buttonPane.add(btnSair);
 		}
 	}
 

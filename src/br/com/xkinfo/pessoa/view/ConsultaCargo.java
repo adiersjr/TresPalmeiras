@@ -21,17 +21,15 @@ import javax.swing.JTable;
 
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
+import java.awt.event.*;
 import java.awt.Component;
 
 public class ConsultaCargo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
+	private JTextField tfDescricao;
 	private JTable tabela;
 
 	DefaultTableCellRenderer direita;
@@ -61,32 +59,41 @@ public class ConsultaCargo extends JDialog {
 
 		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
 
-		textField = new JTextField();
-		textField.setColumns(10);
+		tfDescricao = new JTextField();
+		tfDescricao.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
+		
+		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPesquisar(e);
+			}
+		});
 
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
-				gl_contentPanel.createParallelGroup(Alignment.LEADING)
+			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(lblDescricao)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(80, Short.MAX_VALUE))
+					.addGap(4)
+					.addComponent(lblDescricao)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(tfDescricao, GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(btnPesquisar))
 				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
-				);
+		);
 		gl_contentPanel.setVerticalGroup(
-				gl_contentPanel.createParallelGroup(Alignment.LEADING)
+			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblDescricao)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGap(18)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
-				);
+					.addContainerGap()
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(tfDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnPesquisar)
+						.addComponent(lblDescricao))
+					.addGap(18)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+		);
 		{
 			tabela = new JTable();
 			scrollPane.setViewportView(tabela);
@@ -151,6 +158,7 @@ public class ConsultaCargo extends JDialog {
 						setModalityType(ModalityType.MODELESS);
 						cadastro.setVisible(true);
 						tabela.setModel(new CargoTableModel());
+						tfDescricao.setText("");
 					}
 				}
 			}
@@ -162,5 +170,9 @@ public class ConsultaCargo extends JDialog {
 		setModalityType(ModalityType.MODELESS);
 		cadastro.setVisible(true);
 		tabela.setModel(new CargoTableModel());
+	}
+	
+	private void btnPesquisar(ActionEvent e){
+		tabela.setModel(new CargoTableModel(tfDescricao.getText()));
 	}
 }

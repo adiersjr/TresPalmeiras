@@ -6,11 +6,11 @@ import br.com.xkinfo.pessoa.model.Cargo;
 
 public interface ICargoService {
 	
-	public void incluirCargo(String descricao) throws Exception;
+	public boolean incluirCargo(String descricao) throws Exception;
 	
-	public void alterarCargo(int id, String descricao) throws Exception;
+	public boolean alterarCargo(int id, String descricao) throws Exception;
 	
-	public void excluirCargo(int id) throws Exception;
+	public boolean excluirCargo(int id) throws Exception;
 	
 	public ArrayList<Cargo> pesquisaCargos() throws Exception;
 	

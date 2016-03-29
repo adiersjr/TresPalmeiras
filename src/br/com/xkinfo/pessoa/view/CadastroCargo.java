@@ -136,7 +136,9 @@ public class CadastroCargo extends JDialog {
 	private void btnOk(ActionEvent e){
 		if (controle == 0){   // INCLUIR
 			try {
-				ServiceFactory.getCargoservice().incluirCargo(tfDescricao.getText());
+				if (ServiceFactory.getCargoservice().incluirCargo(tfDescricao.getText())){
+					dispose();
+				};
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
@@ -149,12 +151,13 @@ public class CadastroCargo extends JDialog {
 				e1.printStackTrace();
 			}	
 		}
-		dispose();
 	}
 
 	private void btnExcluir(ActionEvent e){
 		try {
-			ServiceFactory.getCargoservice().excluirCargo(cargo.getId());
+			 if (ServiceFactory.getCargoservice().excluirCargo(cargo.getId())){
+				 dispose();
+			 };
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

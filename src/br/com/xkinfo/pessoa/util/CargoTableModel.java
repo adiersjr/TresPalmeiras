@@ -22,6 +22,14 @@ public class CargoTableModel extends AbstractTableModel{
 		}
 	}
 	
+	public CargoTableModel(String descricao){
+		try {
+			cargos = ServiceFactory.getCargoservice().pesquisaDescricao(descricao);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public int getRowCount() {
 		return cargos.size();

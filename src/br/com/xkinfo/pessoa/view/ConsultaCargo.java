@@ -2,7 +2,6 @@ package br.com.xkinfo.pessoa.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -18,10 +17,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.*;
-
 import java.awt.event.*;
 import java.awt.Component;
 
@@ -128,10 +125,6 @@ public class ConsultaCargo extends JDialog {
 		}
 	}
 
-	private void btnSair(ActionEvent e){
-		dispose();
-	}
-
 	private void ativar(WindowEvent e){
 		tabela.updateUI();
 		tabela.getRowHeight(0);
@@ -165,6 +158,10 @@ public class ConsultaCargo extends JDialog {
 		});
 	}
 
+	private void btnSair(ActionEvent e){
+		dispose();
+	}
+
 	private void btnNovo(ActionEvent e){
 		CadastroCargo cadastro = new CadastroCargo();
 		setModalityType(ModalityType.MODELESS);
@@ -175,4 +172,5 @@ public class ConsultaCargo extends JDialog {
 	private void btnPesquisar(ActionEvent e){
 		tabela.setModel(new CargoTableModel(tfDescricao.getText()));
 	}
+
 }

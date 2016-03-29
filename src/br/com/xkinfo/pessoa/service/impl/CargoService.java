@@ -2,9 +2,7 @@ package br.com.xkinfo.pessoa.service.impl;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-
 import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.service.ICargoService;
@@ -124,7 +122,5 @@ public class CargoService implements ICargoService {
 		}
 		return cargo; 
 	};
-
-
 
 }

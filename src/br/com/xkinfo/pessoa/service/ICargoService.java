@@ -1,7 +1,6 @@
 package br.com.xkinfo.pessoa.service;
 
 import java.util.ArrayList;
-
 import br.com.xkinfo.pessoa.model.Cargo;
 
 public interface ICargoService {

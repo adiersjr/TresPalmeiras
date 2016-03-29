@@ -3,15 +3,12 @@ package br.com.xkinfo.pessoa.view;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.service.ServiceFactory;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -161,6 +158,5 @@ public class CadastroCargo extends JDialog {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		dispose();
 	}
 }

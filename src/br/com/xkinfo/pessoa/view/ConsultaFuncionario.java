@@ -4,37 +4,39 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import br.com.xkinfo.pessoa.model.TipoDocumento;
-import br.com.xkinfo.pessoa.util.TipoDocumentoTableModel;
-
+import br.com.xkinfo.pessoa.model.Funcionario;
+import br.com.xkinfo.pessoa.util.FuncionarioTableModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 
-public class ConsultaTipoDocumento extends JDialog {
+public class ConsultaFuncionario extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private static final long serialVersionUID = 1L;
 	private JTextField tfDescricao;
 	private JTable tabela;
+	@SuppressWarnings("rawtypes")
+	private JComboBox cbDescricao;
 
-	public ConsultaTipoDocumento() {
+	public ConsultaFuncionario() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -45,7 +47,8 @@ public class ConsultaTipoDocumento extends JDialog {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		montarTabela();
 	}
-	
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void inicio(){
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setBounds(100, 100, 450, 300);
@@ -53,7 +56,8 @@ public class ConsultaTipoDocumento extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		
-		JLabel lblDescricao = new JLabel("Descri\u00E7\u00E3o:");
+		cbDescricao = new JComboBox();
+		cbDescricao.setModel(new DefaultComboBoxModel(new String[] {"Nome", "Usu\u00E1rio"}));
 		
 		tfDescricao = new JTextField();
 		tfDescricao.setColumns(10);
@@ -69,26 +73,30 @@ public class ConsultaTipoDocumento extends JDialog {
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPanel.createSequentialGroup()
+				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblDescricao)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(tfDescricao, GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-					.addGap(18)
-					.addComponent(btnPesquisar)
-					.addContainerGap())
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addComponent(cbDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(tfDescricao, GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnPesquisar))))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblDescricao)
+						.addComponent(cbDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(tfDescricao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnPesquisar))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		
 		tabela = new JTable();
@@ -121,11 +129,10 @@ public class ConsultaTipoDocumento extends JDialog {
 			}
 		}
 	}
-
 	private void ativar(WindowEvent e){
 		tabela.updateUI();
 		tabela.getRowHeight(0);
-		tabela.setModel(new TipoDocumentoTableModel());
+		tabela.setModel(new FuncionarioTableModel());
 	}
 
 	private void montarTabela(){
@@ -134,20 +141,20 @@ public class ConsultaTipoDocumento extends JDialog {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// Ignora o evento enquanto os valores da linha selecionada
-				// estão sendo atualizados
+				// estï¿½o sendo atualizados
 				if (e.getValueIsAdjusting()) {
 					return;
 				}
 				// Verifica se existe uma linha selecionada. O
-				// valor deve ser maior ou igual a 0, que é o número da linha
+				// valor deve ser maior ou igual a 0, que ï¿½ o nï¿½mero da linha
 				if (tabela.getSelectedRow() >= 0) {
 					Integer linhaSelecionada = tabela.getSelectedRow();
-					TipoDocumento documentoSelecionado = ((TipoDocumentoTableModel) tabela.getModel()).getTipoDocumentos().get(linhaSelecionada);
-					if (documentoSelecionado != null) {
-						CadastroTipoDocumento cadastro = new CadastroTipoDocumento(documentoSelecionado);
+					Funcionario funcionarioSelecionado = ((FuncionarioTableModel) tabela.getModel()).getFuncionarios().get(linhaSelecionada);
+					if (funcionarioSelecionado != null) {
+						CadastroFuncionario cadastro = new CadastroFuncionario(funcionarioSelecionado);
 						setModalityType(ModalityType.MODELESS);
 						cadastro.setVisible(true);
-						tabela.setModel(new TipoDocumentoTableModel());
+						tabela.setModel(new FuncionarioTableModel());
 						tfDescricao.setText("");
 					}
 				}
@@ -160,13 +167,15 @@ public class ConsultaTipoDocumento extends JDialog {
 	}
 
 	private void btnNovo(ActionEvent e){
-		CadastroTipoDocumento cadastro = new CadastroTipoDocumento();
+		CadastroFuncionario cadastro = new CadastroFuncionario();
 		setModalityType(ModalityType.MODELESS);
 		cadastro.setVisible(true);
-		tabela.setModel(new TipoDocumentoTableModel());
+		tabela.setModel(new FuncionarioTableModel());
 	}
-	
+
 	private void btnPesquisar(ActionEvent e){
-		tabela.setModel(new TipoDocumentoTableModel(tfDescricao.getText()));
+		System.out.println(cbDescricao.getSelectedItem());
+		System.out.println(cbDescricao.getSelectedIndex());
+		tabela.setModel(new FuncionarioTableModel(tfDescricao.getText()));
 	}
 }

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import br.com.xkinfo.pessoa.view.ConsultaCargo;
+import br.com.xkinfo.pessoa.view.ConsultaFuncionario;
 import br.com.xkinfo.pessoa.view.ConsultaTipoDocumento;
 
 import javax.swing.JMenuBar;
@@ -67,6 +68,15 @@ public class Principal extends JFrame {
 			}
 		});
 		mnCadastro.add(mntmTipoDeDocumento);
+		
+		JMenuItem mntmFuncionario = new JMenuItem("Funcionario");
+		mntmFuncionario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				mnFuncionario(e);
+			}
+		});
+		mnCadastro.add(mntmFuncionario);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,6 +94,12 @@ public class Principal extends JFrame {
 		ConsultaTipoDocumento consultaTipoDocumento = new ConsultaTipoDocumento();
 		consultaTipoDocumento.setLocationRelativeTo(this);
 		consultaTipoDocumento.setVisible(true);
+	}
+	
+	private void mnFuncionario(MouseEvent e){
+		ConsultaFuncionario consultaFuncionario = new ConsultaFuncionario();
+		consultaFuncionario.setLocationRelativeTo(this);
+		consultaFuncionario.setVisible(true);
 	}
 
 }

@@ -1,26 +1,26 @@
 package br.com.xkinfo.pessoa.view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.util.*;
 import java.awt.event.*;
+import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.FlowLayout;
 
 public class ConsultaCargo extends JDialog {
 
@@ -137,12 +137,12 @@ public class ConsultaCargo extends JDialog {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// Ignora o evento enquanto os valores da linha selecionada
-				// estão sendo atualizados
+				// estï¿½o sendo atualizados
 				if (e.getValueIsAdjusting()) {
 					return;
 				}
 				// Verifica se existe uma linha selecionada. O
-				// valor deve ser maior ou igual a 0, que é o número da linha
+				// valor deve ser maior ou igual a 0, que ï¿½ o nï¿½mero da linha
 				if (tabela.getSelectedRow() >= 0) {
 					Integer linhaSelecionada = tabela.getSelectedRow();
 					Cargo cargoSelecionado = ((CargoTableModel) tabela.getModel()).getCargos().get(linhaSelecionada);

@@ -18,8 +18,11 @@ import java.awt.event.ActionListener;
 
 public class CadastroCargo extends JDialog {
 
-	private final JPanel contentPanel = new JPanel();
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
 	private JTextField tfDescricao;
 	private String botao;
 	private JTextField tfCodigo;

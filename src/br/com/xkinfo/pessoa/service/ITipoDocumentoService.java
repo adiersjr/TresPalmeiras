@@ -6,11 +6,11 @@ import br.com.xkinfo.pessoa.model.TipoDocumento;
 
 public interface ITipoDocumentoService {
 
-	public void incluirTipoDocumento(String descricao, boolean pessoal) throws Exception;
+	public boolean incluirTipoDocumento(String descricao, boolean pessoal) throws Exception;
 
-	public void alterarTipoDocumento(int id, String descricao, boolean pessoal) throws Exception;
+	public boolean alterarTipoDocumento(int id, String descricao, boolean pessoal) throws Exception;
 
-	public void excluirTipoDocumento(int id) throws Exception;
+	public boolean excluirTipoDocumento(int id) throws Exception;
 
 	public ArrayList<TipoDocumento> pesquisaTipoDocumentos() throws Exception;
 

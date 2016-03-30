@@ -2,57 +2,81 @@ package br.com.xkinfo.pessoa.service.impl;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.pessoa.model.TipoDocumento;
 import br.com.xkinfo.pessoa.service.ITipoDocumentoService;
+import br.com.xkinfo.service.ServiceFactory;
 
 public class TipoDocumentoService implements ITipoDocumentoService{
-	
+
 	TipoDocumento tipoDocumento;
 
 	@Override
-	public void incluirTipoDocumento(String descricao, boolean pessoal) throws Exception {
+	public boolean incluirTipoDocumento(String descricao, boolean pessoal) throws Exception {
 		String valida = descricao.replaceAll(" ", "");
 		if(valida.isEmpty()){
-			System.out.println("Campo descriÃ§Ã£oo do cargo Ã© obrigatÃ³rio!");
+			JOptionPane.showMessageDialog(null, "Campo descrição do cargo é obrigatório!");
+			return false;
 		}else {
-			tipoDocumento = new TipoDocumento();
-			tipoDocumento.setDescricao(descricao);
-			tipoDocumento.setPessoal(pessoal);
-			int ret = DaoFactory.getTipodocumentoDao().incluirTipoDocumento(tipoDocumento);
-			if (ret == 1){
-				System.out.println("Inclusï¿½o efetuada com Sucesso!");
-			}		
+			if (ServiceFactory.getApoioservice().isCaracterEspecial(descricao)){
+				tipoDocumento = new TipoDocumento();
+				tipoDocumento.setDescricao(descricao);
+				tipoDocumento.setPessoal(pessoal);
+				int ret = DaoFactory.getTipodocumentoDao().incluirTipoDocumento(tipoDocumento);
+				if (ret == 1){
+					JOptionPane.showMessageDialog(null, "Inclusão efetuada com Sucesso!");
+					return true;
+				}else {
+					JOptionPane.showMessageDialog(null, "Problema ocorrido durante a gravação \n Entrar em contato com o suporte");
+					return false;
+				}
+			}else {
+				JOptionPane.showMessageDialog(null, "Favor preencher o campo Descrição sem caracteres especiais!");
+				return false;		
+			}
 		}
 	}
 
 	@Override
-	public void alterarTipoDocumento(int id, String descricao, boolean pessoal) throws Exception {
+	public boolean alterarTipoDocumento(int id, String descricao, boolean pessoal) throws Exception {
 		String valida = descricao.replaceAll(" ", "");
-		int ide = id;
 		if(valida.isEmpty()){
-			System.out.println("Campo descriï¿½ï¿½o do cargo ï¿½ obrigatï¿½rio!");
+			JOptionPane.showMessageDialog(null, "Campo descrição do cargo é obrigatório!");
+			return false;
 		}else {
+			if (ServiceFactory.getApoioservice().isCaracterEspecial(descricao)){
 			tipoDocumento = new TipoDocumento();
-			tipoDocumento.setId(ide);
+			tipoDocumento.setId(id);
 			tipoDocumento.setDescricao(descricao);
 			tipoDocumento.setPessoal(pessoal);
 			int ret = DaoFactory.getTipodocumentoDao().alterarTipoDocumento(tipoDocumento);
 			if (ret == 1){
-				System.out.println("Alteraï¿½ï¿½o efetuada com Sucesso!");
-			}		
+				JOptionPane.showMessageDialog(null, "Alteração efetuada com sucesso!");
+				return true;
+			} else {
+				JOptionPane.showMessageDialog(null, "Registro não existe, favor verificar!");
+				return false;
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Favor preencher o campo Descrição sem caracteres especiais!");
+			return false;
 		}
 	}
+}
 
 	@Override
-	public void excluirTipoDocumento(int id) throws Exception {
+	public boolean excluirTipoDocumento(int id) throws Exception {
 		tipoDocumento = pesquisaTipoDocumento(id);
 		int ret = DaoFactory.getTipodocumentoDao().excluirTipoDocumento(tipoDocumento);
 		if (ret == 1){
-			System.out.println("Exclusï¿½o efetuada com sucesso!");
-		}
-		if (ret == 0){
-			System.out.println("Registro nï¿½o existe, favor verificar!");
+			JOptionPane.showMessageDialog(null, "Exclusão efetuada com sucesso!");
+			return true;
+		} else {
+			JOptionPane.showMessageDialog(null, "Registro não existe, favor verificar!");
+			return false;
 		}
 	}
 

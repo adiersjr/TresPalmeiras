@@ -24,8 +24,8 @@ public class CadastroCargo extends JDialog {
 	private String botao;
 	private JTextField tfCodigo;
 	private int controle;
-	JButton btnExcluir;
-	Cargo cargo;
+	private JButton btnExcluir;
+	private Cargo cargo;
 
 	public CadastroCargo(){
 		setModalityType(ModalityType.APPLICATION_MODAL);
@@ -141,7 +141,9 @@ public class CadastroCargo extends JDialog {
 			}
 		} else {              // ALTERAR
 			try {
-				ServiceFactory.getCargoservice().alterarCargo(Integer.parseInt(tfCodigo.getText()), tfDescricao.getText());
+				if(ServiceFactory.getCargoservice().alterarCargo(Integer.parseInt(tfCodigo.getText()), tfDescricao.getText())){
+					dispose();
+				};
 			} catch (NumberFormatException e1) {
 				e1.printStackTrace();
 			} catch (Exception e1) {

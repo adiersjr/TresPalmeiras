@@ -2,7 +2,6 @@ package br.com.xkinfo.pessoa.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -14,9 +13,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.model.TipoDocumento;
-import br.com.xkinfo.pessoa.util.CargoTableModel;
 import br.com.xkinfo.pessoa.util.TipoDocumentoTableModel;
 
 import javax.swing.GroupLayout;
@@ -48,7 +45,7 @@ public class ConsultaTipoDocumento extends JDialog {
 		montarTabela();
 	}
 	
-	public void inicio(){
+	private void inicio(){
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -100,25 +97,25 @@ public class ConsultaTipoDocumento extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("Novo");
-				okButton.addActionListener(new ActionListener() {
+				JButton btnNovo = new JButton("Novo");
+				btnNovo.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						btnNovo(e);
 					}
 				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+				btnNovo.setActionCommand("OK");
+				buttonPane.add(btnNovo);
+				getRootPane().setDefaultButton(btnNovo);
 			}
 			{
-				JButton cancelButton = new JButton("Sair");
-				cancelButton.addActionListener(new ActionListener() {
+				JButton btnSair = new JButton("Sair");
+				btnSair.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						btnSair(e);
 					}
 				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				btnSair.setActionCommand("Cancel");
+				buttonPane.add(btnSair);
 			}
 		}
 	}

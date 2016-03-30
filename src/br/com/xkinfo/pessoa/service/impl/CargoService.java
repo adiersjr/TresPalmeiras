@@ -52,7 +52,7 @@ public class CargoService implements ICargoService {
 				if (ret == 1){
 					JOptionPane.showMessageDialog(null, "Alteração efetuada com sucesso!");
 					return true;
-				}else {
+				} else {
 					JOptionPane.showMessageDialog(null, "Registro não existe, favor verificar!");
 					return false;
 				}

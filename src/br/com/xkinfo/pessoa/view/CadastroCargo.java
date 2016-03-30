@@ -18,9 +18,6 @@ import java.awt.event.ActionListener;
 
 public class CadastroCargo extends JDialog {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField tfDescricao;
@@ -50,7 +47,7 @@ public class CadastroCargo extends JDialog {
 		this.cargo = cargo;
 	}
 
-	public void inicio() {
+	private void inicio() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

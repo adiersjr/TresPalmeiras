@@ -22,6 +22,10 @@ public interface IApoioService {
 	
 	public Calendar converteCalendar(Date data) throws Exception;
 	
+	public Date converteStringDate(String data) throws Exception;
+	
+	public Calendar converteStringCalendar(String data) throws Exception;
+	
 	public String formatar(String texto, String mascara) throws Exception;
 
     public String formatarCPF(String cpf) throws Exception;

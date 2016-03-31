@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -66,6 +67,17 @@ public class ApoioService implements IApoioService{
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(data);
 		return cal;
+	}
+	
+	@Override
+	public Date converteStringDate(String data) throws Exception{
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = (Date)formatter.parse(data);
+		return date;
+	}
+	
+	public Calendar converteStringCalendar(String data) throws Exception{
+		return converteCalendar(converteStringDate(data));
 	}
 
 	@Override

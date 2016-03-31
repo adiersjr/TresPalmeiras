@@ -1,7 +1,6 @@
 package br.com.xkinfo.pessoa.service;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.model.Funcionario;
@@ -9,10 +8,10 @@ import br.com.xkinfo.pessoa.model.Funcionario;
 public interface IFuncionarioService {
 
 	public boolean incluirFuncionario(String nome, boolean situacao, String usuario, String senha, String pathFoto,
-			Calendar dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception;
+			String dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception;
 
 	public boolean alterarFuncionario(int id, String nome, boolean situacao, String usuario, String senha, String pathFoto,
-			Calendar dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception;
+			String dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception;
 
 	public boolean excluirFuncionario(int id) throws Exception;
 

@@ -2,7 +2,6 @@ package br.com.xkinfo.pessoa.service.impl;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Calendar;
 import br.com.xkinfo.dao.DaoFactory;
 import br.com.xkinfo.pessoa.model.Cargo;
 import br.com.xkinfo.pessoa.model.Funcionario;
@@ -14,13 +13,14 @@ public class FuncionarioService implements IFuncionarioService{
 	private Funcionario funcionario;
 
 	@Override
-	public void incluirFuncionario(String nome, boolean situacao, String usuario, String senha, String pathFoto,
-			Calendar dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception {
+	public boolean incluirFuncionario(String nome, boolean situacao, String usuario, String senha, String pathFoto,
+			String dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception {
 		String validaNome = nome.replaceAll(" ", "");
 		String validaUsuario = usuario.replaceAll(" ", "");
 		String validaSenha = senha.replaceAll(" ", "");
 		String validaPath = pathFoto.replaceAll(" ", "");
 		String valida = "";
+		String validaNascimento = dataNascimento.replaceAll(" ", "");
 
 		if (validaNome.isEmpty()) {
 			valida = "Nome \n";
@@ -34,12 +34,13 @@ public class FuncionarioService implements IFuncionarioService{
 		if (validaPath.isEmpty()) {
 			valida = valida + "PathFoto \n";
 		}
-		if (dataNascimento.equals(null)) {
+		if (dataNascimento.equals(null) || validaNascimento.isEmpty()) {
 			valida = valida + "Data Nascimento \n";
 		}
 		if (cargo.equals(null)) {
 			valida = valida + "Cargo \n";
 		}
+		
 
 		if (valida.isEmpty()) {
 			funcionario = new Funcionario();
@@ -48,26 +49,28 @@ public class FuncionarioService implements IFuncionarioService{
 			funcionario.setUsuario(usuario);
 			funcionario.setSenha(senha);
 			funcionario.setPathFoto(pathFoto);
-			funcionario.setDataNascimento(dataNascimento);
+			funcionario.setDataNascimento(ServiceFactory.getApoioservice().converteStringCalendar(dataNascimento));
 			funcionario.setCargo(cargo);
 			funcionario.setControleAcesso(controleAcesso);
 			int ret = DaoFactory.getFuncionarioDao().incluirFuncionario(funcionario);
 			if (ret == 1){
-				System.out.println("Inclusï¿½o efetuada com Sucesso!");
+				System.out.println("Inclusão efetuada com Sucesso!");
 			}
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
 		}
+		return false;
 	}
 
 	@Override
-	public void alterarFuncionario(int id, String nome, boolean situacao, String usuario, String senha, String pathFoto,
-			Calendar dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception {
+	public boolean alterarFuncionario(int id, String nome, boolean situacao, String usuario, String senha, String pathFoto,
+			String dataNascimento, Cargo cargo, boolean controleAcesso) throws Exception {
 		String validaNome = nome.replaceAll(" ", "");
 		String validaUsuario = usuario.replaceAll(" ", "");
 		String validaSenha = senha.replaceAll(" ", "");
 		String validaPath = pathFoto.replaceAll(" ", "");
-		String valida = "";;
+		String valida = "";
+		String validaNascimento = dataNascimento.replaceAll(" ", "");
 
 		if (validaNome.isEmpty()) {
 			valida = "Nome \n";
@@ -81,7 +84,7 @@ public class FuncionarioService implements IFuncionarioService{
 		if (validaPath.isEmpty()) {
 			valida = valida + "PathFoto \n";
 		}
-		if (dataNascimento.equals(null)) {
+		if (dataNascimento.equals(null) || validaNascimento.isEmpty()) {
 			valida = valida + "Data Nascimento \n";
 		}
 		if (cargo.equals(null)) {
@@ -96,7 +99,7 @@ public class FuncionarioService implements IFuncionarioService{
 			funcionario.setUsuario(usuario);
 			funcionario.setSenha(senha);
 			funcionario.setPathFoto(pathFoto);
-			funcionario.setDataNascimento(dataNascimento);
+			funcionario.setDataNascimento(ServiceFactory.getApoioservice().converteStringCalendar(dataNascimento));
 			funcionario.setCargo(cargo);
 			funcionario.setControleAcesso(controleAcesso);
 			int ret = DaoFactory.getFuncionarioDao().alterarFuncionario(funcionario);
@@ -106,10 +109,11 @@ public class FuncionarioService implements IFuncionarioService{
 		} else {
 			System.out.println("Favor preencher os seguintes campos: \n" + valida);
 		}
+		return false;
 	}
 
 	@Override
-	public void excluirFuncionario(int id) throws Exception {
+	public boolean excluirFuncionario(int id) throws Exception {
 		Funcionario funcionario = pesquisaFuncionario(id);
 		int ret = DaoFactory.getFuncionarioDao().excluirFuncionario(funcionario);
 		if (ret == 1){
@@ -118,6 +122,7 @@ public class FuncionarioService implements IFuncionarioService{
 		if (ret == 0){
 			System.out.println("Registro nï¿½o existe, favor verificar!");
 		}
+		return false;
 	}
 
 	@Override

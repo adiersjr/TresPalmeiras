@@ -2,7 +2,6 @@ package br.com.xkinfo.pessoa.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 

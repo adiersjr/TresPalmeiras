@@ -2,7 +2,6 @@ package br.com.xkinfo.pessoa.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,6 +21,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class CadastroFuncionario extends JDialog {
 
@@ -37,6 +37,9 @@ public class CadastroFuncionario extends JDialog {
 	private JTextField tfNome;
 	private JTextField tfUsuario;
 	private JPasswordField tfSenha;
+	private JCheckBox cbAtivo;
+	private JCheckBox cbControleAcesso;
+	private JFormattedTextField tfNascimento;
 	
 	public CadastroFuncionario() {
 		setModalityType(ModalityType.APPLICATION_MODAL);
@@ -52,12 +55,25 @@ public class CadastroFuncionario extends JDialog {
 		botao = "Alterar";
 		inicio();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		
+		String nascimento = null;
+		try {
+			nascimento = ServiceFactory.getApoioservice().converteDataBanco(funcionario.getDataNascimento());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		tfCodigo.setText(String.valueOf(funcionario.getId()));
+		tfNome.setText(funcionario.getNome().trim());
+		cbAtivo.setSelected(funcionario.isSituacao());
+		cbControleAcesso.setSelected(funcionario.isControleAcesso());
+		tfUsuario.setText(funcionario.getUsuario().trim());
+		tfSenha.setText(funcionario.getSenha().trim());
+		tfNascimento.setText(nascimento);
 		
 		controle = 1;
 		this.funcionario = funcionario;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void inicio(){
 		setBounds(100, 100, 600, 400);
 		getContentPane().setLayout(new BorderLayout());
@@ -67,6 +83,8 @@ public class CadastroFuncionario extends JDialog {
 		JLabel lblCodigo = new JLabel("C\u00F3d.:");
 		
 		tfCodigo = new JTextField();
+		tfCodigo.setEditable(false);
+		tfCodigo.setEnabled(false);
 		tfCodigo.setColumns(10);
 		
 		JLabel lblNome = new JLabel("Nome:");
@@ -74,7 +92,7 @@ public class CadastroFuncionario extends JDialog {
 		tfNome = new JTextField();
 		tfNome.setColumns(10);
 		
-		JCheckBox cbAtivo = new JCheckBox("Ativo");
+		cbAtivo = new JCheckBox("Ativo");
 		
 		JLabel lblUsuario = new JLabel("Usu\u00E1rio:");
 		
@@ -87,11 +105,12 @@ public class CadastroFuncionario extends JDialog {
 		
 		JLabel lblDatanascimento = new JLabel("Data de Nascimento:");
 		
-		JFormattedTextField tfNascimento = new JFormattedTextField();
+		tfNascimento = new JFormattedTextField();
 		
-		JCheckBox cbControleAcesso = new JCheckBox("Controle de Acesso");
+		cbControleAcesso = new JCheckBox("Controle de Acesso");
 		
 		JComboBox cbCargo = new JComboBox();
+		cbCargo.setModel(new DefaultComboBoxModel(new String[] {"teste", "teste2"}));
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -159,8 +178,13 @@ public class CadastroFuncionario extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton btnIncluir = new JButton(botao);
-				buttonPane.add(btnIncluir);
+				JButton btnOk = new JButton(botao);
+				btnOk.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						btnOk(e);
+					}
+				});
+				buttonPane.add(btnOk);
 			}
 			{
 				btnExcluir = new JButton("Excluir");
@@ -193,7 +217,8 @@ public class CadastroFuncionario extends JDialog {
 	private void btnOk(ActionEvent e){
 		if (controle == 0){   // INCLUIR
 			try {
-				if (ServiceFactory.getCargoservice().incluirCargo(tfDescricao.getText())){
+				if (ServiceFactory.getFuncionarioservice().incluirFuncionario(tfNome.getText(), cbAtivo.isSelected(), tfUsuario.getText(), null , null, 
+						tfNascimento.getText(), null, cbAtivo.isSelected())){
 					dispose();
 				};
 			} catch (Exception e1) {
@@ -201,7 +226,8 @@ public class CadastroFuncionario extends JDialog {
 			}
 		} else {              // ALTERAR
 			try {
-				if(ServiceFactory.getCargoservice().alterarCargo(Integer.parseInt(tfCodigo.getText()), tfDescricao.getText())){
+				if(ServiceFactory.getFuncionarioservice().alterarFuncionario(Integer.parseInt(tfCodigo.getText()), tfNome.getText(), cbAtivo.isSelected(), 
+						tfUsuario.getText(), null , null, tfNascimento.getText(), null, cbAtivo.isSelected())){
 					dispose();
 				};
 			} catch (NumberFormatException e1) {

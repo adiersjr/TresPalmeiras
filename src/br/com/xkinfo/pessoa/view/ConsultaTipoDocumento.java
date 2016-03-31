@@ -2,7 +2,6 @@ package br.com.xkinfo.pessoa.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -13,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.AbstractTableModel;
 
 import br.com.xkinfo.pessoa.model.TipoDocumento;
 import br.com.xkinfo.pessoa.util.TipoDocumentoTableModel;
@@ -26,6 +26,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 
 public class ConsultaTipoDocumento extends JDialog {
 
@@ -33,8 +34,11 @@ public class ConsultaTipoDocumento extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JTextField tfDescricao;
 	private JTable tabela;
+	private String titulo = "Consulta Tipo de Documento";
 
 	public ConsultaTipoDocumento() {
+		setMinimumSize(new Dimension(400, 300));
+		setTitle(titulo);
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -92,6 +96,7 @@ public class ConsultaTipoDocumento extends JDialog {
 		);
 		
 		tabela = new JTable();
+		tabela.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		scrollPane.setViewportView(tabela);
 		contentPanel.setLayout(gl_contentPanel);
 		{
@@ -126,6 +131,8 @@ public class ConsultaTipoDocumento extends JDialog {
 		tabela.updateUI();
 		tabela.getRowHeight(0);
 		tabela.setModel(new TipoDocumentoTableModel());
+		tabela.getColumnModel().getColumn(0).setPreferredWidth(50);
+		tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
 	}
 
 	private void montarTabela(){

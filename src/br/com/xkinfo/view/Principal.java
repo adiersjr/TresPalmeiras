@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import br.com.xkinfo.pessoa.view.ConsultaCargo;
-import br.com.xkinfo.pessoa.view.ConsultaFuncionario;
+//import br.com.xkinfo.pessoa.view.ConsultaFuncionario;
 import br.com.xkinfo.pessoa.view.ConsultaTipoDocumento;
 
 import javax.swing.JMenuBar;
@@ -21,7 +21,7 @@ public class Principal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private String titulo = "Prefeitura Municipal de Três Palmeiras - Sistema de Controle de Água";
+	private String titulo = "Prefeitura Municipal de Trï¿½s Palmeiras - Sistema de Controle de ï¿½gua";
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -110,9 +110,9 @@ public class Principal extends JFrame {
 	}
 	
 	private void mnFuncionario(MouseEvent e){
-		ConsultaFuncionario consultaFuncionario = new ConsultaFuncionario();
-		consultaFuncionario.setLocationRelativeTo(this);
-		consultaFuncionario.setVisible(true);
+		//ConsultaFuncionario consultaFuncionario = new ConsultaFuncionario();
+		//consultaFuncionario.setLocationRelativeTo(this);
+		//consultaFuncionario.setVisible(true);
 	}
 	
 	private void mnSair(MouseEvent e){

@@ -12,8 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.AbstractTableModel;
-
 import br.com.xkinfo.pessoa.model.TipoDocumento;
 import br.com.xkinfo.pessoa.util.TipoDocumentoTableModel;
 
@@ -141,12 +139,12 @@ public class ConsultaTipoDocumento extends JDialog {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// Ignora o evento enquanto os valores da linha selecionada
-				// estão sendo atualizados
+				// estï¿½o sendo atualizados
 				if (e.getValueIsAdjusting()) {
 					return;
 				}
 				// Verifica se existe uma linha selecionada. O
-				// valor deve ser maior ou igual a 0, que é o número da linha
+				// valor deve ser maior ou igual a 0, que ï¿½ o nï¿½mero da linha
 				if (tabela.getSelectedRow() >= 0) {
 					Integer linhaSelecionada = tabela.getSelectedRow();
 					TipoDocumento documentoSelecionado = ((TipoDocumentoTableModel) tabela.getModel()).getTipoDocumentos().get(linhaSelecionada);

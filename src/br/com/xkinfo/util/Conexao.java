@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-	private String host = "dbsq0005.whservidor.com";;
-	private String user = "xkinfo2";;
-	private String pass = "xk2009";
-	private String database = "xkinfo2";
+	private String host = "192.168.1.251";;
+	private String user = "sil";;
+	private String pass = "sil2016";
+	private String database = "SIL";
 	private String portNumber = "1433";
 	public Connection conexao;
 
